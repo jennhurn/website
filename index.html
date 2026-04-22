@@ -980,6 +980,139 @@
       z-index: 2;
       text-shadow: 0 1px 10px rgba(0,0,0,0.55);
     }
+    .p-screen--has-img {
+      cursor: zoom-in;
+    }
+    .p-screen-expand-hint {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.95);
+      border: 1px solid rgba(255,255,255,0.35);
+      pointer-events: none;
+    }
+    .p-screen-ph {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 8px;
+      border-radius: 6px;
+      background: rgba(220, 165, 60, 0.95);
+      color: #1c1508;
+      max-width: calc(100% - 100px);
+      line-height: 1.25;
+      pointer-events: none;
+    }
+
+    /* Image lightbox (case study screens) */
+    .img-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100050;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px 32px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.22s ease, visibility 0.22s;
+    }
+    .img-lightbox.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .img-lightbox-scrim {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: rgba(12, 12, 14, 0.82);
+      cursor: pointer;
+    }
+    .img-lightbox-fig {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: min(1100px, 100%);
+      max-height: min(90vh, 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .img-lightbox-x {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 8px;
+      background: rgba(30,30,32,0.9);
+      color: #fff;
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .img-lightbox-x:hover {
+      background: rgba(50,50,54,0.95);
+    }
+    .img-lightbox-fig img {
+      max-width: 100%;
+      max-height: min(72vh, 820px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+      background: #111;
+    }
+    .img-lightbox-cap {
+      margin: 14px 0 0;
+      padding: 0 4px;
+      font-size: 0.9375rem;
+      font-weight: 400;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      max-width: 52rem;
+      align-self: center;
+    }
+    .img-lightbox-note {
+      margin: 10px 0 0;
+      padding: 10px 14px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #1c1508;
+      background: rgba(240, 200, 100, 0.95);
+      border-radius: 8px;
+      text-align: center;
+      max-width: 42rem;
+      align-self: center;
+    }
+    @media (max-width: 560px) {
+      .img-lightbox-x { top: 8px; right: 8px; position: fixed; z-index: 2; }
+      .img-lightbox-fig { max-height: 100%; }
+    }
 
     /* AI section */
     .p-overlay-ai {
@@ -1394,6 +1527,17 @@
     <svg viewBox="0 0 14 14"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
   </button>
 
+  <!-- Case study image lightbox -->
+  <div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Expanded image">
+    <button type="button" class="img-lightbox-scrim" id="imgLightboxScrim" aria-label="Close expanded image"></button>
+    <figure class="img-lightbox-fig">
+      <button type="button" class="img-lightbox-x" id="imgLightboxX" aria-label="Close">&times;</button>
+      <img id="imgLightboxImg" src="" alt="" width="1200" height="675" />
+      <figcaption class="img-lightbox-cap" id="imgLightboxCap"></figcaption>
+      <p class="img-lightbox-note" id="imgLightboxNote" hidden></p>
+    </figure>
+  </div>
+
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -1515,8 +1659,8 @@
           'Neither cohort had a playbook to copy from, which meant figuring out a lot in real time — participant disputes, scoring rubrics for 13 hackathon submissions, credential distribution via Credsverse, and a post-event email sequence designed to keep the momentum going past the final Zoom. I\'d do it again. (And I did.)',
         ],
         screens: [
-          { label: 'Bootcamp Landing & Registration', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', img: 'img/bootcamp.png' },
-          { label: 'Live Lab Environment', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'img/ascend-docs.png' },
+          { label: 'Bootcamp Landing & Registration', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', img: 'img/bootcamp.png', caption: 'Bootcamp marketing landing and registration — the live entry point attendees used to sign up.' },
+          { label: 'Live Lab Environment', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'img/ascend-docs.png', caption: 'Placeholder: public docs site for visual tone only — not the actual Docusaurus lab environment participants used.', placeholder: true },
         ],
         overlayStyle: 'scale',
       },
@@ -1538,8 +1682,8 @@
           'Alongside the site, we also gave Otto a proper glow-up. He started as a Slack emoji someone generated at a conference table in Vegas three years ago. After about two hours and $15 on Nano Banana, he became the 3D character you see across the platform today. Friendly, curious, a little scrappy — which, honestly, is pretty on-brand for how a lot of the best things at Ascend got made.',
         ],
         screens: [
-          { label: 'Homepage — Hero & Positioning', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', img: 'img/ascend-home.png' },
-          { label: 'Product & Use Case Pages', gradient: 'linear-gradient(135deg, #764ba2 0%, #f093fb 50%, #f5576c 100%)', img: 'img/ascend-agentic.png' },
+          { label: 'Homepage — Hero & Positioning', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', img: 'img/ascend-home.png', caption: 'Redesigned homepage hero and category positioning after the Agentic Data Engineering launch.' },
+          { label: 'Product & Use Case Pages', gradient: 'linear-gradient(135deg, #764ba2 0%, #f093fb 50%, #f5576c 100%)', img: 'img/ascend-agentic.png', caption: 'Product storytelling and use-case architecture from the same site program.' },
         ],
         overlayStyle: 'scale',
       },
@@ -1560,8 +1704,8 @@
           '96% of new hires reported feeling more effective from day one. The program also became one of the most-cited reasons people said they chose to stay — which I found more meaningful than the day-one number. It\'s one thing to make a good first impression. It\'s another to build something that actually holds up.',
         ],
         screens: [
-          { label: 'New Hire Welcome Portal', gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', img: 'img/ascend-careers.png' },
-          { label: '30/60/90 Ramp Framework', gradient: 'linear-gradient(135deg, #56ab2f 0%, #a8e063 100%)', img: 'img/team-events.png' },
+          { label: 'New Hire Welcome Portal', gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', img: 'img/ascend-careers.png', caption: 'Placeholder: careers / Greenhouse surface — not the private onboarding portal or guide described in the case study.', placeholder: true },
+          { label: '30/60/90 Ramp Framework', gradient: 'linear-gradient(135deg, #56ab2f 0%, #a8e063 100%)', img: 'img/team-events.png', caption: 'Placeholder: general team moment — not documentation of the 30/60/90 framework or buddy pairing system.', placeholder: true },
         ],
         overlayStyle: 'scale',
       },
@@ -1583,8 +1727,8 @@
           'The result: 21 modules across three courses — 101 for foundations, 201 for systems design, 301 for production operations — each put through multiple rounds of parallel expert review, in the same 48-hour window that would have produced maybe three or four decent drafts by hand. What surprised me wasn\'t the speed. It was how the review structure changed the content. Eight independent reviewers with no shared context don\'t just catch errors — they surface tensions. The modules that went through the most revision rounds are consistently the strongest. The process didn\'t save us from hard thinking. It organized and accelerated it.',
         ],
         screens: [
-          { label: '101 Foundations Track', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', img: 'img/certification.png' },
-          { label: '301 Advanced Practitioner Track', gradient: 'linear-gradient(135deg, #0099f7 0%, #4facfe 50%, #00f2fe 100%)', img: 'img/agentic-code-review.png' },
+          { label: '101 Foundations Track', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', img: 'img/certification.png', caption: 'Certification program landing / curriculum entry as shipped on the public site.' },
+          { label: '301 Advanced Practitioner Track', gradient: 'linear-gradient(135deg, #0099f7 0%, #4facfe 50%, #00f2fe 100%)', img: 'img/agentic-code-review.png', caption: 'Placeholder: Ascend product UI (agentic code review) — illustrative of production/agent themes, not a screenshot of certification MDX or course player.', placeholder: true },
         ],
         overlayStyle: 'scale',
       },
@@ -1606,8 +1750,8 @@
           'The bar I always use for values work: do they change anything? Does someone make a different hiring decision, or give harder feedback, or hold a tougher line, because of the values? If the answer is yes, then they\'re real. If the answer is "they\'re on the wall," then they\'re not. Ours passed that test. They showed up in performance reviews, in how we talked about hard decisions, and in what we celebrated. That\'s what made the program worth doing.',
         ],
         screens: [
-          { label: 'Listening Sessions & Synthesis', gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)', img: 'img/offsite.png' },
-          { label: 'Values in Practice', gradient: 'linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)', img: 'img/team-events.png' },
+          { label: 'Listening Sessions & Synthesis', gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)', img: 'img/offsite.png', caption: 'Placeholder: team offsite photo — not from listening sessions or synthesis workshops specifically.', placeholder: true },
+          { label: 'Values in Practice', gradient: 'linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)', img: 'img/team-events.png', caption: 'Placeholder: generic team gathering — swap for recognition rollout, scavenger hunt, or awards imagery when available.', placeholder: true },
         ],
         overlayStyle: 'scale',
       },
@@ -1630,8 +1774,8 @@
           'The result was a pipeline motion that could scale without proportional headcount. Better reply rates, lower unsubscribes, and a program that kept improving. The right metric was never volume. It was quality of conversation.',
         ],
         screens: [
-          { label: 'Signal Targeting & Sequence Architecture', gradient: 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)', img: 'img/pipeline-DAG.png' },
-          { label: 'Personalization & Message Testing', gradient: 'linear-gradient(135deg, #3498db 0%, #2ecc71 100%)', img: 'img/email-alerting-automation.png' },
+          { label: 'Signal Targeting & Sequence Architecture', gradient: 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)', img: 'img/pipeline-DAG.png', caption: 'Placeholder: Ascend pipeline product UI — not AmpleMarket, outbound sequences, or signal definitions from this motion.', placeholder: true },
+          { label: 'Personalization & Message Testing', gradient: 'linear-gradient(135deg, #3498db 0%, #2ecc71 100%)', img: 'img/email-alerting-automation.png', caption: 'Placeholder: Ascend automation / alerting UI — not inbox copy tests or SDR tooling from this program.', placeholder: true },
         ],
         overlayStyle: 'scale',
       },
@@ -1652,8 +1796,8 @@
           '50% improvement in eNPS over the course of the program. I\'d be the first to say that\'s not entirely attributable to events — a lot of things go into whether people feel good about where they work. But the programs were a meaningful part of it. When a fully distributed team has a shared reference point — a meal, a joke, a moment from an offsite — it changes how they work together the rest of the year. That\'s the investment.',
         ],
         screens: [
-          { label: 'Company All-Hands & Offsites', gradient: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)', img: 'img/offsite.png' },
-          { label: 'Hackathon & Team Sprints', gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 50%, #f953c6 100%)', img: 'img/team-events.png' },
+          { label: 'Company All-Hands & Offsites', gradient: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)', img: 'img/offsite.png', caption: 'In-person company offsite — the kind of all-hands and retreat programming this case study describes.' },
+          { label: 'Hackathon & Team Sprints', gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 50%, #f953c6 100%)', img: 'img/team-events.png', caption: 'Internal hackday / team sprint energy — aligned with Ascend Hackdays like “Agents Assemble.”' },
         ],
         overlayStyle: 'scale',
       },
@@ -1670,8 +1814,8 @@
           'Four years is a long time to sustain something in a startup environment where everything else is changing constantly. Headcount fluctuated, the product evolved, the market shifted. What stayed consistent was a genuine commitment to the people side of the company, and I think that\'s what showed up in the numbers year after year. The award was nice. The part that mattered was what it confirmed.',
         ],
         screens: [
-          { label: 'Award Campaigns & Press', gradient: 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)', img: 'img/ascend-builtin.png' },
-          { label: 'Employee Survey Results', gradient: 'linear-gradient(135deg, #ff4b2b 0%, #f7971e 100%)', img: 'img/ascend-careers.png' },
+          { label: 'Award Campaigns & Press', gradient: 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)', img: 'img/ascend-builtin.png', caption: 'Built In Best Places to Work listing — matches the external recognition this case study references.' },
+          { label: 'Employee Survey Results', gradient: 'linear-gradient(135deg, #ff4b2b 0%, #f7971e 100%)', img: 'img/ascend-careers.png', caption: 'Placeholder: careers page — not Built In survey dashboards or raw employee survey exports.', placeholder: true },
         ],
         overlayStyle: 'scale',
       },
@@ -1693,8 +1837,8 @@
           'The result was a webinar program that compounded. Each session became a blog post, a follow-up sequence, a series entry. The goal was to put Ascend in front of practitioners at the moment their thinking was shifting — not just when we had something to announce.',
         ],
         screens: [
-          { label: 'Field Events — Partner Co-Marketing', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', img: 'img/field-events.png' },
-          { label: 'Sequel.io, Event Hub & Content Flywheel', gradient: 'linear-gradient(135deg, #38f9d7 0%, #4facfe 100%)', img: 'img/ascend-events.png' },
+          { label: 'Field Events — Partner Co-Marketing', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', img: 'img/field-events.png', caption: 'Conference / field presence and partner co-marketing footprint from the events program.' },
+          { label: 'Sequel.io, Event Hub & Content Flywheel', gradient: 'linear-gradient(135deg, #38f9d7 0%, #4facfe 100%)', img: 'img/ascend-events.png', caption: 'Ascend events hub and programming on the site — related to the webinar + hub narrative; confirm it is the Sequel-era hub you want shown.', placeholder: true },
         ],
         overlayStyle: 'scale',
       },
@@ -1715,8 +1859,8 @@
           'The hardest part of pricing work is that it touches everything simultaneously: product, sales, finance, customer success, and the customers themselves. My job was to hold all of those threads coherent — making sure the tiers made sense, the messaging was consistent across every function, and the launch landed without confusion or noise. Pricing changes that go well are invisible. That\'s the goal.',
         ],
         screens: [
-          { label: 'Platform Tiers, Models & Migration', gradient: 'linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%)', img: 'img/otto-homescreen.png' },
-          { label: 'Free Trial, Finance & Launch Comms', gradient: 'linear-gradient(135deg, #3a6073 0%, #1a1a2e 100%)', img: 'img/run-query.png' },
+          { label: 'Platform Tiers, Models & Migration', gradient: 'linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%)', img: 'img/otto-homescreen.png', caption: 'Placeholder: Otto / product home — not pricing tiers, migration comms, or finance models from the rollout.', placeholder: true },
+          { label: 'Free Trial, Finance & Launch Comms', gradient: 'linear-gradient(135deg, #3a6073 0%, #1a1a2e 100%)', img: 'img/run-query.png', caption: 'Placeholder: in-product query UI — not trial landing pages, sales enablement, or customer email screenshots.', placeholder: true },
         ],
         overlayStyle: 'scale',
       },
@@ -1728,6 +1872,14 @@
         .replace(/&/g, '&amp;')
         .replace(/"/g, '&quot;')
         .replace(/</g, '&lt;');
+    }
+
+    function stripHtmlEntities(str) {
+      return String(str)
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"');
     }
 
     function buildOverlayHTML(p) {
@@ -1754,10 +1906,21 @@
         const hasImg = Boolean(s.img);
         const bg = s.gradient || 'linear-gradient(135deg, #2a2a2a 0%, #111 100%)';
         const imgEl = hasImg
-          ? `<img class="p-screen-img" src="${escapeAttr(s.img)}" alt="${escapeAttr(s.label)}" loading="lazy" width="1200" height="675" />`
+          ? `<img class="p-screen-img" src="${escapeAttr(s.img)}" alt="${escapeAttr(stripHtmlEntities(s.label))}" loading="lazy" width="1200" height="675" draggable="false" />`
           : '';
         const cls = 'p-screen' + (hasImg ? ' p-screen--has-img' : '');
-        return `<div class="${cls}" style="background:${bg}">${imgEl}<span class="p-screen-label">${s.label}</span></div>`;
+        const captionText = (s.caption != null && s.caption !== '') ? s.caption : stripHtmlEntities(s.label);
+        const ph = s.placeholder === true;
+        const phBadge = ph ? '<span class="p-screen-ph">Unconfirmed</span>' : '';
+        const hint = hasImg ? '<span class="p-screen-expand-hint">Expand</span>' : '';
+        const dataLb = hasImg
+          ? ` data-lb-src="${escapeAttr(s.img)}" data-lb-caption="${escapeAttr(captionText)}" data-lb-alt="${escapeAttr(stripHtmlEntities(s.label))}" data-lb-placeholder="${ph ? '1' : '0'}"`
+          : '';
+        const a11yOpen = hasImg ? escapeAttr('View larger — ' + captionText) : '';
+        const tabRole = hasImg
+          ? ` tabindex="0" role="button" aria-label="${a11yOpen}"`
+          : '';
+        return `<div class="${cls}" style="background:${bg}"${dataLb}${tabRole}>${imgEl}${phBadge}${hint}<span class="p-screen-label">${s.label}</span></div>`;
       }).join('');
 
       const bodyHTML = p.body.map(para => `<p>${para}</p>`).join('');
@@ -1784,9 +1947,42 @@
     const backdrop  = document.getElementById('overlayBackdrop');
     const inner     = document.getElementById('overlayInner');
 
+    const imgLightbox    = document.getElementById('imgLightbox');
+    const imgLightboxImg = document.getElementById('imgLightboxImg');
+    const imgLightboxCap = document.getElementById('imgLightboxCap');
+    const imgLightboxNote = document.getElementById('imgLightboxNote');
+
+    function openImgLightbox(el) {
+      if (!el || !el.dataset.lbSrc) return;
+      const src = el.dataset.lbSrc;
+      const caption = el.dataset.lbCaption || '';
+      const alt = el.dataset.lbAlt || '';
+      const ph = el.dataset.lbPlaceholder === '1';
+      imgLightboxImg.src = src;
+      imgLightboxImg.alt = alt;
+      imgLightboxCap.textContent = caption;
+      imgLightboxNote.hidden = !ph;
+      imgLightboxNote.textContent = ph
+        ? 'Unconfirmed image: not yet verified as the exact artifact for this section. Replace when you have a definitive screenshot.'
+        : '';
+      imgLightbox.classList.add('open');
+      imgLightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeImgLightbox() {
+      imgLightbox.classList.remove('open');
+      imgLightbox.setAttribute('aria-hidden', 'true');
+      imgLightboxImg.src = '';
+      imgLightboxImg.alt = '';
+      imgLightboxCap.textContent = '';
+      imgLightboxNote.hidden = true;
+    }
+
     function openProject(projectId, triggerEl) {
       const p = PROJECTS[projectId];
       if (!p) return;
+
+      closeImgLightbox();
 
       // Remove previous style classes
       overlay.classList.remove('style-slide', 'style-scale', 'style-fade');
@@ -1824,6 +2020,7 @@
 
     /* ── Close overlay ───────────────────────────────── */
     function closeOverlay() {
+      closeImgLightbox();
       overlay.classList.remove('open');
       backdrop.classList.remove('open');
       // Restore body scroll after transition
@@ -1843,8 +2040,33 @@
     document.getElementById('overlayClose').addEventListener('click', closeOverlay);
     backdrop.addEventListener('click', closeOverlay);
 
+    overlay.addEventListener('click', e => {
+      const tile = e.target.closest('.p-screen--has-img');
+      if (!tile || !overlay.classList.contains('open')) return;
+      e.preventDefault();
+      e.stopPropagation();
+      openImgLightbox(tile);
+    });
+
+    overlay.addEventListener('keydown', e => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const tile = e.target.closest('.p-screen--has-img');
+      if (!tile || !overlay.classList.contains('open')) return;
+      e.preventDefault();
+      openImgLightbox(tile);
+    });
+
+    document.getElementById('imgLightboxScrim').addEventListener('click', closeImgLightbox);
+    document.getElementById('imgLightboxX').addEventListener('click', closeImgLightbox);
+
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
+      if (e.key !== 'Escape') return;
+      if (imgLightbox.classList.contains('open')) {
+        closeImgLightbox();
+        e.preventDefault();
+        return;
+      }
+      if (overlay.classList.contains('open')) closeOverlay();
     });
 
   </script>
