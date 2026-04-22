@@ -1001,18 +1001,81 @@
       text-decoration: none;
     }
 
-    /* Body paragraphs */
+    /* Case study body — paragraphs, kickers, lists (see buildOverlayBodyHTML) */
     .p-overlay-body {
       margin-bottom: 48px;
     }
-    .p-overlay-body p {
+    .p-overlay-body > * {
+      margin-bottom: 26px;
+    }
+    .p-overlay-body > *:last-child {
+      margin-bottom: 0;
+    }
+    .p-overlay-p {
       font-size: 1.0625rem;
       font-weight: 300;
       line-height: 1.86;
       color: var(--ink);
-      margin-bottom: 26px;
     }
-    .p-overlay-body p:last-child { margin-bottom: 0; }
+    .p-overlay-p--lead {
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.78;
+    }
+    .p-overlay-body > .p-overlay-p + .p-overlay-p {
+      padding-top: 22px;
+      margin-top: 4px;
+      border-top: 1px solid rgba(0, 0, 0, 0.065);
+    }
+    .p-overlay-body > .p-overlay-list + .p-overlay-p,
+    .p-overlay-body > .p-overlay-olist + .p-overlay-p {
+      padding-top: 22px;
+      margin-top: 4px;
+      border-top: 1px solid rgba(0, 0, 0, 0.065);
+    }
+    .p-overlay-body strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .p-overlay-kicker {
+      font-family: var(--fb);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 10px;
+      margin-top: 4px;
+    }
+    .p-overlay-body > .p-overlay-p + .p-overlay-kicker {
+      margin-top: 32px;
+    }
+    .p-overlay-body > .p-overlay-list + .p-overlay-kicker,
+    .p-overlay-body > .p-overlay-olist + .p-overlay-kicker {
+      margin-top: 32px;
+    }
+    .p-overlay-list,
+    .p-overlay-olist {
+      margin-top: 0;
+      margin-bottom: 26px;
+      padding-left: 1.15rem;
+      font-size: 1.02rem;
+      font-weight: 400;
+      line-height: 1.62;
+      color: var(--ink);
+    }
+    .p-overlay-list li,
+    .p-overlay-olist li {
+      margin-bottom: 0.55em;
+      padding-left: 0.25rem;
+    }
+    .p-overlay-list li::marker {
+      color: var(--ol-accent, var(--c5));
+    }
+    .p-overlay-olist li::marker {
+      color: var(--ol-accent, var(--c5));
+      font-weight: 600;
+    }
 
     /* Screenshots */
     .p-overlay-screens {
@@ -1743,9 +1806,19 @@
           'The honest version: AI didn\'t just speed things up — it let one person do the production work that would normally require a small team.',
         ],
         body: [
-          'This one started with a real problem. Data teams were hearing a lot about AI but had nowhere to actually get their hands on it in a structured way. So we built one. The Agentic Data & Analytics Bootcamp was a free, two-day virtual program — hands-on labs, partner sessions with MotherDuck and Microsoft Azure, and real pipelines participants could walk away with. I owned everything: curriculum architecture, lab guide content in Docusaurus/MDX, speaker logistics, registrant campaigns, and all post-event follow-up including credentials and hackathon scoring.',
-          'Two cohorts, 5,000+ registrants, and a hackathon that generated more good submissions than we expected. What I\'m most proud of is that participants actually showed up — and stayed. The January cohort produced 100+ unprompted LinkedIn posts from attendees sharing what they\'d built. That\'s not something you manufacture. It happens when the experience is worth talking about.',
-          'Neither cohort had a playbook to copy from, which meant figuring out a lot in real time — participant disputes, scoring rubrics for 13 hackathon submissions, credential distribution via Credsverse, and a post-event email sequence designed to keep the momentum going past the final Zoom. I\'d do it again. (And I did.)',
+          'This one started with a real problem. Data teams were hearing a lot about AI but had nowhere to actually get their hands on it in a structured way. So we built one. The Agentic Data & Analytics Bootcamp was a <strong>free, two-day virtual program</strong> — hands-on labs, partner sessions with MotherDuck and Microsoft Azure, and real pipelines participants could walk away with.',
+          { kicker: 'What I owned', bullets: [
+            'Curriculum architecture and lab guides in Docusaurus / MDX',
+            'Speaker logistics and registrant campaigns',
+            'Post-event follow-up: credentials, hackathon scoring, and email sequences',
+          ]},
+          'Two cohorts, <strong>5,000+ registrants</strong>, and a hackathon that generated more good submissions than we expected. What I\'m most proud of is that participants actually showed up — and stayed. The January cohort produced 100+ unprompted LinkedIn posts from attendees sharing what they\'d built. That\'s not something you manufacture. It happens when the experience is worth talking about.',
+          { kicker: 'Running it without a playbook', bullets: [
+            'Participant disputes and scoring rubrics for 13 hackathon submissions',
+            'Credential distribution via Credsverse',
+            'Keeping momentum after the final Zoom — by design, not by accident',
+          ]},
+          'Neither cohort had something to copy from; we figured a lot out in real time. I\'d do it again. <strong>(And I did.)</strong>',
         ],
         screens: [
           { label: 'Live virtual bootcamp', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', img: 'img/bootcamp-live-webinar.png', caption: 'Live session in the webinar stack: deck, presenter feed, and attendee chat during the Agentic Data & Analytics Bootcamp.' },
@@ -1766,7 +1839,7 @@
           'Otto\'s redesign was a separate AI adventure entirely — Nano Banana, a lot of image generations, and one moment where I genuinely thought "that\'s him."',
         ],
         body: [
-          'The site we had didn\'t match who Ascend had become. It wasn\'t converting, it wasn\'t telling the right story, and we were about to launch a new category — Agentic Data Engineering — that needed new language from the ground up. So we decided not to refresh. We rebuilt. I led the content and messaging side: audience mapping across eight buyer personas, a new positioning framework, and page-by-page copy architecture across 40+ new Figma designs before anything touched Webflow.',
+          'The site we had didn\'t match who Ascend had become. It wasn\'t converting, it wasn\'t telling the right story, and we were about to launch a new category — <strong>Agentic Data Engineering</strong> — that needed new language from the ground up. So we decided not to refresh. <strong>We rebuilt.</strong> I led the content and messaging side: audience mapping across eight buyer personas, a new positioning framework, and page-by-page copy architecture across 40+ new Figma designs before anything touched Webflow.',
           'The actual build happened in six weeks with the incredible team at FruitBowl Digital — Dedeepya, Siddarth, Payal, Kaustubh, and a lot of people working behind the scenes. They designed 40+ brand new pages and migrated eight years of WordPress content. I\'m not sure I fully appreciated how hard that was until I watched it happen. What made it work was that everyone involved had every reason to ask for more time, and nobody did.',
           'Alongside the site, we also gave Otto a proper glow-up. He started as a Slack emoji someone generated at a conference table in Vegas three years ago. After about two hours and $15 on Nano Banana, he became the 3D character you see across the platform today. Friendly, curious, a little scrappy — which, honestly, is pretty on-brand for how a lot of the best things at Ascend got made.',
         ],
@@ -1788,7 +1861,12 @@
           'What AI is genuinely good at in this context is holding a lot of context at once — I could describe Ascend\'s culture, Dru\'s background, what he\'d need to know in week one versus week four, and get something back that actually accounted for all of it. The human work was in knowing what was true about the company and what would actually help him land well.',
         ],
         body: [
-          'When I started building this, Ascend didn\'t have a formal onboarding program. New hires were getting a lot of goodwill and not a lot of structure, which is a combination that tends to produce anxiety rather than confidence. I built the whole thing from scratch — pre-day-one communication so people felt like insiders before they even logged in, a structured first week, role-specific ramp paths, a buddy pairing system, and 30/60/90 check-ins to catch anything that was falling through the cracks.',
+          'When I started building this, Ascend didn\'t have a formal onboarding program. New hires were getting a lot of goodwill and <strong>not a lot of structure</strong> — a combination that tends to produce anxiety rather than confidence.',
+          { kicker: 'What we put in place', bullets: [
+            'Pre–day-one communication so people felt like insiders before they logged in',
+            'A structured first week and role-specific ramp paths',
+            'Buddy pairing and 30 / 60 / 90 check-ins to catch what was slipping',
+          ]},
           'The design principle was simple: by the end of week one, someone should feel like they belong here and know what they\'re supposed to be doing. That sounds obvious but it\'s actually pretty hard to pull off consistently across different roles, levels, and time zones. The program had to scale without losing the personal quality that makes early days feel meaningful.',
           '96% of new hires reported feeling more effective from day one. The program also became one of the most-cited reasons people said they chose to stay — which I found more meaningful than the day-one number. It\'s one thing to make a good first impression. It\'s another to build something that actually holds up.',
         ],
@@ -1971,6 +2049,30 @@
         .replace(/&quot;/g, '"');
     }
 
+    /* Body: strings -> <p>; or { kicker, bullets } / { kicker, numbered } for lists */
+    function buildOverlayBodyHTML(body, numColor) {
+      const accent = numColor || '#487de7';
+      if (!Array.isArray(body)) return '';
+      let firstP = true;
+      return body.map((block) => {
+        if (typeof block === 'string') {
+          const lead = firstP ? (firstP = false, ' p-overlay-p--lead') : '';
+          return `<p class="p-overlay-p${lead}">${block}</p>`;
+        }
+        if (block && typeof block === 'object') {
+          if (block.kicker && Array.isArray(block.bullets)) {
+            const li = block.bullets.map(t => `<li>${t}</li>`).join('');
+            return `<p class="p-overlay-kicker">${block.kicker}</p><ul class="p-overlay-list" style="--ol-accent:${accent}">${li}</ul>`;
+          }
+          if (block.kicker && Array.isArray(block.numbered)) {
+            const li = block.numbered.map(t => `<li>${t}</li>`).join('');
+            return `<p class="p-overlay-kicker">${block.kicker}</p><ol class="p-overlay-olist" style="--ol-accent:${accent}">${li}</ol>`;
+          }
+        }
+        return '';
+      }).join('');
+    }
+
     function buildOverlayHTML(p) {
       const aiParas = Array.isArray(p.aiDesc)
         ? p.aiDesc.filter(Boolean)
@@ -2045,7 +2147,7 @@
         return `<div class="${cls}" style="background:${bg}"${dataLb}${tabRole}>${imgEl}${phBadge}${hint}<span class="p-screen-label">${s.label}</span></div>`;
       }).join('');
 
-      const bodyHTML = p.body.map(para => `<p>${para}</p>`).join('');
+      const bodyHTML = buildOverlayBodyHTML(p.body, p.numColor);
 
       const tagsHTML = p.tags.map(t => `<span class="p-tag">${t}</span>`).join('');
 
