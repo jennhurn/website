@@ -963,6 +963,23 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.85);
     }
+    .p-screen--has-img::before {
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.2) 42%, transparent 68%);
+      z-index: 1;
+    }
+    .p-screen-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      z-index: 0;
+    }
+    .p-screen--has-img .p-screen-label {
+      z-index: 2;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.55);
+    }
 
     /* AI section */
     .p-overlay-ai {
@@ -1498,8 +1515,8 @@
           'Neither cohort had a playbook to copy from, which meant figuring out a lot in real time — participant disputes, scoring rubrics for 13 hackathon submissions, credential distribution via Credsverse, and a post-event email sequence designed to keep the momentum going past the final Zoom. I\'d do it again. (And I did.)',
         ],
         screens: [
-          { label: 'Bootcamp Landing & Registration', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' },
-          { label: 'Live Lab Environment', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)' },
+          { label: 'Bootcamp Landing & Registration', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', img: 'img/bootcamp.png' },
+          { label: 'Live Lab Environment', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'img/ascend-docs.png' },
         ],
         overlayStyle: 'scale',
       },
@@ -1521,8 +1538,8 @@
           'Alongside the site, we also gave Otto a proper glow-up. He started as a Slack emoji someone generated at a conference table in Vegas three years ago. After about two hours and $15 on Nano Banana, he became the 3D character you see across the platform today. Friendly, curious, a little scrappy — which, honestly, is pretty on-brand for how a lot of the best things at Ascend got made.',
         ],
         screens: [
-          { label: 'Homepage — Hero & Positioning', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
-          { label: 'Product & Use Case Pages', gradient: 'linear-gradient(135deg, #764ba2 0%, #f093fb 50%, #f5576c 100%)' },
+          { label: 'Homepage — Hero & Positioning', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', img: 'img/ascend-home.png' },
+          { label: 'Product & Use Case Pages', gradient: 'linear-gradient(135deg, #764ba2 0%, #f093fb 50%, #f5576c 100%)', img: 'img/ascend-agentic.png' },
         ],
         overlayStyle: 'scale',
       },
@@ -1543,8 +1560,8 @@
           '96% of new hires reported feeling more effective from day one. The program also became one of the most-cited reasons people said they chose to stay — which I found more meaningful than the day-one number. It\'s one thing to make a good first impression. It\'s another to build something that actually holds up.',
         ],
         screens: [
-          { label: 'New Hire Welcome Portal', gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' },
-          { label: '30/60/90 Ramp Framework', gradient: 'linear-gradient(135deg, #56ab2f 0%, #a8e063 100%)' },
+          { label: 'New Hire Welcome Portal', gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', img: 'img/ascend-careers.png' },
+          { label: '30/60/90 Ramp Framework', gradient: 'linear-gradient(135deg, #56ab2f 0%, #a8e063 100%)', img: 'img/team-events.png' },
         ],
         overlayStyle: 'scale',
       },
@@ -1566,8 +1583,8 @@
           'The result: 21 modules across three courses — 101 for foundations, 201 for systems design, 301 for production operations — each put through multiple rounds of parallel expert review, in the same 48-hour window that would have produced maybe three or four decent drafts by hand. What surprised me wasn\'t the speed. It was how the review structure changed the content. Eight independent reviewers with no shared context don\'t just catch errors — they surface tensions. The modules that went through the most revision rounds are consistently the strongest. The process didn\'t save us from hard thinking. It organized and accelerated it.',
         ],
         screens: [
-          { label: '101 Foundations Track', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
-          { label: '301 Advanced Practitioner Track', gradient: 'linear-gradient(135deg, #0099f7 0%, #4facfe 50%, #00f2fe 100%)' },
+          { label: '101 Foundations Track', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', img: 'img/certification.png' },
+          { label: '301 Advanced Practitioner Track', gradient: 'linear-gradient(135deg, #0099f7 0%, #4facfe 50%, #00f2fe 100%)', img: 'img/agentic-code-review.png' },
         ],
         overlayStyle: 'scale',
       },
@@ -1589,8 +1606,8 @@
           'The bar I always use for values work: do they change anything? Does someone make a different hiring decision, or give harder feedback, or hold a tougher line, because of the values? If the answer is yes, then they\'re real. If the answer is "they\'re on the wall," then they\'re not. Ours passed that test. They showed up in performance reviews, in how we talked about hard decisions, and in what we celebrated. That\'s what made the program worth doing.',
         ],
         screens: [
-          { label: 'Listening Sessions & Synthesis', gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)' },
-          { label: 'Values in Practice', gradient: 'linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)' },
+          { label: 'Listening Sessions & Synthesis', gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)', img: 'img/offsite.png' },
+          { label: 'Values in Practice', gradient: 'linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)', img: 'img/team-events.png' },
         ],
         overlayStyle: 'scale',
       },
@@ -1613,8 +1630,8 @@
           'The result was a pipeline motion that could scale without proportional headcount. Better reply rates, lower unsubscribes, and a program that kept improving. The right metric was never volume. It was quality of conversation.',
         ],
         screens: [
-          { label: 'Signal Targeting & Sequence Architecture', gradient: 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)' },
-          { label: 'Personalization & Message Testing', gradient: 'linear-gradient(135deg, #3498db 0%, #2ecc71 100%)' },
+          { label: 'Signal Targeting & Sequence Architecture', gradient: 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)', img: 'img/pipeline-DAG.png' },
+          { label: 'Personalization & Message Testing', gradient: 'linear-gradient(135deg, #3498db 0%, #2ecc71 100%)', img: 'img/email-alerting-automation.png' },
         ],
         overlayStyle: 'scale',
       },
@@ -1635,8 +1652,8 @@
           '50% improvement in eNPS over the course of the program. I\'d be the first to say that\'s not entirely attributable to events — a lot of things go into whether people feel good about where they work. But the programs were a meaningful part of it. When a fully distributed team has a shared reference point — a meal, a joke, a moment from an offsite — it changes how they work together the rest of the year. That\'s the investment.',
         ],
         screens: [
-          { label: 'Company All-Hands & Offsites', gradient: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)' },
-          { label: 'Hackathon & Team Sprints', gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 50%, #f953c6 100%)' },
+          { label: 'Company All-Hands & Offsites', gradient: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)', img: 'img/offsite.png' },
+          { label: 'Hackathon & Team Sprints', gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 50%, #f953c6 100%)', img: 'img/team-events.png' },
         ],
         overlayStyle: 'scale',
       },
@@ -1653,8 +1670,8 @@
           'Four years is a long time to sustain something in a startup environment where everything else is changing constantly. Headcount fluctuated, the product evolved, the market shifted. What stayed consistent was a genuine commitment to the people side of the company, and I think that\'s what showed up in the numbers year after year. The award was nice. The part that mattered was what it confirmed.',
         ],
         screens: [
-          { label: 'Award Campaigns & Press', gradient: 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)' },
-          { label: 'Employee Survey Results', gradient: 'linear-gradient(135deg, #ff4b2b 0%, #f7971e 100%)' },
+          { label: 'Award Campaigns & Press', gradient: 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)', img: 'img/ascend-builtin.png' },
+          { label: 'Employee Survey Results', gradient: 'linear-gradient(135deg, #ff4b2b 0%, #f7971e 100%)', img: 'img/ascend-careers.png' },
         ],
         overlayStyle: 'scale',
       },
@@ -1676,8 +1693,8 @@
           'The result was a webinar program that compounded. Each session became a blog post, a follow-up sequence, a series entry. The goal was to put Ascend in front of practitioners at the moment their thinking was shifting — not just when we had something to announce.',
         ],
         screens: [
-          { label: 'Field Events — Partner Co-Marketing', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)' },
-          { label: 'Sequel.io, Event Hub & Content Flywheel', gradient: 'linear-gradient(135deg, #38f9d7 0%, #4facfe 100%)' },
+          { label: 'Field Events — Partner Co-Marketing', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', img: 'img/field-events.png' },
+          { label: 'Sequel.io, Event Hub & Content Flywheel', gradient: 'linear-gradient(135deg, #38f9d7 0%, #4facfe 100%)', img: 'img/ascend-events.png' },
         ],
         overlayStyle: 'scale',
       },
@@ -1698,14 +1715,21 @@
           'The hardest part of pricing work is that it touches everything simultaneously: product, sales, finance, customer success, and the customers themselves. My job was to hold all of those threads coherent — making sure the tiers made sense, the messaging was consistent across every function, and the launch landed without confusion or noise. Pricing changes that go well are invisible. That\'s the goal.',
         ],
         screens: [
-          { label: 'Platform Tiers, Models & Migration', gradient: 'linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%)' },
-          { label: 'Free Trial, Finance & Launch Comms', gradient: 'linear-gradient(135deg, #3a6073 0%, #1a1a2e 100%)' },
+          { label: 'Platform Tiers, Models & Migration', gradient: 'linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%)', img: 'img/otto-homescreen.png' },
+          { label: 'Free Trial, Finance & Launch Comms', gradient: 'linear-gradient(135deg, #3a6073 0%, #1a1a2e 100%)', img: 'img/run-query.png' },
         ],
         overlayStyle: 'scale',
       },
     };
 
     /* ── Build overlay HTML ──────────────────────────── */
+    function escapeAttr(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;');
+    }
+
     function buildOverlayHTML(p) {
       const aiParas = Array.isArray(p.aiDesc)
         ? p.aiDesc.filter(Boolean)
@@ -1726,10 +1750,15 @@
           <span class="p-impact-label">${p.impact.label}</span>
         </div>` : '';
 
-      const screensHTML = p.screens.map(s => `
-        <div class="p-screen" style="background:${s.gradient}">
-          <span class="p-screen-label">${s.label}</span>
-        </div>`).join('');
+      const screensHTML = p.screens.map(s => {
+        const hasImg = Boolean(s.img);
+        const bg = s.gradient || 'linear-gradient(135deg, #2a2a2a 0%, #111 100%)';
+        const imgEl = hasImg
+          ? `<img class="p-screen-img" src="${escapeAttr(s.img)}" alt="${escapeAttr(s.label)}" loading="lazy" width="1200" height="675" />`
+          : '';
+        const cls = 'p-screen' + (hasImg ? ' p-screen--has-img' : '');
+        return `<div class="${cls}" style="background:${bg}">${imgEl}<span class="p-screen-label">${s.label}</span></div>`;
+      }).join('');
 
       const bodyHTML = p.body.map(para => `<p>${para}</p>`).join('');
 
