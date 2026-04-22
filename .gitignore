@@ -1,1 +1,7 @@
 .DS_Store
+# Local authoring workspace — not published (GitHub Pages serves root only)
+/context/
+/outputs/
+/work/
+decisions.md
+next-steps.md
