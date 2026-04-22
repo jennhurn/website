@@ -920,6 +920,37 @@
       max-width: 30ch;
     }
 
+    .p-overlay-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      margin: -12px 0 44px;
+    }
+    .p-overlay-impact + .p-overlay-links {
+      margin-top: -8px;
+    }
+    .p-overlay-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #3d5a9e;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(72, 125, 231, 0.4);
+      padding-bottom: 2px;
+    }
+    .p-overlay-link:hover {
+      color: var(--ink);
+      border-bottom-color: rgba(28, 28, 30, 0.55);
+    }
+    .p-overlay-link .p-link-ext {
+      font-size: 0.72rem;
+      opacity: 0.75;
+      text-decoration: none;
+    }
+
     /* Body paragraphs */
     .p-overlay-body {
       margin-bottom: 48px;
@@ -1647,6 +1678,10 @@
         category: 'Marketing &amp; Sales',
         tags: ['Demand Gen', 'Education', 'Partner Marketing', 'Microsoft Azure'],
         impact: { num: '5,000+', label: 'registrants across two cohorts' },
+        links: [
+          { label: 'data-and-ai-bootcamp.com', url: 'https://www.data-and-ai-bootcamp.com/' },
+          { label: 'docs.ascend.io/bootcamp', url: 'https://docs.ascend.io/bootcamp/' },
+        ],
         aiAssisted: true,
         aiDesc: [
           'The bootcamp was itself a live demonstration of what agentic AI can do for data teams — which made it feel right to use AI throughout the production process too.',
@@ -1659,8 +1694,8 @@
           'Neither cohort had a playbook to copy from, which meant figuring out a lot in real time — participant disputes, scoring rubrics for 13 hackathon submissions, credential distribution via Credsverse, and a post-event email sequence designed to keep the momentum going past the final Zoom. I\'d do it again. (And I did.)',
         ],
         screens: [
-          { label: 'Bootcamp Landing & Registration', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', img: 'img/bootcamp.png', caption: 'Bootcamp marketing landing and registration — the live entry point attendees used to sign up.' },
-          { label: 'Live Lab Environment', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'img/ascend-docs.png', caption: 'Placeholder: public docs site for visual tone only — not the actual Docusaurus lab environment participants used.', placeholder: true },
+          { label: 'Live virtual bootcamp', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', img: 'img/bootcamp-live-webinar.png', caption: 'Live session in the webinar stack: deck, presenter feed, and attendee chat during the Agentic Data & Analytics Bootcamp.' },
+          { label: 'Curriculum & lab hub', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'img/bootcamp-docs-overview.png', caption: 'Participant-facing bootcamp home in Docusaurus — day structure, lab cards, and navigation for docs.ascend.io/bootcamp.' },
         ],
         overlayStyle: 'scale',
       },
@@ -1902,6 +1937,11 @@
           <span class="p-impact-label">${p.impact.label}</span>
         </div>` : '';
 
+      const linksBlock = Array.isArray(p.links) && p.links.length ? `
+        <div class="p-overlay-links">
+          ${p.links.map(l => `<a class="p-overlay-link" href="${escapeAttr(l.url)}" target="_blank" rel="noopener noreferrer">${l.label}<span class="p-link-ext" aria-hidden="true">↗</span></a>`).join('')}
+        </div>` : '';
+
       const screensHTML = p.screens.map(s => {
         const hasImg = Boolean(s.img);
         const bg = s.gradient || 'linear-gradient(135deg, #2a2a2a 0%, #111 100%)';
@@ -1935,6 +1975,7 @@
         </div>
         <h2 class="p-overlay-title">${p.title}</h2>
         ${impactBlock}
+        ${linksBlock}
         <div class="p-overlay-body">${bodyHTML}</div>
         <div class="p-overlay-screens">${screensHTML}</div>
         ${aiBlock}
