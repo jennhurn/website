@@ -890,7 +890,46 @@
       line-height: 1.04;
       letter-spacing: -0.02em;
       color: var(--ink);
-      margin-bottom: 40px;
+      margin-bottom: 22px;
+    }
+
+    /* Hero band — breaks up long text, mirrors first story image by default */
+    .p-overlay-hero {
+      position: relative;
+      margin: 0 0 32px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      cursor: zoom-in;
+      outline: none;
+    }
+    .p-overlay-hero:focus-visible {
+      box-shadow: 0 0 0 3px rgba(72, 125, 231, 0.45), 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+    .p-overlay-hero-inner {
+      aspect-ratio: 2.15 / 1;
+      max-height: min(38vh, 300px);
+      min-height: 148px;
+      background: linear-gradient(145deg, #1a1a22 0%, #0e0e12 100%);
+    }
+    .p-overlay-hero-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+    .p-overlay-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 42%);
+      border-radius: inherit;
+    }
+    .p-overlay-hero .p-screen-expand-hint,
+    .p-overlay-hero .p-screen-ph {
+      z-index: 2;
     }
 
     /* Impact callout */
@@ -958,9 +997,9 @@
     .p-overlay-body p {
       font-size: 1.0625rem;
       font-weight: 300;
-      line-height: 1.82;
+      line-height: 1.86;
       color: var(--ink);
-      margin-bottom: 22px;
+      margin-bottom: 26px;
     }
     .p-overlay-body p:last-child { margin-bottom: 0; }
 
@@ -1210,6 +1249,7 @@
       .ai-pill { display: none; }
       .p-overlay-screens { grid-template-columns: 1fr; }
       .p-overlay-impact { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .p-overlay-hero-inner { max-height: min(32vh, 240px); }
     }
     @media (max-width: 560px) {
       .nav-links { display: none; }
@@ -1677,6 +1717,8 @@
         title: 'Agentic Data &amp; Analytics Bootcamp',
         category: 'Marketing &amp; Sales',
         tags: ['Demand Gen', 'Education', 'Partner Marketing', 'Microsoft Azure'],
+        heroImage: 'img/bootcamp-docs-overview.png',
+        heroCaption: 'Bootcamp curriculum home in Docusaurus — day structure, lab cards, and navigation (docs.ascend.io/bootcamp).',
         impact: { num: '5,000+', label: 'registrants across two cohorts' },
         links: [
           { label: 'data-and-ai-bootcamp.com', url: 'https://www.data-and-ai-bootcamp.com/' },
@@ -1942,6 +1984,33 @@
           ${p.links.map(l => `<a class="p-overlay-link" href="${escapeAttr(l.url)}" target="_blank" rel="noopener noreferrer">${l.label}<span class="p-link-ext" aria-hidden="true">↗</span></a>`).join('')}
         </div>` : '';
 
+      const firstWithImg = Array.isArray(p.screens) ? p.screens.find(s => s.img) : null;
+      const heroSrcRaw = (p.heroImage != null && p.heroImage !== '')
+        ? p.heroImage
+        : ((firstWithImg && firstWithImg.img) || '');
+      let heroBlock = '';
+      if (heroSrcRaw) {
+        const useFirstMeta = !p.heroImage && firstWithImg;
+        const heroCaption = (p.heroCaption != null && p.heroCaption !== '')
+          ? p.heroCaption
+          : (useFirstMeta && firstWithImg.caption)
+            ? firstWithImg.caption
+            : stripHtmlEntities(p.title);
+        const heroPh = p.heroPlaceholder === true || (useFirstMeta && firstWithImg.placeholder === true);
+        const phBadge = heroPh ? '<span class="p-screen-ph">Unconfirmed</span>' : '';
+        const hint = '<span class="p-screen-expand-hint">Expand</span>';
+        const altImg = 'Preview: ' + stripHtmlEntities(p.title);
+        const dataLb = ` data-lb-src="${escapeAttr(heroSrcRaw)}" data-lb-caption="${escapeAttr(heroCaption)}" data-lb-alt="${escapeAttr(altImg)}" data-lb-placeholder="${heroPh ? '1' : '0'}"`;
+        const a11y = escapeAttr('View larger — ' + heroCaption);
+        heroBlock = `
+        <div class="p-overlay-hero"${dataLb} tabindex="0" role="button" aria-label="${a11y}">
+          <div class="p-overlay-hero-inner">
+            <img src="${escapeAttr(heroSrcRaw)}" alt="${escapeAttr(altImg)}" loading="lazy" width="1600" height="800" draggable="false" />
+          </div>
+          ${phBadge}${hint}
+        </div>`;
+      }
+
       const screensHTML = p.screens.map(s => {
         const hasImg = Boolean(s.img);
         const bg = s.gradient || 'linear-gradient(135deg, #2a2a2a 0%, #111 100%)';
@@ -1974,6 +2043,7 @@
           <div class="p-overlay-divider"></div>
         </div>
         <h2 class="p-overlay-title">${p.title}</h2>
+        ${heroBlock}
         ${impactBlock}
         ${linksBlock}
         <div class="p-overlay-body">${bodyHTML}</div>
@@ -2082,19 +2152,19 @@
     backdrop.addEventListener('click', closeOverlay);
 
     overlay.addEventListener('click', e => {
-      const tile = e.target.closest('.p-screen--has-img');
-      if (!tile || !overlay.classList.contains('open')) return;
+      const lb = e.target.closest('[data-lb-src]');
+      if (!lb || !overlay.classList.contains('open')) return;
       e.preventDefault();
       e.stopPropagation();
-      openImgLightbox(tile);
+      openImgLightbox(lb);
     });
 
     overlay.addEventListener('keydown', e => {
       if (e.key !== 'Enter' && e.key !== ' ') return;
-      const tile = e.target.closest('.p-screen--has-img');
-      if (!tile || !overlay.classList.contains('open')) return;
+      const lb = e.target.closest('[data-lb-src]');
+      if (!lb || !overlay.classList.contains('open')) return;
       e.preventDefault();
-      openImgLightbox(tile);
+      openImgLightbox(lb);
     });
 
     document.getElementById('imgLightboxScrim').addEventListener('click', closeImgLightbox);
