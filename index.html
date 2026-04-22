@@ -1294,7 +1294,19 @@
       margin-top: 0.95em;
     }
 
-    /* Tags */
+    /* Tags / skills */
+    .p-overlay-tags-wrap {
+      margin-top: 8px;
+    }
+    .p-overlay-tags-head {
+      font-family: var(--fb);
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin: 0 0 14px;
+    }
     .p-overlay-tags {
       display: flex;
       flex-wrap: wrap;
@@ -2164,7 +2176,10 @@
         <div class="p-overlay-body">${bodyHTML}</div>
         <div class="p-overlay-screens">${screensHTML}</div>
         ${aiBlock}
-        <div class="p-overlay-tags">${tagsHTML}</div>
+        <div class="p-overlay-tags-wrap">
+          <h3 class="p-overlay-tags-head">Skills</h3>
+          <div class="p-overlay-tags">${tagsHTML}</div>
+        </div>
       `;
     }
 
