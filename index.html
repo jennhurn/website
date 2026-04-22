@@ -919,6 +919,10 @@
       object-position: center center;
       display: block;
     }
+    .p-overlay-hero-inner--contain img {
+      object-fit: contain;
+      object-position: center center;
+    }
     .p-overlay-hero::after {
       content: '';
       position: absolute;
@@ -1717,6 +1721,9 @@
         title: 'Agentic Data &amp; Analytics Bootcamp',
         category: 'Marketing &amp; Sales',
         tags: ['Demand Gen', 'Education', 'Partner Marketing', 'Microsoft Azure'],
+        heroImage: 'img/bootcamp-hero-banner.png',
+        heroCaption: 'Promotional banner: free two-day virtual Agentic Data & Analytics Bootcamp, with Ascend.io and Microsoft Azure sponsor lockup.',
+        heroFit: 'contain',
         impact: { num: '5,000+', label: 'registrants across two cohorts' },
         links: [
           { label: 'data-and-ai-bootcamp.com', url: 'https://www.data-and-ai-bootcamp.com/' },
@@ -2000,9 +2007,10 @@
         const altImg = 'Preview: ' + stripHtmlEntities(p.title);
         const dataLb = ` data-lb-src="${escapeAttr(heroSrcRaw)}" data-lb-caption="${escapeAttr(heroCaption)}" data-lb-alt="${escapeAttr(altImg)}" data-lb-placeholder="${heroPh ? '1' : '0'}"`;
         const a11y = escapeAttr('View larger — ' + heroCaption);
+        const innerFitClass = p.heroFit === 'contain' ? ' p-overlay-hero-inner--contain' : '';
         heroBlock = `
         <div class="p-overlay-hero"${dataLb} tabindex="0" role="button" aria-label="${a11y}">
-          <div class="p-overlay-hero-inner">
+          <div class="p-overlay-hero-inner${innerFitClass}">
             <img src="${escapeAttr(heroSrcRaw)}" alt="${escapeAttr(altImg)}" loading="lazy" width="1600" height="800" draggable="false" />
           </div>
           ${phBadge}${hint}
