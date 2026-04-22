@@ -762,7 +762,6 @@
       background: #fafaf8;
       pointer-events: none;
       overflow-y: auto;
-      overflow-x: hidden;
       overscroll-behavior: contain;
       -webkit-overflow-scrolling: touch;
     }
@@ -894,20 +893,10 @@
       margin-bottom: 22px;
     }
 
-    /* Hero — full-bleed image strip (no card chrome); fullscreen overlays only */
-    .p-overlay:not(.style-slide) .p-overlay-hero {
-      width: 100vw;
-      max-width: none;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-    }
-    .p-overlay.style-slide .p-overlay-hero {
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
+    /* Hero — same width as copy column (inside .p-overlay-inner); no card chrome */
     .p-overlay-hero {
       position: relative;
+      width: 100%;
       margin-top: 8px;
       margin-bottom: 40px;
       border-radius: 0;
