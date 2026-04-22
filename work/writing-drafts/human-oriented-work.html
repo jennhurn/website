@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human-oriented work — Jenny Hurn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0e18;
+      --fg: #e8edf5;
+      --muted: #8b95a8;
+      --accent: #63b3ed;
+      --accent-2: #4fd1c5;
+      --border: rgba(255, 255, 255, 0.07);
+      --max: 38rem;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--muted);
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 300;
+      padding: 2rem 1.5rem 4rem;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(99, 179, 237, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 179, 237, 0.03) 1px, transparent 1px);
+      background-size: 56px 56px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    article { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-2); }
+    .back {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      display: inline-block;
+    }
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.85rem, 4vw, 2.35rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: var(--fg);
+    }
+    .meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    p { margin-bottom: 1.15rem; }
+    p strong { color: var(--fg); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <article>
+    <a class="back" href="../index.html#writing">← Writing</a>
+    <h1>Human-oriented work in a tools-obsessed moment</h1>
+    <p class="meta">Essay · First published here · Adapted from Jenny’s positioning notes</p>
+
+    <p>
+      Everyone wants to talk about the tool. Fewer people want to talk about the <strong>team around the tool</strong> — who owns what, how decisions get made when something breaks, what “good” looks like when the roadmap changes every quarter.
+    </p>
+    <p>
+      I’ve spent my career on the other side of that imbalance: making programs, campaigns, and experiences that treat people as the point — not as an afterthought in a slide about “change management.”
+    </p>
+    <p>
+      That doesn’t mean anti-technology. It means <strong>technology judged by whether real humans can use it well</strong> in the messy reality of their week: competing priorities, unclear ownership, the gap between what demos promise and what teams can sustain.
+    </p>
+    <p>
+      When I say the best work is human-oriented, I mean experiences worth someone’s time — whether that someone is a customer in a training lab, a new hire on day one, or a room full of practitioners who don’t owe you attention.
+    </p>
+    <p>
+      I also mean something that sounds soft until you’ve shipped without it: <strong>delight is worth leading toward</strong>. Not gimmicks — respect. Clarity. The feeling that the people building the thing actually cared whether the audience could follow.
+    </p>
+    <p>
+      That orientation is the through-line for me — from early-stage GTM to people programs to the unglamorous operational work that keeps a company pointed in one direction. Tools change fast. Teams and taste still show up in everything that lasts.
+    </p>
+  </article>
+</body>
+</html>
