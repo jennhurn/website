@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jenny Hurn — I turn ambiguous, important problems into real solutions." />
-  <title>Jenny Hurn</title>
+  <meta name="description" content="Jenny Hurn — I solve messy, high-stakes problems. Puzzle edition: how each case cracked open." />
+  <title>Jenny Hurn — Puzzles</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -191,11 +191,6 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--ink); }
-    .nav-links a.nav-alt {
-      color: var(--c5);
-      font-weight: 500;
-    }
-    .nav-links a.nav-alt:hover { color: var(--ink); }
 
     /* ── HERO ──────────────────────────────────────────── */
     .hero {
@@ -1366,9 +1361,76 @@
       .hero-name, .hero-rule, .hero-descriptor, .hero-manifesto, .hero-scroll,
       nav, .rev, .project-item { opacity: 1 !important; transform: none !important; }
     }
+
+    /* ═══ PUZZLE EDITION — same fonts + rainbow tokens, different atmosphere ═══ */
+    body.theme-puzzle {
+      background-color: #f7f3ec;
+      background-image: radial-gradient(circle at 1px 1px, rgba(28, 25, 23, 0.05) 1px, transparent 0);
+      background-size: 22px 22px;
+    }
+    body.theme-puzzle::after { opacity: 0.02; }
+    body.theme-puzzle .orbs { opacity: 0.45; }
+    body.theme-puzzle .section-wrap {
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    }
+    body.theme-puzzle .marquee {
+      background: rgba(255, 255, 255, 0.8);
+    }
+    body.theme-puzzle .project-item {
+      position: relative;
+    }
+    body.theme-puzzle .project-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 0 3px 3px 0;
+      background: linear-gradient(180deg, var(--c1), var(--c2), var(--c5), var(--c3), var(--c4));
+      opacity: 0;
+      transition: opacity 0.28s ease;
+      pointer-events: none;
+    }
+    body.theme-puzzle .project-item:hover::before {
+      opacity: 0.9;
+    }
+    body.theme-puzzle .project-item:hover {
+      background: rgba(255, 255, 255, 0.55);
+    }
+    body.theme-puzzle .p-overlay {
+      background: #f2ede4;
+    }
+    body.theme-puzzle .p-overlay-case-eyebrow {
+      font-family: var(--fb);
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin: 0 0 10px;
+    }
+    body.theme-puzzle .nav-skip a {
+      color: var(--c5);
+      font-weight: 500;
+    }
+    body.theme-puzzle .nav-skip a:hover {
+      color: var(--ink);
+    }
+    body.theme-puzzle footer .footer-l a {
+      color: var(--warm-gray);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    body.theme-puzzle footer .footer-l a:hover {
+      color: var(--ink);
+    }
   </style>
 </head>
-<body>
+<body class="theme-puzzle">
 
   <!-- ORBS -->
   <div class="orbs" aria-hidden="true">
@@ -1385,10 +1447,10 @@
     <a class="nav-name" href="#top">Jenny Hurn</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#work">Cases</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a class="nav-alt" href="index-puzzle.html">Puzzle view</a></li>
+      <li class="nav-skip"><a href="index.html">Classic site</a></li>
     </ul>
   </nav>
 
@@ -1402,10 +1464,10 @@
       <span class="desc-word" id="descWord">Chief of Staff</span>
     </div>
     <p class="hero-manifesto" id="heroManifesto">
-      I turn ambiguous, important problems<br>into real solutions.
+      Messy problems. Missing rules.<br><span class="grad-text">I stay until they click.</span>
     </p>
     <div class="hero-scroll" id="heroScroll">
-      <span>Scroll</span>
+      <span>Open the cases</span>
       <div class="scroll-pip"></div>
     </div>
   </section>
@@ -1438,7 +1500,7 @@
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="section-wrap">
-      <p class="section-eyebrow rc3 rev">About</p>
+      <p class="section-eyebrow rc3 rev">The setup</p>
       <div class="about-grid">
         <div class="about-pull rev">
           I'm drawn to the problems where<br>
@@ -1457,8 +1519,8 @@
   <!-- WORK -->
   <section class="work" id="work">
     <div class="section-wrap">
-      <p class="section-eyebrow rc1 rev">Selected Work</p>
-      <h2 class="work-intro rev">Some things I've built, launched, and made real.</h2>
+      <p class="section-eyebrow rc1 rev">Puzzles cracked</p>
+      <h2 class="work-intro rev">Real work, real constraints — here’s how each one came apart.</h2>
       <ul class="project-list" id="projectList">
 
         <li class="project-item" data-project-id="bootcamp">
@@ -1660,7 +1722,7 @@
             </div>
             <div>
               <p class="now-label rc3">Everything else</p>
-              <p class="now-text">NYT Cooking backlog. The crossword most mornings. Cursor agents. Oakland, CA.</p>
+              <p class="now-text">Puzzles of all sizes — crosswords, product strategy, a grid that won’t resolve. NYT Cooking backlog. Cursor agents. Oakland, CA.</p>
             </div>
           </div>
         </div>
@@ -1686,8 +1748,8 @@
   </section>
 
   <footer>
-    <span class="footer-l">© <span id="yr"></span> Jenny Hurn · jhurn.com</span>
-    <span class="footer-r">Delighted to meet you.</span>
+    <span class="footer-l">© <span id="yr"></span> Jenny Hurn · jhurn.com · <a href="index.html">Standard portfolio</a></span>
+    <span class="footer-r">Every case is a case file.</span>
   </footer>
 
   <!-- OVERLAY BACKDROP -->
@@ -2086,7 +2148,7 @@
     }
 
     const CASE_STUDY_INTENT_DEFAULT =
-      'What follows is the detailed view: what I owned, where judgment mattered, and what I\'d change or double down on next time.';
+      'Below is how this one cracked: what the grid looked like going in, where I had to make judgment calls, and what I’d carry forward. Operating notes, not a victory lap.';
 
     /* Body: strings -> <p>; or { kicker, bullets } / { kicker, numbered } for lists */
     function buildOverlayBodyHTML(body, numColor) {
@@ -2121,7 +2183,7 @@
         <div class="p-overlay-ai">
           <div class="p-ai-head">
             <span class="p-ai-icon">✦</span>
-            <span class="p-ai-label">How AI assisted</span>
+            <span class="p-ai-label">How tools &amp; AI fit in</span>
           </div>
           ${aiBodyHTML}
         </div>` : '';
@@ -2192,7 +2254,7 @@
 
       const tagsSectionLabel = (p.tagsSectionLabel != null && p.tagsSectionLabel !== '')
         ? p.tagsSectionLabel
-        : 'Tools & focus';
+        : 'Clues & tools';
 
       const intentInner = (p.intent != null && p.intent !== '')
         ? p.intent
@@ -2207,6 +2269,7 @@
           <span class="p-overlay-catbadge">${p.category}</span>
           <div class="p-overlay-divider"></div>
         </div>
+        <p class="p-overlay-case-eyebrow">How I cracked it</p>
         <h2 class="p-overlay-title">${p.title}</h2>
         ${heroBlock}
         ${impactBlock}
