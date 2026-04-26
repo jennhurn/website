@@ -1,9 +1,9 @@
 ---
-
-## layout: post
+layout: post
 title: "Five Things I Learned in My First Year as Chief of Staff"
 date: 2026-01-25
 description: "Reflections on transitions, excellence, and my undying love for to-do lists"
+---
 
 Nothing, truly, nothing gives me more joy than crossing tasks off a to-do list. I've excelled at this my entire career. From simple tasks like sending emails to giant initiatives that require multi-phase implementation, I have worked on executing and operationalizing, and honed it into a superpower.
 
