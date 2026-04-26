@@ -3,8 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jenny Hurn — I take on the projects, puzzles, and problems nobody's claimed yet." />
-  <title>Jenny Hurn</title>
+  <meta name="description" content="Jenny Hurn is a Chief of Staff and operator sharing projects, writing, and case studies across GTM, people operations, and strategy." />
+  <title>Jenny Hurn | Chief of Staff and Operator</title>
+  <link rel="canonical" href="https://jennyhurn.github.io/website/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Jenny Hurn | Chief of Staff and Operator" />
+  <meta property="og:description" content="Projects, writing, and case studies across GTM, people operations, and strategy." />
+  <meta property="og:url" content="https://jennyhurn.github.io/website/" />
+  <meta property="og:site_name" content="Jenny Hurn" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Jenny Hurn | Chief of Staff and Operator" />
+  <meta name="twitter:description" content="Projects, writing, and case studies across GTM, people operations, and strategy." />
+  <link rel="icon" type="image/jpeg" href="final-images/favicon.jpg" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jenny Hurn",
+      "url": "https://jennyhurn.github.io/website/",
+      "jobTitle": "Chief of Staff",
+      "sameAs": [
+        "https://www.linkedin.com/in/jenny-hurn/"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Jenny Hurn",
+      "url": "https://jennyhurn.github.io/website/",
+      "description": "Projects, writing, and case studies across GTM, people operations, and strategy."
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -196,6 +231,26 @@
       font-weight: 500;
     }
     .nav-links a.nav-alt:hover { color: var(--ink); }
+    .nav-name:focus-visible,
+    .nav-links a:focus-visible,
+    .w-row:focus-visible,
+    .c-link:focus-visible,
+    .project-link-cover:focus-visible,
+    .p-overlay-close:focus-visible,
+    .p-screen[tabindex="0"]:focus-visible,
+    .img-lightbox-x:focus-visible,
+    .img-lightbox-scrim:focus-visible {
+      outline: 2px solid rgba(28,25,23,0.4);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+    .project-link-cover:focus-visible + .project-row .p-arrow {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+    .project-link-cover:focus-visible + .project-row .p-arrow svg {
+      stroke: var(--cream);
+    }
 
     /* ── HERO ──────────────────────────────────────────── */
     .hero {
@@ -451,7 +506,7 @@
 
     /* ── PROJECT CARD ── */
     .project-item {
-      cursor: pointer;
+      position: relative;
       opacity: 0;
       transform: translateY(12px);
       transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.25s ease;
@@ -459,6 +514,16 @@
       border: 0.5px solid var(--border);
       background: rgba(255,255,255,0.84);
       overflow: hidden;
+    }
+    .project-link-cover {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      border-radius: 16px;
+    }
+    .project-link-cover:focus-visible {
+      outline: 2px solid rgba(28,25,23,0.4);
+      outline-offset: 3px;
     }
     .project-item.in { opacity: 1; transform: none; }
     .project-item:hover { border-color: rgba(0,0,0,0.22); }
@@ -1534,12 +1599,11 @@
       .p-overlay-header-metric { flex-direction: column; gap: 4px; }
     }
     @media (max-width: 560px) {
-      /* Keep primary navigation reachable on mobile (no dedicated hamburger menu exists). */
-      .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 18px;
-        justify-content: flex-end;
+      /* Simplify nav on mobile for clearer scan + tap behavior. */
+      .nav-links { gap: 16px; }
+      .nav-links li:nth-child(1),
+      .nav-links li:nth-child(2) {
+        display: none;
       }
       .hero-manifesto { font-size: 1.2rem; }
       .p-overlay-inner { padding: 20px 0 0; }
@@ -1579,6 +1643,7 @@
     </ul>
   </nav>
 
+  <main id="main-content">
   <!-- HERO -->
   <section class="hero" id="top">
     <h1 class="hero-name" id="heroName" aria-label="Jenny Hurn">
@@ -1625,7 +1690,7 @@
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="section-wrap">
-      <p class="section-eyebrow rc3 rev">About</p>
+      <h2 class="section-eyebrow rc3 rev">About</h2>
       <div class="about-grid">
         <div class="about-pull rev">
           If there are two things I love, it&apos;s<br>
@@ -1644,11 +1709,12 @@
   <!-- WORK -->
   <section class="work" id="work">
     <div class="section-wrap">
-      <p class="section-eyebrow rc1 rev">Selected Work</p>
+      <h2 class="section-eyebrow rc1 rev">Selected Work</h2>
       <h2 class="work-intro rev">Projects, puzzles, and other <del class="grad-text">obsessions</del> pursuits.</h2>
       <ul class="project-list" id="projectList">
 
         <li class="project-item" data-project-id="bootcamp">
+          <a class="project-link-cover" href="projects/bootcamp/" aria-label="Open project page: Agentic Data &amp; Analytics Bootcamp"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(232,20,22,0.55),rgba(255,165,0,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1673,6 +1739,7 @@
         </li>
 
                 <li class="project-item" data-project-id="website">
+          <a class="project-link-cover" href="projects/website/" aria-label="Open project page: Ascend Website Redesign"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(255,165,0,0.52),rgba(121,195,20,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1697,6 +1764,7 @@
         </li>
 
                 <li class="project-item" data-project-id="onboarding">
+          <a class="project-link-cover" href="projects/onboarding/" aria-label="Open project page: New Hire Onboarding Program"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(121,195,20,0.5),rgba(72,125,231,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1721,6 +1789,7 @@
         </li>
 
                 <li class="project-item" data-project-id="certification">
+          <a class="project-link-cover" href="projects/certification/" aria-label="Open project page: Agentic Data Engineering Certification"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(72,125,231,0.52),rgba(112,54,157,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1745,6 +1814,7 @@
         </li>
 
                 <li class="project-item" data-project-id="values">
+          <a class="project-link-cover" href="projects/values/" aria-label="Open project page: Core Value Formation"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(112,54,157,0.52),rgba(75,54,157,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1769,6 +1839,7 @@
         </li>
 
                 <li class="project-item" data-project-id="aisdr">
+          <a class="project-link-cover" href="projects/aisdr/" aria-label="Open project page: AI SDR Outreach Motion"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(75,54,157,0.52),rgba(72,125,231,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1793,6 +1864,7 @@
         </li>
 
                 <li class="project-item" data-project-id="offsites">
+          <a class="project-link-cover" href="projects/offsites/" aria-label="Open project page: Offsites, Hackathons &amp; Team Events"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(72,125,231,0.5),rgba(121,195,20,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1817,6 +1889,7 @@
         </li>
 
                 <li class="project-item" data-project-id="builtin">
+          <a class="project-link-cover" href="projects/builtin/" aria-label="Open project page: Built In Best Places to Work"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(121,195,20,0.5),rgba(230,208,0,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1841,6 +1914,7 @@
         </li>
 
                 <li class="project-item" data-project-id="field-events">
+          <a class="project-link-cover" href="projects/field-events/" aria-label="Open project page: Field Events &amp; Webinar Program"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(230,208,0,0.52),rgba(255,165,0,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1865,6 +1939,7 @@
         </li>
 
                 <li class="project-item" data-project-id="pricing">
+          <a class="project-link-cover" href="projects/pricing/" aria-label="Open project page: Plans &amp; Pricing Rollouts"></a>
           <div class="project-row">
             <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(255,165,0,0.52),rgba(232,20,22,0.1))">
               <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
@@ -1897,7 +1972,7 @@
     <div class="section-wrap">
       <div class="writing-grid">
         <div>
-          <p class="section-eyebrow rc5 rev">Writing</p>
+          <h2 class="section-eyebrow rc5 rev">Writing</h2>
           <div class="w-list rev">
             <div class="w-row w-row-static">
               <span class="w-n rc5">01</span>
@@ -1910,15 +1985,15 @@
             <a class="w-row" href="2026/03/14/a-few-thoughts-on-ai-no-one-asked-for.html">
               <span class="w-n rc4">02</span>
               <div>
-                <p class="w-title">A few thoughts on AI no one asked for</p>
-                <p class="w-tag">Blog · March 13, 2026</p>
+                <p class="w-title">A Few Thoughts on AI No One Asked For</p>
+                <p class="w-tag">Blog · March 14, 2026</p>
               </div>
               <span class="w-arr">↗</span>
             </a>
             <a class="w-row" href="2026/01/25/five-lessons-from-my-first-year-as-cos.html">
               <span class="w-n rc3">03</span>
               <div>
-                <p class="w-title">5 things I've learned as a Chief of Staff</p>
+                <p class="w-title">Five Things I Learned in My First Year as Chief of Staff</p>
                 <p class="w-tag">Blog · January 25, 2026</p>
               </div>
               <span class="w-arr">↗</span>
@@ -1926,7 +2001,7 @@
           </div>
         </div>
         <div>
-          <p class="section-eyebrow rc4 rev">Now</p>
+          <h2 class="section-eyebrow rc4 rev">Now</h2>
           <div class="now-stack rev">
             <div>
               <p class="now-label rc1">Working on</p>
@@ -1949,12 +2024,12 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="section-wrap">
-      <p class="section-eyebrow rc2 rev">Contact</p>
+      <h2 class="section-eyebrow rc2 rev">Contact</h2>
       <h2 class="contact-head rev">Got a puzzle you&apos;re looking to solve? <span class="grad-text"> Let&apos;s talk.</span></h2>
       <p class="contact-sub rev">I&apos;m at my best when the work is early-stage and the problems don&apos;t have owners yet. If that sounds like where you are, I&apos;d love to hear about it.</p>
       <div class="c-links rev">
-        <a class="c-link" href="mailto:hello@hurn.co">
-          hello@hurn.co <span class="arr">→</span>
+        <a class="c-link" href="mailto:hello@jhurn.com">
+          hello@jhurn.com <span class="arr">→</span>
         </a>
         <a class="c-link" href="https://www.linkedin.com/in/jenny-hurn/" target="_blank" rel="noopener noreferrer">
           LinkedIn <span class="arr">↗</span>
@@ -1962,6 +2037,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer>
     <span class="footer-l">© <span id="yr"></span> Jenny Hurn · jhurn.com</span>
@@ -2106,7 +2182,7 @@
         // heroImage moved into `screens` thumbnails (no dedicated hero image panel).
         heroCaption: 'Promotional banner: free two-day virtual Agentic Data & Analytics Bootcamp, with Ascend.io and Microsoft Azure sponsor lockup.',
         // heroFit removed (hero image panel no longer used).
-        impact: { num: '5,000+', label: 'registrants across two cohorts' },
+        impact: { num: '5K+', label: 'registrants' },
         links: [
           { label: 'data-and-ai-bootcamp.com', url: 'https://www.data-and-ai-bootcamp.com/' },
           { label: 'docs.ascend.io/bootcamp', url: 'https://docs.ascend.io/bootcamp/' },
@@ -2149,7 +2225,7 @@
         title: 'Ascend Website Redesign',
         category: 'Brand &amp; Marketing',
         tags: ['Brand', 'Messaging', 'Conversion', 'Category Creation'],
-        impact: { num: '5×', label: 'conversions two weeks after launch' },
+        impact: { num: '5×', label: 'increase in conversion' },
         aiAssisted: true,
         aiDesc: [
           'This project happened in early 2024, before agents were a reliable part of the workflow. What existed were powerful language models — capable, but only as focused as the context you gave them. So I treated the AI setup as an architecture problem.',
@@ -2182,7 +2258,7 @@
         title: 'Onboarding Program',
         category: 'People &amp; Ops',
         tags: ['Employee Experience', 'Operations', 'Retention'],
-        impact: { num: '96%', label: 'of new hires felt more effective from day one' },
+        impact: { num: '96%', label: 'effective from day one' },
         aiAssisted: true,
         aiDesc: [
           'The most recent version of this program — a 40+ page onboarding guide I built for Dru, our Fractional VP of Marketing — was built almost entirely with AI assistance. I used Claude to help structure the guide, draft role-specific sections, and keep the voice consistent across a document that long. AI is genuinely good at holding, crafting, and disseminating massive amounts of context at once. Giving agents access to internal docs, a new hire\'s background, what they need to know in week one, produces tailored, high quality resources to empower folks to start making an impact right away.',
@@ -2214,7 +2290,7 @@
         title: 'Agentic DE Certification — 101, 201 &amp; 301',
         category: 'Education',
         tags: ['Curriculum', 'Credentialing', 'Category Creation', 'Community'],
-        impact: { num: '21', label: 'modules across three courses · 48-hour build' },
+        impact: { num: '21', label: 'modules · 48-hour build' },
         aiAssisted: true,
         aiDesc: [
           'Working with agents to build this in 48 hours was genuinely one of the most exciting things I\'ve done. The whole thing started in Cursor\'s planning mode — which is less like prompting and more like writing a spec. Before a single agent ran, I worked through a thorough implementation plan that defined the architecture, prompts for each subagent, the module outline and curriculum structure, rules and guidelines for what production-ready content actually meant in this context, and how we would grant certifications to folks who completed the courses.',
@@ -2246,7 +2322,7 @@
         title: 'Core Value Formation',
         category: 'Culture',
         tags: ['Culture', 'Org Design', 'Facilitation', 'Leadership'],
-        impact: { num: 'Company-wide', label: 'values that held up in real decisions' },
+        impact: { num: '4', label: 'values that inspired' },
         aiAssisted: true,
         aiDesc: [
           'I used AI at two distinct points in this project. The first was in redesigning the recognition program — using it to generate ideas across a wide range, challenge the assumptions baked into the existing model, and map specific recognition formats to each of our four values. That ideation phase would have taken multiple team workshops; with AI it happened in a few focused sessions.',
@@ -2270,7 +2346,7 @@
         title: 'AI SDR Outreach Motion',
         category: 'Revenue',
         tags: ['Revenue', 'Pipeline', 'AI', 'GTM', 'AmpleMarket', 'Outbound'],
-        impact: { num: 'Signal-based', label: 'targeting at scale — pipeline without added headcount' },
+        impact: { num: 'Agentic', label: 'targeting at scale' },
         aiAssisted: false,
         body: [
           'Getting outbound right is mostly a story of iteration. I tested a lot — AI SDR tools like Artisan, HubSpot\'s outbound agent, and others — before landing on AmpleMarket as our primary platform. AmpleMarket gave us a highly customizable agentic framework where we could leverage our own agentic expertise to tune messaging and craft more effective outbound than any other tool allowed.',
@@ -2289,7 +2365,7 @@
         title: 'Offsites, Hackathons &amp; Team Events',
         category: 'People',
         tags: ['Culture', 'Employee Experience', 'Remote', 'Engagement'],
-        impact: { num: '50%', label: 'improvement in eNPS across program tenure' },
+        impact: { num: '50%', label: 'increase in engagement' },
         aiAssisted: true,
         aiDesc: [
           'Event production has a lot of surface area. I use AI to draft and iterate on vendor research, logistics documentation, agenda design, internal communications, activity instructions, slide deck prep and review, and more.',
@@ -2319,7 +2395,7 @@
         title: 'Built In Best Places to Work',
         category: 'Culture',
         tags: ['Recognition', 'Awards', 'Culture', 'Employee Experience'],
-        impact: { num: '4 years', label: 'consecutive — the award follows the work' },
+        impact: { num: '4', label: 'consecutive wins' },
         aiAssisted: false,
         body: [
           'Building an award-winning culture requires a lot of intentionality. Winning four consecutive Built In Best Places to Work awards was less about the award and more about creating a space for everyone on the team to thrive.',
@@ -2337,7 +2413,7 @@
         title: 'Field Events &amp; Webinar Program',
         category: 'Demand Gen',
         tags: ['Events', 'Co-Marketing', 'Pipeline', 'Webinars', 'Sequel.io', 'Snowflake', 'Databricks'],
-        impact: { num: 'Pipeline', label: 'from conferences, webinars, and follow-up' },
+        impact: { num: '6K+', label: 'annual leads' },
         aiAssisted: true,
         aiDesc: [
           'AI is present throughout the entire events program — from planning to execution to follow-up. At the planning stage, I use AI agents to draft content calendars, build out event decks, and develop hands-on lab guides. During execution, AI helps me move faster on the things that need to happen at volume: recapping sessions, turning transcripts into blog posts, drafting persona-segmented follow-up sequences. After each event, I use AI to identify the highest quality opportunities in our lead data and personalize outbound to those folks at something closer to live speed.',
@@ -2369,7 +2445,7 @@
         title: 'Plans &amp; Pricing Rollouts',
         category: 'GTM &amp; Strategy',
         tags: ['Pricing', 'GTM', 'Platform', 'Free trial', 'Launch', 'Sales Enablement'],
-        impact: { num: 'Zero-noise', label: 'launches — tiers, trial & every function aligned' },
+        impact: { num: 'Zero', label: 'surprises at launch' },
         aiAssisted: true,
         aiDesc: [
           'One of my favorite parts of leveraging AI for this project was building out pricing calculators for customers — interactive applications they could use to better understand how their usage would impact their pricing. With AI, generating these kinds of code-based applications becomes really easy, especially when we have a model in a spreadsheet that we can share with the LLM to generate those artifacts. It also builds a lot of trust and delight for customers to have a tailored pricing calculator that\'s bespoke to their needs and patterns.',
@@ -2551,6 +2627,29 @@
     const inner     = document.getElementById('overlayInner');
     const overlayCloseBtn = document.getElementById('overlayClose');
     let lastProjectTrigger = null;
+    let lastLightboxTrigger = null;
+
+    function getFocusableElements(container) {
+      if (!container) return [];
+      return Array.from(
+        container.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])')
+      ).filter(el => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true');
+    }
+
+    function trapFocusInContainer(e, container) {
+      if (e.key !== 'Tab') return;
+      const focusables = getFocusableElements(container);
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
 
     const imgLightbox    = document.getElementById('imgLightbox');
     const imgLightboxImg = document.getElementById('imgLightboxImg');
@@ -2559,6 +2658,7 @@
 
     function openImgLightbox(el) {
       if (!el || !el.dataset.lbSrc) return;
+      lastLightboxTrigger = document.activeElement;
       const src = el.dataset.lbSrc;
       const caption = el.dataset.lbCaption || '';
       const alt = el.dataset.lbAlt || '';
@@ -2572,6 +2672,7 @@
         : '';
       imgLightbox.classList.add('open');
       imgLightbox.setAttribute('aria-hidden', 'false');
+      document.getElementById('imgLightboxX')?.focus();
     }
 
     function closeImgLightbox() {
@@ -2581,6 +2682,9 @@
       imgLightboxImg.alt = '';
       imgLightboxCap.textContent = '';
       imgLightboxNote.hidden = true;
+      if (lastLightboxTrigger && typeof lastLightboxTrigger.focus === 'function') {
+        lastLightboxTrigger.focus();
+      }
     }
 
     function openProject(projectId, triggerEl) {
@@ -2644,31 +2748,6 @@
     }
 
     /* ── Event listeners ─────────────────────────────── */
-    document.querySelectorAll('.project-item').forEach(item => {
-      // Make project cards keyboard accessible and route to dedicated pages.
-      item.tabIndex = 0;
-      item.setAttribute('role', 'link');
-      const title = item.querySelector('.p-title')?.textContent?.trim();
-      if (title) item.setAttribute('aria-label', `Open project page: ${title}`);
-
-      const navigateToProject = () => {
-        const id = item.dataset.projectId;
-        if (!id || !PROJECTS[id]) return;
-        const pathname = window.location.pathname || '/';
-        const basePrefix = pathname === '/website' || pathname.startsWith('/website/')
-          ? '/website'
-          : '';
-        window.location.href = `${basePrefix}/projects/${id}/`;
-      };
-
-      item.addEventListener('click', navigateToProject);
-      item.addEventListener('keydown', e => {
-        if (e.key !== 'Enter' && e.key !== ' ') return;
-        e.preventDefault();
-        navigateToProject();
-      });
-    });
-
     overlayCloseBtn.addEventListener('click', closeOverlay);
     backdrop.addEventListener('click', closeOverlay);
 
@@ -2681,11 +2760,16 @@
     });
 
     overlay.addEventListener('keydown', e => {
+      trapFocusInContainer(e, overlay);
       if (e.key !== 'Enter' && e.key !== ' ') return;
       const lb = e.target.closest('[data-lb-src]');
       if (!lb || !overlay.classList.contains('open')) return;
       e.preventDefault();
       openImgLightbox(lb);
+    });
+
+    imgLightbox.addEventListener('keydown', e => {
+      trapFocusInContainer(e, imgLightbox);
     });
 
     document.getElementById('imgLightboxScrim').addEventListener('click', closeImgLightbox);

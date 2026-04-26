@@ -7,7 +7,7 @@ window.PROJECTS = {
         // heroImage moved into `screens` thumbnails (no dedicated hero image panel).
         heroCaption: 'Promotional banner: free two-day virtual Agentic Data & Analytics Bootcamp, with Ascend.io and Microsoft Azure sponsor lockup.',
         // heroFit removed (hero image panel no longer used).
-        impact: { num: '5,000+', label: 'registrants across two cohorts' },
+        impact: { num: '5K+', label: 'registrants' },
         links: [
           { label: 'data-and-ai-bootcamp.com', url: 'https://www.data-and-ai-bootcamp.com/' },
           { label: 'docs.ascend.io/bootcamp', url: 'https://docs.ascend.io/bootcamp/' },
@@ -50,7 +50,7 @@ window.PROJECTS = {
         title: 'Ascend Website Redesign',
         category: 'Brand &amp; Marketing',
         tags: ['Brand', 'Messaging', 'Conversion', 'Category Creation'],
-        impact: { num: '5×', label: 'conversions two weeks after launch' },
+        impact: { num: '5×', label: 'increase in conversion' },
         aiAssisted: true,
         aiDesc: [
           'This project happened in early 2024, before agents were a reliable part of the workflow. What existed were powerful language models — capable, but only as focused as the context you gave them. So I treated the AI setup as an architecture problem.',
@@ -83,7 +83,7 @@ window.PROJECTS = {
         title: 'Onboarding Program',
         category: 'People &amp; Ops',
         tags: ['Employee Experience', 'Operations', 'Retention'],
-        impact: { num: '96%', label: 'of new hires felt more effective from day one' },
+        impact: { num: '96%', label: 'effective from day one' },
         aiAssisted: true,
         aiDesc: [
           'The most recent version of this program — a 40+ page onboarding guide I built for Dru, our Fractional VP of Marketing — was built almost entirely with AI assistance. I used Claude to help structure the guide, draft role-specific sections, and keep the voice consistent across a document that long. AI is genuinely good at holding, crafting, and disseminating massive amounts of context at once. Giving agents access to internal docs, a new hire\'s background, what they need to know in week one, produces tailored, high quality resources to empower folks to start making an impact right away.',
@@ -115,7 +115,7 @@ window.PROJECTS = {
         title: 'Agentic DE Certification — 101, 201 &amp; 301',
         category: 'Education',
         tags: ['Curriculum', 'Credentialing', 'Category Creation', 'Community'],
-        impact: { num: '21', label: 'modules across three courses · 48-hour build' },
+        impact: { num: '21', label: 'modules · 48-hour build' },
         aiAssisted: true,
         aiDesc: [
           'Working with agents to build this in 48 hours was genuinely one of the most exciting things I\'ve done. The whole thing started in Cursor\'s planning mode — which is less like prompting and more like writing a spec. Before a single agent ran, I worked through a thorough implementation plan that defined the architecture, prompts for each subagent, the module outline and curriculum structure, rules and guidelines for what production-ready content actually meant in this context, and how we would grant certifications to folks who completed the courses.',
@@ -147,7 +147,7 @@ window.PROJECTS = {
         title: 'Core Value Formation',
         category: 'Culture',
         tags: ['Culture', 'Org Design', 'Facilitation', 'Leadership'],
-        impact: { num: 'Company-wide', label: 'values that held up in real decisions' },
+        impact: { num: '4', label: 'values that inspired' },
         aiAssisted: true,
         aiDesc: [
           'I used AI at two distinct points in this project. The first was in redesigning the recognition program — using it to generate ideas across a wide range, challenge the assumptions baked into the existing model, and map specific recognition formats to each of our four values. That ideation phase would have taken multiple team workshops; with AI it happened in a few focused sessions.',
@@ -171,7 +171,7 @@ window.PROJECTS = {
         title: 'AI SDR Outreach Motion',
         category: 'Revenue',
         tags: ['Revenue', 'Pipeline', 'AI', 'GTM', 'AmpleMarket', 'Outbound'],
-        impact: { num: 'Signal-based', label: 'targeting at scale — pipeline without added headcount' },
+        impact: { num: 'Agentic', label: 'targeting at scale' },
         aiAssisted: false,
         body: [
           'Getting outbound right is mostly a story of iteration. I tested a lot — AI SDR tools like Artisan, HubSpot\'s outbound agent, and others — before landing on AmpleMarket as our primary platform. AmpleMarket gave us a highly customizable agentic framework where we could leverage our own agentic expertise to tune messaging and craft more effective outbound than any other tool allowed.',
@@ -190,7 +190,7 @@ window.PROJECTS = {
         title: 'Offsites, Hackathons &amp; Team Events',
         category: 'People',
         tags: ['Culture', 'Employee Experience', 'Remote', 'Engagement'],
-        impact: { num: '50%', label: 'improvement in eNPS across program tenure' },
+        impact: { num: '50%', label: 'increase in engagement' },
         aiAssisted: true,
         aiDesc: [
           'Event production has a lot of surface area. I use AI to draft and iterate on vendor research, logistics documentation, agenda design, internal communications, activity instructions, slide deck prep and review, and more.',
@@ -220,7 +220,7 @@ window.PROJECTS = {
         title: 'Built In Best Places to Work',
         category: 'Culture',
         tags: ['Recognition', 'Awards', 'Culture', 'Employee Experience'],
-        impact: { num: '4 years', label: 'consecutive — the award follows the work' },
+        impact: { num: '4', label: 'consecutive wins' },
         aiAssisted: false,
         body: [
           'Building an award-winning culture requires a lot of intentionality. Winning four consecutive Built In Best Places to Work awards was less about the award and more about creating a space for everyone on the team to thrive.',
@@ -238,7 +238,7 @@ window.PROJECTS = {
         title: 'Field Events &amp; Webinar Program',
         category: 'Demand Gen',
         tags: ['Events', 'Co-Marketing', 'Pipeline', 'Webinars', 'Sequel.io', 'Snowflake', 'Databricks'],
-        impact: { num: 'Pipeline', label: 'from conferences, webinars, and follow-up' },
+        impact: { num: '6K+', label: 'annual leads' },
         aiAssisted: true,
         aiDesc: [
           'AI is present throughout the entire events program — from planning to execution to follow-up. At the planning stage, I use AI agents to draft content calendars, build out event decks, and develop hands-on lab guides. During execution, AI helps me move faster on the things that need to happen at volume: recapping sessions, turning transcripts into blog posts, drafting persona-segmented follow-up sequences. After each event, I use AI to identify the highest quality opportunities in our lead data and personalize outbound to those folks at something closer to live speed.',
@@ -270,7 +270,7 @@ window.PROJECTS = {
         title: 'Plans &amp; Pricing Rollouts',
         category: 'GTM &amp; Strategy',
         tags: ['Pricing', 'GTM', 'Platform', 'Free trial', 'Launch', 'Sales Enablement'],
-        impact: { num: 'Zero-noise', label: 'launches — tiers, trial & every function aligned' },
+        impact: { num: 'Zero', label: 'surprises at launch' },
         aiAssisted: true,
         aiDesc: [
           'One of my favorite parts of leveraging AI for this project was building out pricing calculators for customers — interactive applications they could use to better understand how their usage would impact their pricing. With AI, generating these kinds of code-based applications becomes really easy, especially when we have a model in a spreadsheet that we can share with the LLM to generate those artifacts. It also builds a lot of trust and delight for customers to have a tailored pricing calculator that\'s bespoke to their needs and patterns.',

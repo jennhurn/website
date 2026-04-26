@@ -1,8 +1,10 @@
+# OS/editor noise
 .DS_Store
-# Local authoring workspace — not published (GitHub Pages serves root only)
-/context/
-/outputs/
-/work/
+
+# Jekyll/Ruby build artifacts and local dependency installs
 /_site/
-decisions.md
-next-steps.md
+/.jekyll-cache/
+/.sass-cache/
+/.bundle/
+/vendor/bundle/
+/node_modules/

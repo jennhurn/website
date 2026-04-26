@@ -1,4 +1,30 @@
 (function () {
+  var lastLightboxTrigger = null;
+
+  function getFocusableElements(container) {
+    if (!container) return [];
+    return Array.prototype.slice.call(
+      container.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])')
+    ).filter(function (el) {
+      return !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden');
+    });
+  }
+
+  function trapFocusInContainer(e, container) {
+    if (e.key !== 'Tab') return;
+    var focusables = getFocusableElements(container);
+    if (!focusables.length) return;
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   function escapeAttr(str) {
     return String(str)
       .replace(/&/g, '&amp;')
@@ -106,6 +132,7 @@
     var cap = document.getElementById('imgLightboxCap');
     var note = document.getElementById('imgLightboxNote');
     if (!lb || !img || !cap || !note) return;
+    lastLightboxTrigger = document.activeElement;
     img.src = el.dataset.lbSrc;
     img.alt = el.dataset.lbAlt || '';
     cap.textContent = el.dataset.lbCaption || '';
@@ -117,6 +144,8 @@
     lb.classList.add('open');
     lb.setAttribute('aria-hidden', 'false');
     if (root) root.setAttribute('aria-hidden', 'true');
+    var closeBtn = document.getElementById('imgLightboxX');
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeImgLightbox() {
@@ -133,6 +162,9 @@
     cap.textContent = '';
     note.hidden = true;
     if (root) root.setAttribute('aria-hidden', 'false');
+    if (lastLightboxTrigger && typeof lastLightboxTrigger.focus === 'function') {
+      lastLightboxTrigger.focus();
+    }
   }
 
   function wireLightbox() {
@@ -159,6 +191,11 @@
       if (e.key !== 'Escape') return;
       var box = document.getElementById('imgLightbox');
       if (box && box.classList.contains('open')) closeImgLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      var box = document.getElementById('imgLightbox');
+      if (!box || !box.classList.contains('open')) return;
+      trapFocusInContainer(e, box);
     });
   }
 

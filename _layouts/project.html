@@ -18,6 +18,14 @@ layout: default
     color: var(--warm-gray);
   }
   .project-page-back:hover { color: var(--ink); }
+  .project-page-back:focus-visible,
+  .img-lightbox-x:focus-visible,
+  .img-lightbox-scrim:focus-visible,
+  .p-screen[tabindex="0"]:focus-visible {
+    outline: 2px solid rgba(28,25,23,0.4);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
   .project-page-back svg {
     width: 11px;
     height: 11px;
@@ -441,7 +449,7 @@ layout: default
 </a>
 <article class="project-page-shell" data-project-id="{{ page.project_id }}" id="projectRoot">
   <div class="p-overlay-inner">
-    <p class="p-overlay-p">Loading project details...</p>
+    <p class="p-overlay-p">Loading expanded case study details...</p>
   </div>
 </article>
 
