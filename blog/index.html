@@ -1,0 +1,36 @@
+---
+layout: default
+title: Blog
+---
+
+<h1 class="blog-page-title">Blog</h1>
+<p class="blog-page-subtitle">
+  Posts written in Markdown and rendered by Jekyll.
+</p>
+
+{% if site.posts.size == 0 %}
+  <p>No posts yet.</p>
+{% else %}
+  <ul class="blog-list">
+    {% for post in site.posts %}
+      <li>
+        <a class="blog-item" href="{{ post.url | relative_url }}">
+          <div class="blog-item-left">
+            <div class="blog-tag">{{ post.date | date: "%B %d, %Y" }}</div>
+            <div class="blog-item-title">{{ post.title }}</div>
+            {% if post.description %}
+              <div class="blog-item-desc">{{ post.description }}</div>
+            {% endif %}
+          </div>
+          <div class="blog-item-arrow" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0" y1="12" x2="12" y2="0" stroke="rgba(28,25,23,0.9)" stroke-width="1.6"/>
+              <polyline points="5,0 12,0 12,7" stroke="rgba(28,25,23,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+

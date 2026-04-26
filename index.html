@@ -1110,52 +1110,6 @@
       margin-bottom: 22px;
     }
 
-    /* Hero — replaced by header panel */
-    .p-overlay-hero { display: none;
-      position: relative;
-      width: 100%;
-      margin-top: 8px;
-      margin-bottom: 40px;
-      border-radius: 0;
-      overflow: visible;
-      box-shadow: none;
-      cursor: zoom-in;
-      outline: none;
-      background: #fff;
-    }
-    .p-overlay-hero:focus-visible {
-      outline: 3px solid rgba(72, 125, 231, 0.45);
-      outline-offset: 4px;
-    }
-    .p-overlay-hero-inner {
-      background: #fff;
-    }
-    .p-overlay-hero-inner:not(.p-overlay-hero-inner--contain) {
-      aspect-ratio: 2.15 / 1;
-      max-height: min(44vh, 380px);
-      min-height: 160px;
-      overflow: hidden;
-    }
-    .p-overlay-hero-inner:not(.p-overlay-hero-inner--contain) img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-    }
-    .p-overlay-hero-inner--contain img {
-      display: block;
-      width: 100%;
-      height: auto;
-      vertical-align: top;
-      object-fit: contain;
-      object-position: center top;
-    }
-    .p-overlay-hero .p-screen-expand-hint,
-    .p-overlay-hero .p-screen-ph {
-      z-index: 2;
-    }
-
     /* Impact — folded into header panel */
     .p-overlay-impact { display: none;
       display: flex;
@@ -1620,7 +1574,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
-      <li><a href="#writing">Writing</a></li>
+      <li><a href="blog/">Writing</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -1953,22 +1907,22 @@
               </div>
               <span class="w-arr w-arr--soon">Soon</span>
             </div>
-            <div class="w-row w-row-static">
+            <a class="w-row" href="2026/04/26/a-few-thoughts-on-ai-no-one-asked-for.html">
               <span class="w-n rc4">02</span>
               <div>
                 <p class="w-title">A few thoughts on AI no one asked for</p>
-                <p class="w-tag">Blog · Coming soon</p>
+                <p class="w-tag">Blog · April 26, 2026</p>
               </div>
-              <span class="w-arr w-arr--soon">Soon</span>
-            </div>
-            <div class="w-row w-row-static">
+              <span class="w-arr">↗</span>
+            </a>
+            <a class="w-row" href="2026/01/25/five-lessons-from-my-first-year-as-cos.html">
               <span class="w-n rc3">03</span>
               <div>
                 <p class="w-title">5 things I've learned as a Chief of Staff</p>
-                <p class="w-tag">Blog · Coming soon</p>
+                <p class="w-tag">Blog · January 25, 2026</p>
               </div>
-              <span class="w-arr w-arr--soon">Soon</span>
-            </div>
+              <span class="w-arr">↗</span>
+            </a>
           </div>
         </div>
         <div>
@@ -2149,9 +2103,9 @@
         title: 'Agentic Data &amp; Analytics Bootcamp',
         category: 'Marketing &amp; Sales',
         tags: ['Demand Gen', 'Education', 'Partner Marketing', 'Microsoft Azure'],
-        heroImage: 'img/bootcamp-hero-banner.png',
+        // heroImage moved into `screens` thumbnails (no dedicated hero image panel).
         heroCaption: 'Promotional banner: free two-day virtual Agentic Data & Analytics Bootcamp, with Ascend.io and Microsoft Azure sponsor lockup.',
-        heroFit: 'contain',
+        // heroFit removed (hero image panel no longer used).
         impact: { num: '5,000+', label: 'registrants across two cohorts' },
         links: [
           { label: 'data-and-ai-bootcamp.com', url: 'https://www.data-and-ai-bootcamp.com/' },
@@ -2181,8 +2135,12 @@
           ]},
         ],
         screens: [
-          { label: 'Live virtual bootcamp', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', img: 'img/bootcamp-live-webinar.png', caption: 'Live session in the webinar stack: deck, presenter feed, and attendee chat during the Agentic Data & Analytics Bootcamp.' },
-          { label: 'Curriculum & lab hub', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'img/bootcamp-docs-overview.png', caption: 'Participant-facing bootcamp home in Docusaurus — day structure, lab cards, and navigation for docs.ascend.io/bootcamp.' },
+          { label: 'Bootcamp promo banner', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', img: 'final-images/bootcamp-promo-banner.png', caption: 'Promotional banner: free two-day virtual Agentic Data &amp; Analytics Bootcamp, with Ascend.io and Microsoft Azure sponsor lockup.' },
+          { label: 'Live virtual bootcamp', gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)', img: 'final-images/bootcamp-live-lab-session.png', caption: 'Live session in the webinar stack: deck, presenter feed, and attendee chat during the Agentic Data & Analytics Bootcamp.' },
+          { label: 'Curriculum & lab hub', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'final-images/bootcamp-docs.png', caption: 'Participant-facing bootcamp home in Docusaurus — day structure, lab cards, and navigation for docs.ascend.io/bootcamp.' },
+          { label: 'Bootcamp agenda sample', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'final-images/bootcamp-agenda-sample.png', caption: 'Example agenda layout used to structure the two-day bootcamp experience.' },
+          { label: 'Bootcamp slides', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'final-images/bootcamp-slides.png', caption: 'Slide deck overview for the Agentic Data &amp; Analytics Bootcamp sessions.' },
+          { label: 'Bootcamp speakers', gradient: 'linear-gradient(135deg, #0f3460 0%, #533483 60%, #e94560 100%)', img: 'final-images/bootcamp-speakers.png', caption: 'Speaker lineup and session presence for the bootcamp.' },
         ],
         overlayStyle: 'scale',
       },
@@ -2210,8 +2168,12 @@
           'Alongside the site, we gave Otto a proper glow-up. He started as a Slack emoji someone generated at a conference table in Vegas three years ago. After about two hours and $15 on Nano Banana, he became the 3D character you see across the platform today. Friendly, curious, a little scrappy — which is pretty on-brand for how a lot of the best things at Ascend got made.',
         ],
         screens: [
-          { label: 'Homepage — Hero & Positioning', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', img: 'img/ascend-home.png', caption: 'Redesigned homepage hero and category positioning after the Agentic Data Engineering launch.' },
-          { label: 'Product & Use Case Pages', gradient: 'linear-gradient(135deg, #764ba2 0%, #f093fb 50%, #f5576c 100%)', img: 'img/ascend-agentic.png', caption: 'Product storytelling and use-case architecture from the same site program.' },
+          { label: 'Homepage — Hero & Positioning', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', img: 'final-images/website-homepage.png', caption: 'Redesigned homepage hero and category positioning after the Agentic Data Engineering launch.' },
+          { label: 'Product & Use Case Pages', gradient: 'linear-gradient(135deg, #764ba2 0%, #f093fb 50%, #f5576c 100%)', img: 'final-images/website-content2.png', caption: 'Product storytelling and use-case architecture from the same site program.' },
+          { label: 'Website content', gradient: 'linear-gradient(135deg, #764ba2 0%, #f093fb 50%, #f5576c 100%)', img: 'final-images/website-content.png', caption: 'Expanded site content layout and structured messaging across sections.' },
+          { label: 'Website social proof', gradient: 'linear-gradient(135deg, #764ba2 0%, #f093fb 50%, #f5576c 100%)', img: 'final-images/website-social-proof.png', caption: 'Social proof section presentation used to reinforce customer and community impact.' },
+          { label: 'Website information architecture in Miro', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', img: 'final-images/website-information-architecture-in-miro.png', caption: 'Information architecture mapping created in Miro for the redesigned website.' },
+          { label: 'Website design phase in Figma', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', img: 'final-images/website-design-phase-in-figma.png', caption: 'Design phase artifacts created in Figma during the website redesign.' },
         ],
         overlayStyle: 'scale',
       },
@@ -2242,8 +2204,8 @@
           ]},
         ],
         screens: [
-          { label: 'New Hire Welcome Kit', gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', img: 'img/onboarding-swag.png', caption: 'New-hire welcome swag box and note sent as part of the onboarding experience.' },
-          { label: '30/60/90 Ramp Framework', gradient: 'linear-gradient(135deg, #56ab2f 0%, #a8e063 100%)', img: 'img/team-events.png', caption: 'Placeholder: general team moment — not documentation of the 30/60/90 framework or buddy pairing system.', placeholder: true },
+          { label: 'New Hire Welcome Kit', gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', img: 'final-images/onboarding-swag.png', caption: 'New-hire welcome swag box and note sent as part of the onboarding experience.' },
+          { label: '30/60/90 Ramp Framework', gradient: 'linear-gradient(135deg, #56ab2f 0%, #a8e063 100%)', img: 'final-images/onboarding-checklist-in-Monday.com.png', caption: '30/60/90 ramp checklist view used to structure role-specific onboarding progress.' },
         ],
         overlayStyle: 'scale',
       },
@@ -2272,8 +2234,10 @@
           'The result: 21 modules across three courses — 101 for foundations, 201 for systems design, 301 for production operations — each put through multiple rounds of parallel expert review, in the same 48-hour window that would have produced maybe three or four decent drafts by hand. What surprised me wasn\'t the speed. It was how the review structure changed the content. Eight independent reviewers with no shared context don\'t just catch errors — they surface tensions. The modules that went through the most revision rounds are consistently the strongest. The process didn\'t save us from hard thinking. It organized and accelerated it.',
         ],
         screens: [
-          { label: '101 Foundations Track', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', img: 'img/certification-assessment.png', caption: 'ADE Learning Path maturity assessment inside the certification experience.' },
-          { label: '301 Advanced Practitioner Track', gradient: 'linear-gradient(135deg, #0099f7 0%, #4facfe 50%, #00f2fe 100%)', img: 'img/agentic-code-review.png', caption: 'Placeholder: Ascend product UI (agentic code review) — illustrative of production/agent themes, not a screenshot of certification MDX or course player.', placeholder: true },
+          { label: '101 Foundations Track — Introduction', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', img: 'final-images/certification-101-introduction.png', caption: '101 Foundations Track introduction screen inside the certification experience.' },
+          { label: '101 Foundations Track — Maturity Assessment', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', img: 'final-images/certification-ai-maturity-assessment.png', caption: 'ADE Learning Path maturity assessment inside the certification experience.' },
+          { label: 'Certification Modules Overview', gradient: 'linear-gradient(135deg, #0099f7 0%, #4facfe 50%, #00f2fe 100%)', img: 'final-images/certification-modules.png', caption: 'Module selection and overview across the certification track.' },
+          { label: '301 Advanced Practitioner Track — Module Quiz', gradient: 'linear-gradient(135deg, #0099f7 0%, #4facfe 50%, #00f2fe 100%)', img: 'final-images/certification-module-quiz.png', caption: 'Quiz and assessment interface used to validate mastery for the advanced track.' },
         ],
         overlayStyle: 'scale',
       },
@@ -2296,8 +2260,8 @@
           'Engagement skyrocketed. Belief in what the team could accomplish increased. Morale improved. The bar I always use for values work: do they change anything? Does someone make a different hiring decision, give harder feedback, hold a tougher line — because of the values? Ours passed that test. They showed up in performance reviews, in how we talked about hard decisions, and in what we celebrated. That\'s what made the program worth doing.',
         ],
         screens: [
-          { label: 'Listening Sessions & Synthesis', gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)', img: 'img/offsite.png', caption: 'Placeholder: team offsite photo — not from listening sessions or synthesis workshops specifically.', placeholder: true },
-          { label: 'Values in Practice', gradient: 'linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)', img: 'img/team-events.png', caption: 'Placeholder: generic team gathering — swap for recognition rollout, scavenger hunt, or awards imagery when available.', placeholder: true },
+          { label: 'Core Values', gradient: 'linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)', img: 'final-images/core-values.png', caption: 'Core values definition and rollout foundation for the organization.' },
+          { label: 'Core Values Rollout Slides', gradient: 'linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)', img: 'final-images/core-values-rollout-slides.png', caption: 'In-person rollout materials used to reinforce the core value system.' },
         ],
         overlayStyle: 'scale',
       },
@@ -2315,8 +2279,8 @@
           'Other learnings: micro-campaigns of 20–50 people beat big blasts; the signal layer separated research from spam; LinkedIn outreach was far more effective than any other channel.',
         ],
         screens: [
-          { label: 'Signal Targeting & Sequence Architecture', gradient: 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)', img: 'img/pipeline-DAG.png', caption: 'Placeholder: Ascend pipeline product UI — not AmpleMarket, outbound sequences, or signal definitions from this motion.', placeholder: true },
-          { label: 'Personalization & Message Testing', gradient: 'linear-gradient(135deg, #3498db 0%, #2ecc71 100%)', img: 'img/email-alerting-automation.png', caption: 'Placeholder: Ascend automation / alerting UI — not inbox copy tests or SDR tooling from this program.', placeholder: true },
+          { label: 'Signal Targeting & Sequence Architecture', gradient: 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)', img: 'final-images/AI-SDR-custom instructions.png', caption: 'Custom instruction setup used to guide the AI SDR motion.' },
+          { label: 'Personalization & Message Testing', gradient: 'linear-gradient(135deg, #3498db 0%, #2ecc71 100%)', img: 'final-images/AI-SDR-signal-based-outreach.png', caption: 'Signal-based outreach flow used to drive targeted sequencing and personalization.' },
         ],
         overlayStyle: 'scale',
       },
@@ -2343,8 +2307,10 @@
           'Within my first six months at Ascend, we saw a 50% improvement in eNPS. I\'d be the first to say that\'s not entirely attributable to events — a lot of things go into whether people feel good about where they work. But building out these programs has been one of the most rewarding parts of my time at Ascend, and I\'ve loved continuing to invest in them.',
         ],
         screens: [
-          { label: 'Company All-Hands & Offsites', gradient: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)', img: 'img/offsite.png', caption: 'In-person company offsite — the kind of all-hands and retreat programming this case study describes.' },
-          { label: 'Hackathon & Team Sprints', gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 50%, #f953c6 100%)', img: 'img/team-events.png', caption: 'Internal hackday / team sprint energy — aligned with Ascend Hackdays like “Agents Assemble.”' },
+          { label: 'Company All-Hands & Offsites', gradient: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)', img: 'final-images/team-event-offsite-in-San-Diego.png', caption: 'In-person company offsite — the kind of all-hands and retreat programming this case study describes.' },
+          { label: 'Team Volunteering', gradient: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)', img: 'final-images/team-events-volunteering.png', caption: 'Team volunteering session used to reinforce culture and shared purpose.' },
+          { label: 'Hackathon & Team Sprints (AI in Wonderland)', gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 50%, #f953c6 100%)', img: 'final-images/team-events-hackathon-AI-in-Wonderland-Theme.png', caption: 'Hackathon theme artwork representing an AI in Wonderland event format.' },
+          { label: 'Hackathon & Team Sprints (Agents Assemble)', gradient: 'linear-gradient(135deg, #ffd200 0%, #f7971e 50%, #f953c6 100%)', img: 'final-images/team-events-hackathon-agentic-assemble-avengers-themed.png', caption: 'Internal hackday / team sprint energy — aligned with Ascend Hackdays like “Agents Assemble.”' },
         ],
         overlayStyle: 'scale',
       },
@@ -2361,8 +2327,8 @@
           'Four years is a long time to sustain something in a startup environment where everything else is changing constantly. Headcount fluctuated, the product evolved, the market shifted. What stayed consistent was a genuine commitment to the people side of the company. The award was nice. The part that mattered was what it confirmed.',
         ],
         screens: [
-          { label: 'Award Campaigns & Press', gradient: 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)', img: 'img/ascend-builtin.png', caption: 'Built In Best Places to Work listing — matches the external recognition this case study references.' },
-          { label: 'Employee Survey Results', gradient: 'linear-gradient(135deg, #ff4b2b 0%, #f7971e 100%)', img: 'img/ascend-careers.png', caption: 'Placeholder: careers page — not Built In survey dashboards or raw employee survey exports.', placeholder: true },
+          { label: 'Award Campaigns & Press', gradient: 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)', img: 'final-images/best-places-to-work-award.png', caption: 'Built In Best Places to Work listing — matches the external recognition this case study references.' },
+          { label: 'Employee Survey Results', gradient: 'linear-gradient(135deg, #ff4b2b 0%, #f7971e 100%)', img: 'final-images/best-places-to-work-2025-blog-post.png', caption: 'Built In 2025 announcement content reflecting the survey-backed recognition.' },
         ],
         overlayStyle: 'scale',
       },
@@ -2389,8 +2355,12 @@
           'The result was thousands of marketing qualified leads a year and a brand presence that showed up consistently wherever our customers were.',
         ],
         screens: [
-          { label: 'Field Events — Partner Co-Marketing', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', img: 'img/field-events.png', caption: 'Conference / field presence and partner co-marketing footprint from the events program.' },
-          { label: 'Sequel.io, Event Hub & Content Flywheel', gradient: 'linear-gradient(135deg, #38f9d7 0%, #4facfe 100%)', img: 'img/ascend-events.png', caption: 'Ascend events hub and programming on the site — related to the webinar + hub narrative; confirm it is the Sequel-era hub you want shown.', placeholder: true },
+          { label: 'Field Events — Snowflake World Tour Booth', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', img: 'final-images/field-events-snowflake-world-tour-booth.png', caption: 'Conference / field presence and partner co-marketing footprint from the events program.' },
+          { label: 'Field Events — Snowflake Summit Booth', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', img: 'final-images/field-events-snowflake-summit-booth.png', caption: 'Booth presence supporting partner co-marketing and field engagement at Snowflake Summit.' },
+          { label: 'Field Events — Sequel.io Event Hub', gradient: 'linear-gradient(135deg, #38f9d7 0%, #4facfe 100%)', img: 'final-images/field-events-sequel.io-event-hub.png', caption: 'Sequel.io-powered event hub entry point on the site for webinar content and follow-up.' },
+          { label: 'Field Events — Sequel.io Dashboard', gradient: 'linear-gradient(135deg, #38f9d7 0%, #4facfe 100%)', img: 'final-images/field-events-sequel.io-dashboard.png', caption: 'Operational dashboard view used for event execution and follow-up motion.' },
+          { label: 'Field Events — Hands-on Lab Build', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', img: 'final-images/field-events-Hands on Lab- Build API  Intesgtion Pipelines with AI.png', caption: 'Hands-on lab guide: Build API integration pipelines with AI.' },
+          { label: 'Field Events — AWS Webinar Promo', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', img: 'final-images/Field-Events-Agentic Data Engineering on AWS Webinar Promo.png', caption: 'Promotional artwork for the Agentic Data Engineering on AWS webinar campaign.' },
         ],
         overlayStyle: 'scale',
       },
@@ -2410,8 +2380,8 @@
           'The hardest part of pricing work is that it touches everything simultaneously: product, sales, finance, customer success, and the customers themselves. My job was to hold all of those threads coherent — making sure the tiers made sense, the messaging was consistent across every function, and the launch landed without confusion or noise. Pricing changes that go well are invisible. That\'s the goal.',
         ],
         screens: [
-          { label: 'Platform Tiers, Models & Migration', gradient: 'linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%)', img: 'img/pricing.png', caption: 'Ascend pricing layout showing Explorer, Adventurer, and Standard tiers during the pricing rollout.', placeholder: false },
-          { label: 'Free Trial, Finance & Launch Comms', gradient: 'linear-gradient(135deg, #3a6073 0%, #1a1a2e 100%)', img: 'img/run-query.png', caption: 'Placeholder: in-product query UI — not trial landing pages, sales enablement, or customer email screenshots.', placeholder: true },
+          { label: 'Platform Tiers, Models & Migration', gradient: 'linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%)', img: 'final-images/pricing.png', caption: 'Ascend pricing layout showing Explorer, Adventurer, and Standard tiers during the pricing rollout.', placeholder: false },
+          { label: 'Free Trial, Finance & Launch Comms', gradient: 'linear-gradient(135deg, #3a6073 0%, #1a1a2e 100%)', img: 'final-images/pricing-interactive-calculator.png', caption: 'Interactive pricing calculator used to align trial, finance, and launch messaging.' },
         ],
         overlayStyle: 'scale',
       },
@@ -2500,34 +2470,6 @@
         <div class="p-overlay-links">
           ${p.links.map(l => `<a class="p-overlay-link" href="${escapeAttr(l.url)}" target="_blank" rel="noopener noreferrer">${l.label}<span class="p-link-ext" aria-hidden="true">↗</span></a>`).join('')}
         </div>` : '';
-
-      const firstWithImg = Array.isArray(p.screens) ? p.screens.find(s => s.img) : null;
-      const heroSrcRaw = (p.heroImage != null && p.heroImage !== '')
-        ? p.heroImage
-        : ((firstWithImg && firstWithImg.img) || '');
-      let heroBlock = '';
-      if (heroSrcRaw) {
-        const useFirstMeta = !p.heroImage && firstWithImg;
-        const heroCaption = (p.heroCaption != null && p.heroCaption !== '')
-          ? p.heroCaption
-          : (useFirstMeta && firstWithImg.caption)
-            ? firstWithImg.caption
-            : stripHtmlEntities(p.title);
-        const heroPh = p.heroPlaceholder === true || (useFirstMeta && firstWithImg.placeholder === true);
-        const phBadge = heroPh ? '<span class="p-screen-ph">Unconfirmed</span>' : '';
-        const hint = '<span class="p-screen-expand-hint">Expand</span>';
-        const altImg = 'Preview: ' + stripHtmlEntities(p.title);
-        const dataLb = ` data-lb-src="${escapeAttr(heroSrcRaw)}" data-lb-caption="${escapeAttr(heroCaption)}" data-lb-alt="${escapeAttr(altImg)}" data-lb-placeholder="${heroPh ? '1' : '0'}"`;
-        const a11y = escapeAttr('View larger — ' + heroCaption);
-        const innerFitClass = p.heroFit === 'contain' ? ' p-overlay-hero-inner--contain' : '';
-        heroBlock = `
-        <div class="p-overlay-hero"${dataLb} tabindex="0" role="button" aria-label="${a11y}">
-          <div class="p-overlay-hero-inner${innerFitClass}">
-            <img src="${escapeAttr(heroSrcRaw)}" alt="${escapeAttr(altImg)}" loading="lazy" width="1600" height="800" draggable="false" />
-          </div>
-          ${phBadge}${hint}
-        </div>`;
-      }
 
       const screensHTML = p.screens.map(s => {
         const hasImg = Boolean(s.img);
@@ -2703,21 +2645,27 @@
 
     /* ── Event listeners ─────────────────────────────── */
     document.querySelectorAll('.project-item').forEach(item => {
-      // Make project cards keyboard accessible (JS listeners assume focus can land on the card).
+      // Make project cards keyboard accessible and route to dedicated pages.
       item.tabIndex = 0;
-      item.setAttribute('role', 'button');
+      item.setAttribute('role', 'link');
       const title = item.querySelector('.p-title')?.textContent?.trim();
-      if (title) item.setAttribute('aria-label', `Open project: ${title}`);
+      if (title) item.setAttribute('aria-label', `Open project page: ${title}`);
 
-      item.addEventListener('click', () => {
+      const navigateToProject = () => {
         const id = item.dataset.projectId;
-        if (id) openProject(id, item);
-      });
+        if (!id || !PROJECTS[id]) return;
+        const pathname = window.location.pathname || '/';
+        const basePrefix = pathname === '/website' || pathname.startsWith('/website/')
+          ? '/website'
+          : '';
+        window.location.href = `${basePrefix}/projects/${id}/`;
+      };
+
+      item.addEventListener('click', navigateToProject);
       item.addEventListener('keydown', e => {
         if (e.key !== 'Enter' && e.key !== ' ') return;
         e.preventDefault();
-        const id = item.dataset.projectId;
-        if (id) openProject(id, item);
+        navigateToProject();
       });
     });
 
