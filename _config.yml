@@ -1,0 +1,10 @@
+title: "Jenny Hurn"
+description: "Jenny Hurn — I take on the projects, puzzles, and problems nobody's claimed yet."
+url: "https://jennyhurn.github.io"
+baseurl: "/website"
+
+# Jekyll 4 defaults:
+markdown: kramdown
+
+plugins: []
+
