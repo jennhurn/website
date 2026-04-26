@@ -1,10 +1,9 @@
 ---
-
-## layout: post
-
-title: "A Few Thoughts on AI No One Asked For"  
-date: 2026-03-14  
+layout: post
+title: "A Few Thoughts on AI No One Asked For"
+date: 2026-03-14
 description: "Candid thoughts on AI, creativity, cost, and uncertainty."
+---
 
 1. I cannot believe how much I can get done.
 2. Sometimes, when I'm loading the dishwasher, I think about prompting an AI to do it instead. Then I sigh and load the dishwasher.
