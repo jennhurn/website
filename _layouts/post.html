@@ -20,6 +20,11 @@
         --warm-gray: #9A908A;
         --border: rgba(0,0,0,0.11);
         --hover-bg: rgba(255,255,255,0.45);
+        --c1: #e81416;
+        --c2: #ffa500;
+        --c3: #79c314;
+        --c4: #70369d;
+        --c5: #487de7;
 
         --fd: 'Fraunces', Georgia, serif;
         --fb: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -183,6 +188,18 @@
       .post {
         padding: 28px 28px 40px;
         border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .post::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--c1), var(--c2), var(--c3), var(--c5), var(--c4));
+        opacity: 0.85;
       }
       .post h1 {
         margin: 0 0 10px;
@@ -200,14 +217,77 @@
       .post {
         line-height: 1.75;
       }
+      .post p {
+        margin: 0 0 1.5em;
+      }
+      .post p:last-child {
+        margin-bottom: 0;
+      }
+      .post ul,
+      .post ol {
+        margin: 0 0 1.5em 1.2em;
+      }
+      .post li {
+        margin-bottom: 0.55em;
+      }
+      .post li:last-child {
+        margin-bottom: 0;
+      }
       .post img {
         max-width: 100%;
         border: 1px solid var(--border);
         border-radius: 10px;
       }
       .post h2 {
-        margin: 22px 0 10px;
+        margin: 28px 0 10px;
         font-size: 1.35rem;
+        color: var(--c5);
+        position: relative;
+        padding-left: 12px;
+      }
+      .post h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.2em;
+        bottom: 0.2em;
+        width: 3px;
+        border-radius: 2px;
+        background: linear-gradient(180deg, var(--c5), var(--c4));
+      }
+      .post h3 {
+        margin: 24px 0 10px;
+        color: var(--c4);
+      }
+      .post a {
+        color: #3d5a9e;
+        text-decoration: underline;
+        text-decoration-color: rgba(61,90,158,0.35);
+        text-underline-offset: 2px;
+      }
+      .post a:hover {
+        color: var(--ink);
+        text-decoration-color: rgba(28,25,23,0.45);
+      }
+      .post blockquote {
+        margin: 1.6em 0;
+        padding: 0.9em 1em 0.9em 1.05em;
+        border-left: 3px solid var(--c2);
+        background: rgba(255,165,0,0.08);
+        border-radius: 0 10px 10px 0;
+      }
+      .post blockquote p:last-child {
+        margin-bottom: 0;
+      }
+      .post ul li::marker,
+      .post ol li::marker {
+        color: var(--c5);
+      }
+      .post hr {
+        border: 0;
+        height: 0;
+        margin: 0;
+        display: none;
       }
 
       code, pre {

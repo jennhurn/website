@@ -1907,22 +1907,22 @@
               </div>
               <span class="w-arr w-arr--soon">Soon</span>
             </div>
-            <div class="w-row w-row-static">
+            <a class="w-row" href="2026/04/26/a-few-thoughts-on-ai-no-one-asked-for.html">
               <span class="w-n rc4">02</span>
               <div>
                 <p class="w-title">A few thoughts on AI no one asked for</p>
-                <p class="w-tag">Blog · Coming soon</p>
+                <p class="w-tag">Blog · April 26, 2026</p>
               </div>
-              <span class="w-arr w-arr--soon">Soon</span>
-            </div>
-            <div class="w-row w-row-static">
+              <span class="w-arr">↗</span>
+            </a>
+            <a class="w-row" href="2026/01/25/five-lessons-from-my-first-year-as-cos.html">
               <span class="w-n rc3">03</span>
               <div>
                 <p class="w-title">5 things I've learned as a Chief of Staff</p>
-                <p class="w-tag">Blog · Coming soon</p>
+                <p class="w-tag">Blog · January 25, 2026</p>
               </div>
-              <span class="w-arr w-arr--soon">Soon</span>
-            </div>
+              <span class="w-arr">↗</span>
+            </a>
           </div>
         </div>
         <div>
@@ -2645,21 +2645,27 @@
 
     /* ── Event listeners ─────────────────────────────── */
     document.querySelectorAll('.project-item').forEach(item => {
-      // Make project cards keyboard accessible (JS listeners assume focus can land on the card).
+      // Make project cards keyboard accessible and route to dedicated pages.
       item.tabIndex = 0;
-      item.setAttribute('role', 'button');
+      item.setAttribute('role', 'link');
       const title = item.querySelector('.p-title')?.textContent?.trim();
-      if (title) item.setAttribute('aria-label', `Open project: ${title}`);
+      if (title) item.setAttribute('aria-label', `Open project page: ${title}`);
 
-      item.addEventListener('click', () => {
+      const navigateToProject = () => {
         const id = item.dataset.projectId;
-        if (id) openProject(id, item);
-      });
+        if (!id || !PROJECTS[id]) return;
+        const pathname = window.location.pathname || '/';
+        const basePrefix = pathname === '/website' || pathname.startsWith('/website/')
+          ? '/website'
+          : '';
+        window.location.href = `${basePrefix}/projects/${id}/`;
+      };
+
+      item.addEventListener('click', navigateToProject);
       item.addEventListener('keydown', e => {
         if (e.key !== 'Enter' && e.key !== ' ') return;
         e.preventDefault();
-        const id = item.dataset.projectId;
-        if (id) openProject(id, item);
+        navigateToProject();
       });
     });
 
