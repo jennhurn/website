@@ -1,17 +1,452 @@
 ---
+layout: default
 title: Projects
-description: "Project stories and case studies."
+description: "Case studies across GTM, people operations, and strategy programs."
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="0; url={{ '/#work' | relative_url }}" />
-  <title>Projects</title>
-</head>
-<body>
-  <script>window.location.replace("{{ '/#work' | relative_url }}");</script>
-  <p>Redirecting to projects section...</p>
-</body>
-</html>
+<style>
+  .section-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .work-intro {
+    font-family: var(--fd);
+    font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+    font-weight: 700;
+    font-style: italic;
+    font-variation-settings: 'opsz' 72;
+    line-height: 1.15;
+    max-width: 18ch;
+    margin-bottom: 56px;
+    color: var(--ink);
+  }
+  .work-intro del {
+    font-style: normal;
+    text-decoration-thickness: 1px;
+    opacity: 0.72;
+  }
+  .work-intro del.grad-text {
+    opacity: 1;
+    text-decoration-color: rgba(28,25,23,0.35);
+  }
+  .project-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .project-item {
+    position: relative;
+    border-radius: 16px;
+    border: 0.5px solid var(--border);
+    background: rgba(255,255,255,0.84);
+    overflow: hidden;
+    transition: border-color 0.25s ease;
+  }
+  .project-item:hover { border-color: rgba(0,0,0,0.22); }
+  .project-link-cover {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border-radius: 16px;
+  }
+  .project-link-cover:focus-visible {
+    outline: 2px solid rgba(28,25,23,0.4);
+    outline-offset: 3px;
+  }
+  .project-row {
+    display: grid;
+    grid-template-columns: 165px 1fr;
+    min-height: 200px;
+  }
+  .p-color-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    overflow: hidden;
+    background: #F6F0E8;
+  }
+  .p-color-panel-puzzle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+  .p-color-panel-puzzle svg {
+    width: 40px;
+    height: 40px;
+    display: block;
+  }
+  .p-color-panel-num {
+    font-family: var(--fd);
+    font-weight: 900;
+    font-style: italic;
+    font-variation-settings: 'opsz' 144;
+    font-size: clamp(2.8rem, 5vw, 3.8rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .p-color-panel-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1C1917;
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+  }
+  .p-info {
+    padding: 26px 28px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 0.5px solid rgba(28,25,23,0.07);
+  }
+  .p-num {
+    font-family: var(--fb);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  .rc1 { color: var(--c1); }
+  .rc2 { color: var(--c2); }
+  .rc3 { color: var(--c3); }
+  .rc4 { color: var(--c4); }
+  .rc5 { color: var(--c5); }
+  .rc6 { color: var(--c6); }
+  .rc7 { color: var(--c7); }
+  .grad-text {
+    background: linear-gradient(115deg, #e81416 0%, #ffa500 35%, #79c314 70%, #487de7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .p-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .p-cat {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+  .ai-pill {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #487de7;
+    background: rgba(72,125,231,0.1);
+    border: 0.5px solid rgba(72,125,231,0.3);
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-left: auto;
+  }
+  .p-title {
+    font-family: var(--fd);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .p-desc {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.72;
+    color: rgba(28,25,23,0.78);
+    max-width: 64ch;
+  }
+  .p-bottom {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+  .p-arrow {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.12);
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,0.6);
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  }
+  .p-arrow svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--ink);
+    stroke-width: 1.6;
+    fill: none;
+    transition: transform 0.25s ease, stroke 0.25s ease;
+  }
+  .project-item:hover .p-arrow {
+    transform: translateX(2px);
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .project-item:hover .p-arrow svg { stroke: var(--cream); }
+  @media (max-width: 820px) {
+    .project-row {
+      grid-template-columns: 1fr;
+      min-height: unset;
+    }
+    .p-color-panel {
+      min-height: 160px;
+      padding: 20px;
+    }
+    .p-color-panel-puzzle { width: 32px; height: 32px; }
+    .p-color-panel-puzzle svg { width: 32px; height: 32px; }
+  }
+  @media (max-width: 560px) {
+    .ai-pill { display: none; }
+    .p-color-panel-num { font-size: 2.2rem; }
+  }
+</style>
+
+<section class="work" id="work">
+  <div class="section-wrap">
+    <h1 class="section-eyebrow rc1">Selected Work</h1>
+    <h2 class="work-intro">Projects, puzzles, and other <del class="grad-text">obsessions</del> pursuits.</h2>
+    <ul class="project-list" id="projectList">
+      <li class="project-item" data-project-id="bootcamp">
+        <a class="project-link-cover" href="{{ '/projects/bootcamp/' | relative_url }}" aria-label="Open project page: Agentic Data &amp; Analytics Bootcamp"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(232,20,22,0.55),rgba(255,165,0,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#e81416">5K+</div>
+            <div class="p-color-panel-label">registrants</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc1">01</span>
+                <span class="p-cat">Marketing &amp; Sales</span>
+                <span class="ai-pill">✦ AI Assisted</span>
+              </div>
+              <div class="p-title">Agentic Data &amp; Analytics Bootcamp</div>
+              <p class="p-desc">We built a two-day, multi-track practitioner bootcamp from nothing in six weeks — speakers, partners, full content architecture. The category was new and so was the playbook. By the end, people weren&apos;t just learning about agentic data engineering. They were building data pipelines with agents.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+      <li class="project-item" data-project-id="website">
+        <a class="project-link-cover" href="{{ '/projects/website/' | relative_url }}" aria-label="Open project page: Ascend Website Redesign"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(255,165,0,0.52),rgba(121,195,20,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#eb9534">5&times;</div>
+            <div class="p-color-panel-label">increase in conversion</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc2">02</span>
+                <span class="p-cat">Brand &amp; Marketing</span>
+                <span class="ai-pill">✦ AI Assisted</span>
+              </div>
+              <div class="p-title">Ascend Website Redesign</div>
+              <p class="p-desc">We were launching a new product and our website wasn&apos;t telling the right story. I led a full overhaul — new positioning, new design system, new content architecture — shipped in six weeks. Website traffic doubled. Conversions increased 5x. Also: Otto got a glow-up.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+      <li class="project-item" data-project-id="onboarding">
+        <a class="project-link-cover" href="{{ '/projects/onboarding/' | relative_url }}" aria-label="Open project page: New Hire Onboarding Program"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(121,195,20,0.5),rgba(72,125,231,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#26a633">96%</div>
+            <div class="p-color-panel-label">effective from day one</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc3">03</span>
+                <span class="p-cat">People &amp; Ops</span>
+                <span class="ai-pill">✦ AI Assisted</span>
+              </div>
+              <div class="p-title">New Hire Onboarding Program</div>
+              <p class="p-desc">Onboarding existed but it wasn&apos;t consistent — different roles, different levels of support, different experiences depending on who you happened to sit next to. I built a program that worked the same way regardless of role or time zone. 96% of new hires reported feeling more effective from day one.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+      <li class="project-item" data-project-id="certification">
+        <a class="project-link-cover" href="{{ '/projects/certification/' | relative_url }}" aria-label="Open project page: Agentic Data Engineering Certification"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(72,125,231,0.52),rgba(112,54,157,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#1a4ab8">21</div>
+            <div class="p-color-panel-label">modules &middot; 48-hour build</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc5">04</span>
+                <span class="p-cat">Education</span>
+                <span class="ai-pill">✦ AI Assisted</span>
+              </div>
+              <div class="p-title">Agentic Data Engineering Certification — 101, 201 &amp; 301</div>
+              <p class="p-desc">We wanted to establish Ascend as the definitive voice in agentic data engineering. So I built a three-course certification curriculum — 101, 201, and 301 — in 48 hours using a multi-agent workflow. Research agents, writer agents, eight parallel reviewer agents. Twenty-one production-ready modules came out.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+      <li class="project-item" data-project-id="values">
+        <a class="project-link-cover" href="{{ '/projects/values/' | relative_url }}" aria-label="Open project page: Core Value Formation"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(112,54,157,0.52),rgba(75,54,157,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#4a1870">4</div>
+            <div class="p-color-panel-label">values that inspired</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc4">05</span>
+                <span class="p-cat">Culture</span>
+                <span class="ai-pill">✦ AI Assisted</span>
+              </div>
+              <div class="p-title">Core Value Formation</div>
+              <p class="p-desc">A core values program that worked fine on paper and didn&apos;t feel alive. Redesigned the recognition model, ran an in-person rollout with a scavenger hunt through California Avenue. The bar: do the values change anything? Ours did.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+      <li class="project-item" data-project-id="aisdr">
+        <a class="project-link-cover" href="{{ '/projects/aisdr/' | relative_url }}" aria-label="Open project page: AI SDR Outreach Motion"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(75,54,157,0.52),rgba(72,125,231,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#2e1e7a;font-size:clamp(1.6rem,3vw,2.2rem)">Agentic</div>
+            <div class="p-color-panel-label">targeting at scale</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc7">06</span>
+                <span class="p-cat">Revenue</span>
+                <span class="ai-pill">✦ AI Assisted</span>
+              </div>
+              <div class="p-title">AI SDR Outreach Motion</div>
+              <p class="p-desc">Getting outbound right was iteration — tested AI SDR, Artisan, HubSpot&apos;s agent, and others before landing on AmpleMarket. Micro-campaigns of 20–50 people beat big blasts. The signal layer separated research from spam. Pipeline without added headcount.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+      <li class="project-item" data-project-id="offsites">
+        <a class="project-link-cover" href="{{ '/projects/offsites/' | relative_url }}" aria-label="Open project page: Offsites, Hackathons &amp; Team Events"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(72,125,231,0.5),rgba(121,195,20,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#1a4ab8">50%</div>
+            <div class="p-color-panel-label">increase in engagement</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc4">07</span>
+                <span class="p-cat">People</span>
+                <span class="ai-pill">✦ AI Assisted</span>
+              </div>
+              <div class="p-title">Offsites, Hackathons &amp; Team Events</div>
+              <p class="p-desc">For a remote-first team, connection isn&apos;t a nice-to-have — it&apos;s infrastructure. Quarterly in-person kickoffs, themed Hackdays, weekly all-hands, Demo Days. Within my first six months at Ascend, employee engagement improved 50%.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+      <li class="project-item" data-project-id="builtin">
+        <a class="project-link-cover" href="{{ '/projects/builtin/' | relative_url }}" aria-label="Open project page: Built In Best Places to Work"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(121,195,20,0.5),rgba(230,208,0,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#3a7a0a">4</div>
+            <div class="p-color-panel-label">consecutive wins</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc3">08</span>
+                <span class="p-cat">Culture</span>
+              </div>
+              <div class="p-title">Built In Best Places to Work</div>
+              <p class="p-desc">Building an award-winning culture requires a lot of intentionality. Winning four consecutive Built In Best Places to Work awards was less about the award and more about creating a space for everyone on the team to thrive.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+      <li class="project-item" data-project-id="field-events">
+        <a class="project-link-cover" href="{{ '/projects/field-events/' | relative_url }}" aria-label="Open project page: Field Events &amp; Webinar Program"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(230,208,0,0.52),rgba(255,165,0,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#eb9534">6K+</div>
+            <div class="p-color-panel-label">annual leads</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc2">09</span>
+                <span class="p-cat">Demand Gen</span>
+                <span class="ai-pill">✦ AI Assisted</span>
+              </div>
+              <div class="p-title">Field Events &amp; Webinar Program</div>
+              <p class="p-desc">For four years, I owned Ascend&apos;s events program end to end — from large industry conferences to a webinar program I built from the ground up. Thousands of MQLs a year and a brand presence that showed up consistently wherever our customers were.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+      <li class="project-item" data-project-id="pricing">
+        <a class="project-link-cover" href="{{ '/projects/pricing/' | relative_url }}" aria-label="Open project page: Plans &amp; Pricing Rollouts"></a>
+        <div class="project-row">
+          <div class="p-color-panel" style="background:linear-gradient(to bottom,rgba(255,165,0,0.52),rgba(232,20,22,0.1))">
+            <div class="p-color-panel-puzzle"><svg viewBox="0 0 490 471" fill="rgba(28,25,23,0.15)" xmlns="http://www.w3.org/2000/svg"><path d="M423.658,234.356c-12.438-0.003-24.01,3.457-33.869,9.468c-3.709,2.262-8.354,2.345-12.141,0.216s-6.121-6.137-6.121-10.482V155.4c0-12.027-10.109-21.7-22.139-21.7h-95.748c-4.252,0-8.188-2.248-10.349-5.909c-2.161-3.662-2.23-8.196-0.172-11.917c5.22-9.429,8.19-20.296,8.19-31.821c0-36.233-29.374-65.627-65.617-65.627c-36.232,0-65.601,29.404-65.601,65.638c0,11.523,2.97,22.385,8.187,31.811c2.061,3.723,1.999,8.258-0.163,11.923c-2.163,3.665-6.102,5.902-10.356,5.902H22.014c-12.032,0-22.013,9.673-22.013,21.7v76.237c0,4.231,2.226,8.15,5.859,10.318c3.633,2.168,8.143,2.27,11.864,0.257c9.267-5.012,19.876-7.858,31.151-7.855c36.239-0.005,65.612,29.377,65.612,65.612c0,36.238-29.373,65.616-65.612,65.606c-11.276,0-21.885-2.847-31.152-7.857c-3.725-2.014-8.234-1.92-11.871,0.25C2.216,360.139,0,364.061,0,368.294v80.76c0,12.033,9.98,21.784,22.013,21.784h327.375c12.027,0,22.139-9.751,22.139-21.784v-82.681c0-4.342,2.344-8.346,6.127-10.475c3.783-2.127,8.426-2.053,12.135,0.207c9.857,6.011,21.432,9.47,33.867,9.47c36.24,0.01,65.607-29.368,65.607-65.606C489.264,263.734,459.896,234.351,423.658,234.356z"/></svg></div>
+            <div class="p-color-panel-num" style="color:#e81416;font-size:clamp(1.8rem,3vw,2.6rem)">Zero</div>
+            <div class="p-color-panel-label">surprises at launch</div>
+          </div>
+          <div class="p-info">
+            <div>
+              <div class="p-meta">
+                <span class="p-num rc1">10</span>
+                <span class="p-cat">GTM &amp; Strategy</span>
+                <span class="ai-pill">✦ AI Assisted</span>
+              </div>
+              <div class="p-title">Plans &amp; Pricing Rollouts</div>
+              <p class="p-desc">Rebuilding pricing from the ground up is one of the hardest things a company can do. I held product, sales, finance, CS, and existing customers in one coherent story from start to finish. The launch landed without a single surprise.</p>
+            </div>
+            <div class="p-bottom"><div class="p-arrow"><svg viewBox="0 0 12 12"><line x1="0" y1="12" x2="12" y2="0"/><polyline points="5,0 12,0 12,7"/></svg></div></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

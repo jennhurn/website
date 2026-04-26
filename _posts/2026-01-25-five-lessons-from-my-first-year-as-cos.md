@@ -5,7 +5,7 @@ date: 2026-01-25
 description: "Reflections on transitions, excellence, and my undying love for to-do lists"
 ---
 
-Nothing, truly, nothing gives me more joy than crossing tasks off a to-do list. I've excelled at this my entire career. From simple tasks like sending emails to giant initiatives that require multi-phase implementation, I have worked on executing and operationalizing, and honed it into a superpower.
+Nothing, truly nothing, gives me more joy than crossing tasks off a to-do list. I've excelled at this my entire career. From simple tasks like sending emails to giant initiatives that require multi-phase implementation, I've honed execution and operationalization into a superpower.
 
 For my first three years at Ascend.io, a startup building an agentic data engineering platform, I wore a lot of hats: people operations, marketing, sales, customer success, and sometimes, even product. Not sequentially. Simultaneously. I was building the team culture and the outbound pipeline in the same week, writing the onboarding program and the campaign brief in the same afternoon. That breadth was its own education, and I'm grateful for every chaotic, overextended minute of it.
 
@@ -15,11 +15,11 @@ A year in, here's what I've learned.
 
 ## 1. I didn't just use AI this year. I learned to lead it.
 
-I was already using AI before I became a Chief of Staff. Coming from the nonprofit world, I've always had to stretch every resource as far as it will go. So leveraging tools that let me do more with less is deeply held value. What changed this year was how I related to them.
+I was already using AI before I became a Chief of Staff. Coming from the nonprofit world, I've always had to stretch every resource as far as it will go. Leveraging tools that let me do more with less is a deeply held value of mine. What changed this year was how I related to them.
 
 Somewhere in the middle of planning a two-day virtual bootcamp for thousands of registrants, building an outbound pipeline from scratch, producing technical content, running a company-wide hackathon, and handling the scope of employee experience — I stopped thinking of AI as a tool I was operating and started thinking of it as a team I was leading.
 
-That reframe changed everything. When you manage an agentic system the way you'd manage a team (with clear context sharing, defined roles, a feedback loop, and explicit expectations) the output is different. Better. More useful. And the "relationship" becomes something you can actually build on. The project that the system collaborates on derives a deeper understanding of patterns that work and documents paths towards success that exponentially improve results over time.
+That reframe changed everything. When you manage an agentic system the way you'd manage a team (with clear context sharing, defined roles, a feedback loop, and explicit expectations), the output is different. Better. More useful. And the "relationship" becomes something you can actually build on. The project the system collaborates on develops a deeper understanding of patterns that work and documents paths to success that exponentially improve results over time.
 
 I'm not claiming AI replaced human collaboration or that it's without limits. But I will say this: for the first time in my career, I felt like the ceiling on what I could accomplish wasn't set by how many people were on my team. 
 
@@ -33,13 +33,13 @@ But the Chief of Staff role asked something different of me, and it took me long
 
 The immediate gratification of clearing a to-do list can become its own form of avoidance. When you're moving fast and producing a lot, it's easy to tell yourself you're being effective — and miss the fact that you're not spending nearly enough time asking *where are we actually going* and *is this the best path to get there*?
 
-Creating space to think — not just about what needs to happen this week, but about direction, about long-term trajectory, about whether the strategy underneath the tactics is sound — is harder than it sounds when your inbox and your calendar full and your on your 6th Diet Coke of the day. But it is the work. The rest is just logistics.
+Creating space to think - not just about what needs to happen this week, but about direction, long-term trajectory, and whether the strategy underneath the tactics is sound - is harder than it sounds when your inbox is full, your calendar is packed, and you're on your sixth Diet Coke of the day. But it is the work. The rest is just logistics.
 
 I had to build that muscle deliberately. I still have to protect that space like it's sacred, because it is.
 
 ## 3. I said yes to everything. I'd do it again.
 
-In the past year, I have executed 2 two-day developer bootcamps, built a dozen data pipelines from scratch, written 7 technical blog posts, designed 15 live hands on workshops and webinars, collaborated with countless partners and customers, experiemented  with 20+ AI SDR outbound sequences, produced 4 company hackathons and 3 in-person off sites, managed speaker logistics across tens of events, built pricing calculators, and developed sales pitches. Among other things.
+In the past year, I have executed two two-day developer bootcamps, built a dozen data pipelines from scratch, written seven technical blog posts, designed 15 live hands-on workshops and webinars, collaborated with countless partners and customers, experimented with 20+ AI SDR outbound sequences, produced four company hackathons and three in-person offsites, managed speaker logistics across tens of events, built pricing calculators, and developed sales pitches. Among other things.
 
 Most of them I had never done before. And many I wasn't really sure how to get started on.
 
