@@ -1,5 +1,6 @@
 (function () {
   var lastLightboxTrigger = null;
+  var lightboxPrevBodyOverflow = '';
 
   function getFocusableElements(container) {
     if (!container) return [];
@@ -37,7 +38,8 @@
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
       .replace(/&gt;/g, '>')
-      .replace(/&quot;/g, '"');
+      .replace(/&quot;/g, '"')
+      .replace(/&apos;/g, "'");
   }
 
   function escapeHtmlText(str) {
@@ -52,6 +54,14 @@
     if (/^(https?:)?\/\//.test(path)) return path;
     var base = window.SITE_BASEURL || '';
     return base + '/' + String(path).replace(/^\/+/, '');
+  }
+
+  function ensureLightboxAtBodyRoot() {
+    var lb = document.getElementById('imgLightbox');
+    if (!lb) return;
+    if (lb.parentElement !== document.body) {
+      document.body.appendChild(lb);
+    }
   }
 
   function buildOverlayBodyHTML(body, numColor) {
@@ -99,7 +109,8 @@
       var src = withBase(s.img);
       var imgEl = hasImg ? '<img class="p-screen-img" src="' + escapeAttr(src) + '" alt="' + escapeAttr(stripHtmlEntities(s.label)) + '" loading="lazy" width="1200" height="675" draggable="false" />' : '';
       var cls = 'p-screen' + (hasImg ? ' p-screen--has-img' : '');
-      var captionText = (s.caption != null && s.caption !== '') ? s.caption : stripHtmlEntities(s.label);
+      var captionTextRaw = (s.caption != null && s.caption !== '') ? s.caption : s.label;
+      var captionText = stripHtmlEntities(captionTextRaw);
       var ph = s.placeholder === true;
       var phBadge = ph ? '<span class="p-screen-ph">Unconfirmed</span>' : '';
       var hint = hasImg ? '<span class="p-screen-expand-hint">Expand</span>' : '';
@@ -134,8 +145,8 @@
     if (!lb || !img || !cap || !note) return;
     lastLightboxTrigger = document.activeElement;
     img.src = el.dataset.lbSrc;
-    img.alt = el.dataset.lbAlt || '';
-    cap.textContent = el.dataset.lbCaption || '';
+    img.alt = stripHtmlEntities(el.dataset.lbAlt || '');
+    cap.textContent = stripHtmlEntities(el.dataset.lbCaption || '');
     var ph = el.dataset.lbPlaceholder === '1';
     note.hidden = !ph;
     note.textContent = ph
@@ -143,9 +154,11 @@
       : '';
     lb.classList.add('open');
     lb.setAttribute('aria-hidden', 'false');
+    lightboxPrevBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     if (root) root.setAttribute('aria-hidden', 'true');
     var closeBtn = document.getElementById('imgLightboxX');
-    if (closeBtn) closeBtn.focus();
+    if (closeBtn) closeBtn.focus({ preventScroll: true });
   }
 
   function closeImgLightbox() {
@@ -161,9 +174,10 @@
     img.alt = '';
     cap.textContent = '';
     note.hidden = true;
+    document.body.style.overflow = lightboxPrevBodyOverflow;
     if (root) root.setAttribute('aria-hidden', 'false');
     if (lastLightboxTrigger && typeof lastLightboxTrigger.focus === 'function') {
-      lastLightboxTrigger.focus();
+      lastLightboxTrigger.focus({ preventScroll: true });
     }
   }
 
@@ -201,6 +215,7 @@
 
   var root = document.getElementById('projectRoot');
   if (!root || !window.PROJECTS) return;
+  ensureLightboxAtBodyRoot();
   var projectId = root.dataset.projectId;
   var p = window.PROJECTS[projectId];
   if (!p) {
