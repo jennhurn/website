@@ -7,6 +7,10 @@ layout: null
     <loc>{{ '/' | absolute_url }}</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
   </url>
+  <url>
+    <loc>{{ '/resume/' | absolute_url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  </url>
   {% assign pages_for_sitemap = site.pages | where_exp: "item", "item.sitemap != false" %}
   {% for p in pages_for_sitemap %}
     {% if p.url and p.url != '/sitemap.xml' and p.url != '/robots.txt' and p.url != '/404.html' %}

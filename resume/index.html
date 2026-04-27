@@ -1,0 +1,247 @@
+---
+layout: null
+title: Resume
+permalink: /resume/
+sitemap: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jenny Hurn — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:     #487de7;
+    --blue-dim: #d4e0f9;
+    --ink:      #1C1917;
+    --muted:    #9A908A;
+    --border:   rgba(0,0,0,0.10);
+    --f: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { font-family: var(--f); background: #fff; color: var(--ink); padding: 2rem; }
+
+  #resume {
+    background: #fff;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 36px 56px 48px;
+    border: 1px solid var(--border);
+  }
+
+  #resume-header {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--blue-dim);
+  }
+
+  .header-name-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+
+  .header-name {
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .header-sep { font-size: 18pt; font-weight: 300; color: var(--muted); opacity: 0.4; }
+
+  .header-title { font-size: 16pt; font-weight: 300; color: var(--muted); letter-spacing: 0.01em; white-space: nowrap; }
+
+  .rainbow-bar {
+    display: block;
+    width: 50px;
+    height: 2px;
+    margin: 0 auto 8px;
+    background: linear-gradient(to right,
+      #e81416 0%,   #e81416 14.3%,
+      #ffa500 14.3%,#ffa500 28.6%,
+      #e6d000 28.6%,#e6d000 42.9%,
+      #79c314 42.9%,#79c314 57.1%,
+      #487de7 57.1%,#487de7 71.4%,
+      #4b369d 71.4%,#4b369d 85.7%,
+      #70369d 85.7%,#70369d 100%
+    );
+  }
+
+  .header-contact {
+    font-size: 8.5pt;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin-bottom: 3px;
+  }
+
+  .header-links { font-size: 8.5pt; }
+  .header-links a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(72,125,231,0.3); }
+  .header-links a:hover { border-bottom-color: var(--blue); }
+
+  .section-heading {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-top: 18px;
+    margin-bottom: 16px;
+  }
+
+  .org-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 14px;
+    margin-bottom: 2px;
+  }
+
+  .org-name { font-size: 11pt; font-weight: 700; color: var(--ink); }
+
+  .org-dates { font-size: 8.5pt; font-weight: 400; color: var(--muted); white-space: nowrap; margin-left: 12px; flex-shrink: 0; }
+
+  .org-context { font-size: 8pt; color: var(--muted); margin-bottom: 5px; line-height: 1.4; }
+
+  .role-title {
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 6px;
+    margin-bottom: 4px;
+  }
+
+  ul.bullets {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 4px;
+  }
+
+  ul.bullets li {
+    font-size: 9pt;
+    line-height: 1.5;
+    color: var(--ink);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+
+  ul.bullets li::before { content: '+'; position: absolute; left: 0; color: var(--blue); }
+  ul.bullets li strong { font-weight: 600; }
+
+  .text-block {
+    font-size: 9pt;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .text-block strong { font-weight: 600; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    #resume { border: none; padding: 0.4in 0.5in; max-width: 100%; }
+    .rainbow-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div id="resume">
+  <div id="resume-header">
+    <div class="header-name-row">
+      <span class="header-name">Jenny Hurn</span>
+      <span class="header-sep">·</span>
+      <span class="header-title">Chief of Staff</span>
+    </div>
+    <span class="rainbow-bar"></span>
+    <p class="header-contact">Oakland, CA · 858.449.0909 · hello@jhurn.com</p>
+    <p class="header-links">
+      <a href="https://linkedin.com/in/jhurn">LinkedIn</a> ·
+      <a href="https://jhurn.com">jhurn.com</a>
+    </p>
+  </div>
+
+  <div class="section-heading">Experience</div>
+
+  <div class="org-header">
+    <span class="org-name">Ascend.io</span>
+    <span class="org-dates">May 2022 – Present</span>
+  </div>
+  <p class="org-context">Early-stage B2B SaaS startup building an AI-powered data engineering platform</p>
+  <div class="role-title">Chief of Staff</div>
+  <ul class="bullets" id="bullets-ascend"></ul>
+
+  <div class="org-header" style="margin-top:18px;">
+    <span class="org-name">Bridges International</span>
+    <span class="org-dates">June 2014 – May 2022</span>
+  </div>
+  <p class="org-context">Nonprofit building cross-cultural communities on university campuses for international students</p>
+  <div class="role-title">Regional Director</div>
+  <ul class="bullets" id="bullets-bridges"></ul>
+
+  <div class="section-heading">Education</div>
+  <p class="text-block"><strong>Bachelor of Business Administration</strong> · Concentration in Information Systems<br>California Polytechnic State University, San Luis Obispo</p>
+
+  <div class="section-heading">Core Competencies</div>
+  <div id="competencies"></div>
+
+</div>
+
+<script>
+const ASCEND_BULLETS = [
+  `Designed and shipped a three-course Agentic Data Engineering certification curriculum (101, 201, 301) — **21 production-ready modules in 48 hours** using a **multi-agent workflow** with parallel reviewer agents.`,
+  `Own Ascend's go-to-market motion across demand generation, events, content, and sales operations, generating **6,000+ new marketing qualified leads annually** through trade shows, webinars, customer training, and Ascend's annual Data Automation Summit.`,
+  `Lead all people experience functions: designed and scaled onboarding programs (**96% of new hires reported increased effectiveness**), drive quarterly offsites and all-hands, and earned Ascend placement on BuiltIn's **Best Places to Work list for 4 consecutive years.**`,
+  `Led end-to-end product marketing rebrand for Gen3 platform launch — including full website redesign to sharpen technical positioning — delivering **5x increase in conversions and 2x traffic growth.**`,
+  `Built a marketing analytics data pipeline (GA4 + LinkedIn Ads), then layered a **multi-agent AI system on top to automate content marketing** across channels.`,
+  `Improved **employee Net Promoter Score by 50% within 6 months** (41 → 63) through structured engagement programming and cultural initiatives.`,
+  `Launched agentic workflow tooling and **AI SDR infrastructure** using HubSpot, AmpleMarket, and Zapier to scale outbound pipeline without adding headcount.`,
+  `Built the operating cadence for executive planning, OKRs, and cross-functional execution across GTM, product, engineering, customer success, and operations.`,
+];
+
+const BRIDGES_BULLETS = [
+  `Scaled, onboarded, and managed a team of 35+ to launch cross-cultural community programs on 7 university campuses, engaging 5,000+ international students annually.`,
+  `Led iterative strategic planning and KPI tracking, increasing audience engagement 21% over 3 years.`,
+  `Increased volunteer retention by 74% through 12 quarterly training programs empowering local volunteers and student leaders.`,
+  `Directed planning and execution of 5 national conferences (in-person, virtual, and hybrid), each serving 1,000+ stakeholders from 75+ nations.`,
+];
+
+const COMPETENCIES = [
+  { label: `Strategy & Ops`, text: `Cross-functional leadership, OKR development, strategic planning, roadmap planning, executive reporting, board prep, change management, process design, systems implementation` },
+  { label: `GTM`, text: `Demand generation, marketing & sales operations, events, content marketing, B2B SaaS go-to-market, category creation, product-led growth, partner & ecosystem programs, ICP scoring, outbound pipeline management` },
+  { label: `People & Culture`, text: `Employee experience, onboarding program design, performance review design, engagement programming, employer branding, interview process design` },
+  { label: `AI & Automation`, text: `LLM prompt & context engineering, multi-agent workflow design, AI agent configuration, Zapier, AI SDR tooling` },
+  { label: `Technical`, text: `Python, SQL, JavaScript, HTML/CSS, Git, ETL pipeline design, data modeling, Looker, GA4, CRM, HRIS, CMS, Webflow, WordPress, Docusaurus, Figma, Canva, Adobe, GSuite` },
+];
+
+function bold(text) {
+  return text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
+function renderBullets(bullets, targetId) {
+  const ul = document.getElementById(targetId);
+  ul.innerHTML = bullets.map((b) => `<li>${bold(b)}</li>`).join("");
+}
+
+function renderCompetencies(items, targetId) {
+  const el = document.getElementById(targetId);
+  el.innerHTML = items
+    .map((c) => `<p class="text-block"><strong>${c.label}:</strong> ${c.text}</p>`)
+    .join("");
+}
+
+renderBullets(ASCEND_BULLETS, "bullets-ascend");
+renderBullets(BRIDGES_BULLETS, "bullets-bridges");
+renderCompetencies(COMPETENCIES, "competencies");
+</script>
+</body>
+</html>
