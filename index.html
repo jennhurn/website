@@ -2476,7 +2476,8 @@
         .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>')
-        .replace(/&quot;/g, '"');
+        .replace(/&quot;/g, '"')
+        .replace(/&apos;/g, "'");
     }
 
     function escapeHtmlText(str) {
@@ -2554,7 +2555,8 @@
           ? `<img class="p-screen-img" src="${escapeAttr(s.img)}" alt="${escapeAttr(stripHtmlEntities(s.label))}" loading="lazy" width="1200" height="675" draggable="false" />`
           : '';
         const cls = 'p-screen' + (hasImg ? ' p-screen--has-img' : '');
-        const captionText = (s.caption != null && s.caption !== '') ? s.caption : stripHtmlEntities(s.label);
+        const captionTextRaw = (s.caption != null && s.caption !== '') ? s.caption : s.label;
+        const captionText = stripHtmlEntities(captionTextRaw);
         const ph = s.placeholder === true;
         const phBadge = ph ? '<span class="p-screen-ph">Unconfirmed</span>' : '';
         const hint = hasImg ? '<span class="p-screen-expand-hint">Expand</span>' : '';
@@ -2656,12 +2658,19 @@
     const imgLightboxCap = document.getElementById('imgLightboxCap');
     const imgLightboxNote = document.getElementById('imgLightboxNote');
 
+    function ensureLightboxAtBodyRoot() {
+      if (!imgLightbox) return;
+      if (imgLightbox.parentElement !== document.body) {
+        document.body.appendChild(imgLightbox);
+      }
+    }
+
     function openImgLightbox(el) {
       if (!el || !el.dataset.lbSrc) return;
       lastLightboxTrigger = document.activeElement;
       const src = el.dataset.lbSrc;
-      const caption = el.dataset.lbCaption || '';
-      const alt = el.dataset.lbAlt || '';
+      const caption = stripHtmlEntities(el.dataset.lbCaption || '');
+      const alt = stripHtmlEntities(el.dataset.lbAlt || '');
       const ph = el.dataset.lbPlaceholder === '1';
       imgLightboxImg.src = src;
       imgLightboxImg.alt = alt;
@@ -2672,7 +2681,7 @@
         : '';
       imgLightbox.classList.add('open');
       imgLightbox.setAttribute('aria-hidden', 'false');
-      document.getElementById('imgLightboxX')?.focus();
+      document.getElementById('imgLightboxX')?.focus({ preventScroll: true });
     }
 
     function closeImgLightbox() {
@@ -2683,7 +2692,7 @@
       imgLightboxCap.textContent = '';
       imgLightboxNote.hidden = true;
       if (lastLightboxTrigger && typeof lastLightboxTrigger.focus === 'function') {
-        lastLightboxTrigger.focus();
+        lastLightboxTrigger.focus({ preventScroll: true });
       }
     }
 
@@ -2750,6 +2759,7 @@
     /* ── Event listeners ─────────────────────────────── */
     overlayCloseBtn.addEventListener('click', closeOverlay);
     backdrop.addEventListener('click', closeOverlay);
+    ensureLightboxAtBodyRoot();
 
     overlay.addEventListener('click', e => {
       const lb = e.target.closest('[data-lb-src]');
