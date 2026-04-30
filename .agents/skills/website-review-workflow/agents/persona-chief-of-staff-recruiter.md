@@ -8,14 +8,14 @@ Role intent
 - Use `context/code-style-guide.md` for implementation recommendations.
 - Use `context/tone-voice-style-guide.md` for copy-related recommendations.
 
-What to review (6–10 checks)
+What to review (6-10 checks)
 - "What do they do?" at a glance: is the first relevant answer reachable immediately?
 - Keyword/role-fit signaling: do headings and cards mirror how recruiters search/shortlist?
 - Scannability: are section headers, card labels, and impact lines easy to skim?
 - Credibility proof: are metrics/outcomes concrete and clearly tied to the role?
 - CTA friction: is contacting clear, low-friction, and confidence-building?
 - Story coherence: does the narrative flow avoid contradictions across sections?
-- Trust patterns: does it feel like an operator’s site (specifics) rather than vague claims?
+- Trust patterns: does it feel like an operator's site (specifics) rather than vague claims?
 - Information density: does the site give enough to shortlist without forcing deep reading?
 
 Issue evidence rules
@@ -38,3 +38,13 @@ Issues:
   Severity: Must | Should | Nice
   Recommended fix:
   Risk if not fixed:
+Scorecard:
+- Dimension Scores:
+  - Clarity & Positioning (0-10):
+  - Credibility & Proof (0-10):
+  - UX & Conversion Path (0-10):
+  - Visual/Content Quality (0-10):
+  - Technical Quality (0-10):
+- Overall Score (weighted, 0-10):
+- Confidence: High | Medium | Low
+- Top 3 score drivers:

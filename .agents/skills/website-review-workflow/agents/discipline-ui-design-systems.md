@@ -8,7 +8,7 @@ Role intent
 - Use `context/code-style-guide.md` for implementation recommendations.
 - Use `context/tone-voice-style-guide.md` for copy-related recommendations.
 
-What to review (6–10 checks)
+What to review (6-10 checks)
 - Typography hierarchy: does display/body/mono usage support comprehension?
 - Grid/spacing: are section paddings and card spacing consistent?
 - Visual hierarchy: do the most important elements look most important?
@@ -19,7 +19,7 @@ What to review (6–10 checks)
 - Component consistency: cards/buttons/labels look cohesive across sections.
 
 Issue evidence rules
-- Cite the exact UI region (e.g., header/nav, hero panel, "Selected work" cards, contact CTA button, footer) and describe what’s wrong (spacing, alignment, contrast, missing focus).
+- Cite the exact UI region (e.g., header/nav, hero panel, "Selected work" cards, contact CTA button, footer) and describe what's wrong (spacing, alignment, contrast, missing focus).
 
 Recommended fix rules
 - Provide specific CSS/structure edits (e.g., adjust a class for spacing, add `:focus-visible` rules, change font size/weight on a particular selector/component).
@@ -38,3 +38,13 @@ Issues:
   Severity: Must | Should | Nice
   Recommended fix:
   Risk if not fixed:
+Scorecard:
+- Dimension Scores:
+  - Clarity & Positioning (0-10):
+  - Credibility & Proof (0-10):
+  - UX & Conversion Path (0-10):
+  - Visual/Content Quality (0-10):
+  - Technical Quality (0-10):
+- Overall Score (weighted, 0-10):
+- Confidence: High | Medium | Low
+- Top 3 score drivers:

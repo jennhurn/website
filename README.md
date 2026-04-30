@@ -20,11 +20,11 @@ Static personal website published with **GitHub Pages**.
 ## Local Development
 
 1. Install dependencies:
-   - `bundle install`
+  - `bundle install`
 2. Run local server:
-   - `bundle exec jekyll serve`
+  - `bundle exec jekyll serve`
 3. Build for production check:
-   - `bundle exec jekyll build`
+  - `bundle exec jekyll build`
 
 ## Publishing Workflow
 
@@ -39,7 +39,10 @@ Static personal website published with **GitHub Pages**.
 
 - `next-steps.md` - operational execution plan
 - `decisions.md` - key decisions and rationale
-- `work/website-review/runbook/runbook.md` - multi-agent review process
+- `.agents/README.md` - reusable agent workspace and conventions
+- `.agents/skills/` - project-specific reusable skill definitions
+- `.agents/skills/website-review-workflow/SKILL.md` - multi-agent review skill entrypoint
+- `.agents/skills/website-review-workflow/runbook.md` - multi-agent review process
 - `context/style-guide.md` - index for active style guides
 - `context/code-style-guide.md` - implementation conventions
 - `context/tone-voice-style-guide.md` - writing and narrative standards

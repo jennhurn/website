@@ -8,7 +8,7 @@ Role intent
 - Use `context/code-style-guide.md` for implementation recommendations.
 - Use `context/tone-voice-style-guide.md` for copy-related recommendations.
 
-What to review (6–10 checks)
+What to review (6-10 checks)
 - Tone consistency: does the site maintain a consistent professional tone?
 - Values signal: are principles or collaboration philosophy visible (not hidden)?
 - Human clarity: does "About/Now/Writing" communicate who you are to work with?
@@ -37,3 +37,13 @@ Issues:
   Severity: Must | Should | Nice
   Recommended fix:
   Risk if not fixed:
+Scorecard:
+- Dimension Scores:
+  - Clarity & Positioning (0-10):
+  - Credibility & Proof (0-10):
+  - UX & Conversion Path (0-10):
+  - Visual/Content Quality (0-10):
+  - Technical Quality (0-10):
+- Overall Score (weighted, 0-10):
+- Confidence: High | Medium | Low
+- Top 3 score drivers:

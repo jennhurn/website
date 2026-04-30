@@ -27,3 +27,8 @@ Copy/paste and fill per run.
 - Static HTML/CSS/JS site (no backend).
 - Follow `context/code-style-guide.md` for implementation recommendations.
 - Follow `context/tone-voice-style-guide.md` for copy and content recommendations.
+
+## Scoring and iteration controls
+- Publish target score: `8.00 / 10` aggregated overall
+- Minimal gain threshold: `< 0.20` round-over-round for two consecutive rounds
+- Maximum rounds before manual escalation: `6`

@@ -8,14 +8,14 @@ Role intent
 - Use `context/code-style-guide.md` for implementation recommendations.
 - Use `context/tone-voice-style-guide.md` for copy-related recommendations.
 
-What to review (6–10 checks)
+What to review (6-10 checks)
 - Operator signal: do you come across as someone who ships and drives outcomes?
 - Problem framing: do you describe challenges and how you solved them?
 - Execution evidence: are there clear "what I did" vs "what I believe" signals?
 - Narrative coherence: do sections support a consistent operator identity?
 - Credibility: are claims grounded in specifics (numbers, named programs, concrete deliverables)?
 - Differentiation: do you stand out from "AI enthusiast" noise?
-- CTA alignment: does the contact step fit an exec/cofounder’s decision process?
+- CTA alignment: does the contact step fit an exec/cofounder's decision process?
 - Legibility: can a busy exec scan and decide within minutes?
 
 Issue evidence rules
@@ -37,3 +37,13 @@ Issues:
   Severity: Must | Should | Nice
   Recommended fix:
   Risk if not fixed:
+Scorecard:
+- Dimension Scores:
+  - Clarity & Positioning (0-10):
+  - Credibility & Proof (0-10):
+  - UX & Conversion Path (0-10):
+  - Visual/Content Quality (0-10):
+  - Technical Quality (0-10):
+- Overall Score (weighted, 0-10):
+- Confidence: High | Medium | Low
+- Top 3 score drivers:

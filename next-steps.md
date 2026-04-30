@@ -43,5 +43,5 @@ Operational plan only. This file must reference current files and executable act
 - Read `README.md` for project structure and build/publish commands.
 - Read `context/tone-voice-style-guide.md` before writing or editing copy.
 - Read `context/code-style-guide.md` before making UI or code changes.
-- For quality passes, follow `work/website-review/runbook/runbook.md`.
+- For quality passes, follow `.agents/skills/website-review-workflow/runbook.md` and maintain the round-tracking dashboard template.
 - Log meaningful strategy choices in `decisions.md`.
