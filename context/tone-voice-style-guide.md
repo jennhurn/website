@@ -89,3 +89,4 @@ If a sentence sounds like a press release, rewrite it.
 - Ask for concrete source examples when calibrating voice.
 - If feedback says "not me," treat it as a reset signal, not a minor edit request.
 - Offer genuinely different options when presenting alternatives.
+

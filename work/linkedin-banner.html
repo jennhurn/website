@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jenny Hurn | LinkedIn Banner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,700;1,9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --cream: #F6F0E8;
+      --ink: #1C1917;
+      --rust: #C25435;
+      --warm-gray: #9A908A;
+      --border: rgba(0,0,0,0.11);
+      --hover-bg: rgba(255,255,255,0.45);
+      --fd: 'Fraunces', Georgia, serif;
+      --fb: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --c1: #e81416;
+      --c2: #ffa500;
+      --c3: #79c314;
+      --c4: #70369d;
+      --c5: #487de7;
+      --c6: #e6d000;
+      --c7: #4b369d;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      background: #f2eee8;
+      color: var(--ink);
+      font-family: var(--fb);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      padding: 28px;
+    }
+
+    .frame {
+      width: min(100%, 1584px);
+    }
+
+    .banner {
+      position: relative;
+      width: 1584px;
+      height: 396px;
+      overflow: hidden;
+      background: #ffffff;
+      border-radius: 0;
+      box-shadow: 0 24px 80px rgba(28, 25, 23, 0.13);
+      transform-origin: top left;
+    }
+
+    .banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.038;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(58px);
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    .orb-1 {
+      width: 430px;
+      height: 430px;
+      left: -130px;
+      top: -170px;
+      background: radial-gradient(circle, rgba(232,20,22,0.34) 0%, transparent 68%);
+    }
+
+    .orb-2 {
+      width: 420px;
+      height: 420px;
+      left: 210px;
+      top: 180px;
+      background: radial-gradient(circle, rgba(255,165,0,0.26) 0%, transparent 70%);
+    }
+
+    .orb-3 {
+      width: 510px;
+      height: 510px;
+      right: 320px;
+      top: -250px;
+      background: radial-gradient(circle, rgba(121,195,20,0.23) 0%, transparent 70%);
+    }
+
+    .orb-4 {
+      width: 520px;
+      height: 520px;
+      right: -130px;
+      bottom: -240px;
+      background: radial-gradient(circle, rgba(72,125,231,0.26) 0%, transparent 68%);
+    }
+
+    .orb-5 {
+      width: 360px;
+      height: 360px;
+      right: 150px;
+      top: 36px;
+      background: radial-gradient(circle, rgba(112,54,157,0.2) 0%, transparent 70%);
+    }
+
+    .hero-card {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50px;
+      bottom: 50px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 38px 112px 40px 420px;
+      background: rgba(255,255,255,0.7);
+      border-top: 1px solid rgba(255,255,255,0.88);
+      border-bottom: 1px solid rgba(255,255,255,0.88);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.035);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .copy-block {
+      max-width: 790px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--rust);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 1000px;
+      margin: 0;
+      font-family: var(--fd);
+      font-size: 75px;
+      font-style: italic;
+      font-variation-settings: 'opsz' 144;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 0.92;
+      text-align: right;
+    }
+
+    .grad-text {
+      background: linear-gradient(105deg, var(--c1) 0%, var(--c2) 16%, var(--c6) 30%, var(--c3) 45%, var(--c5) 62%, var(--c4) 78%, var(--c7) 100%);
+      background-size: 120% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: normal;
+    }
+
+    .subline {
+      max-width: 670px;
+      margin: 18px 0 0 auto;
+      color: rgba(28,25,23,0.74);
+      font-size: 17px;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.55;
+      text-align: right;
+    }
+
+    .rule {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 50px;
+      height: 2px;
+      z-index: 3;
+      background: linear-gradient(90deg, var(--c1), var(--c2), var(--c6), var(--c3), var(--c5), var(--c4), var(--c7));
+      opacity: 0.74;
+    }
+
+    .export-note {
+      margin: 16px 0 0;
+      color: rgba(28,25,23,0.62);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .export-note code {
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+    }
+
+    @media (max-width: 1640px) {
+      .banner {
+        transform: scale(calc((100vw - 56px) / 1584));
+      }
+
+      .frame {
+        height: calc(396px * ((100vw - 56px) / 1584) + 44px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="frame" aria-label="LinkedIn banner preview">
+    <section class="banner" aria-label="Jenny Hurn LinkedIn banner">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-4"></div>
+      <div class="orb orb-5"></div>
+      <div class="hero-card">
+        <div class="copy-block">
+          <p class="eyebrow">Chief of Staff · Operator · Builder</p>
+          <h1>Turning messy problems into <span class="grad-text">working systems.</span></h1>
+        </div>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+    </section>
+
+    <p class="export-note">Canvas size: <code>1584 × 396</code>. Export this frame as the LinkedIn profile banner image.</p>
+  </main>
+</body>
+</html>
