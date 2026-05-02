@@ -30,18 +30,9 @@
         "description": {{ meta_description | jsonify }},
         "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
         "dateModified": {{ page.date | date_to_xmlschema | jsonify }},
-        "author": {
-          "@type": "Person",
-          "name": "Jenny Hurn"
-        },
-        "publisher": {
-          "@type": "Person",
-          "name": "Jenny Hurn"
-        },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": {{ canonical_url | jsonify }}
-        },
+        "author": { "@type": "Person", "name": "Jenny Hurn" },
+        "publisher": { "@type": "Person", "name": "Jenny Hurn" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": {{ canonical_url | jsonify }} },
         "url": {{ canonical_url | jsonify }}
       }
     </script>
@@ -54,9 +45,7 @@
       *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
       :root {
-        --cream: #F6F0E8;
         --ink: #1C1917;
-        --rust: #C25435;
         --warm-gray: #9A908A;
         --border: rgba(0,0,0,0.11);
         --hover-bg: rgba(255,255,255,0.45);
@@ -65,7 +54,6 @@
         --c3: #79c314;
         --c4: #70369d;
         --c5: #487de7;
-
         --fd: 'Fraunces', Georgia, serif;
         --fb: 'Plus Jakarta Sans', system-ui, sans-serif;
       }
@@ -84,70 +72,24 @@
 
       a { color: inherit; text-decoration: none; }
 
-      /* ── FLOATING ORBS ─────────────────────────────── */
-      .orbs {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-      }
-      .orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(90px);
-        will-change: transform;
-      }
-      .orb-1 {
-        width: 680px; height: 680px;
-        background: radial-gradient(circle, rgba(232,20,22,0.28) 0%, transparent 70%);
-        top: -180px; left: -180px;
-        animation: float1 28s ease-in-out infinite;
-      }
-      .orb-2 {
-        width: 560px; height: 560px;
-        background: radial-gradient(circle, rgba(255,165,0,0.25) 0%, transparent 70%);
-        top: 5%; right: -120px;
-        animation: float2 34s ease-in-out infinite;
-        animation-delay: -8s;
-      }
-      .orb-3 {
-        width: 620px; height: 620px;
-        background: radial-gradient(circle, rgba(121,195,20,0.22) 0%, transparent 70%);
-        top: 45%; right: -160px;
-        animation: float3 26s ease-in-out infinite;
-        animation-delay: -14s;
-      }
-      .orb-4 {
-        width: 700px; height: 700px;
-        background: radial-gradient(circle, rgba(72,125,231,0.22) 0%, transparent 70%);
-        bottom: -200px; right: 10%;
-        animation: float4 32s ease-in-out infinite;
-        animation-delay: -5s;
-      }
-      .orb-5 {
-        width: 600px; height: 600px;
-        background: radial-gradient(circle, rgba(112,54,157,0.2) 0%, transparent 70%);
-        bottom: -100px; left: -150px;
-        animation: float5 29s ease-in-out infinite;
-        animation-delay: -20s;
-      }
-      .orb-6 {
-        width: 500px; height: 500px;
-        background: radial-gradient(circle, rgba(230,0,208,0.15) 0%, transparent 70%);
-        top: 35%; left: 30%;
-        animation: float6 38s ease-in-out infinite;
-        animation-delay: -11s;
-      }
+      /* ── ORBS ── */
+      .orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+      .orb { position: absolute; border-radius: 50%; filter: blur(90px); will-change: transform; }
+      .orb-1 { width: 680px; height: 680px; background: radial-gradient(circle, rgba(232,20,22,0.28) 0%, transparent 70%); top: -180px; left: -180px; animation: float1 28s ease-in-out infinite; }
+      .orb-2 { width: 560px; height: 560px; background: radial-gradient(circle, rgba(255,165,0,0.25) 0%, transparent 70%); top: 5%; right: -120px; animation: float2 34s ease-in-out infinite; animation-delay: -8s; }
+      .orb-3 { width: 620px; height: 620px; background: radial-gradient(circle, rgba(121,195,20,0.22) 0%, transparent 70%); top: 45%; right: -160px; animation: float3 26s ease-in-out infinite; animation-delay: -14s; }
+      .orb-4 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(72,125,231,0.22) 0%, transparent 70%); bottom: -200px; right: 10%; animation: float4 32s ease-in-out infinite; animation-delay: -5s; }
+      .orb-5 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(112,54,157,0.2) 0%, transparent 70%); bottom: -100px; left: -150px; animation: float5 29s ease-in-out infinite; animation-delay: -20s; }
+      .orb-6 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(230,0,208,0.15) 0%, transparent 70%); top: 35%; left: 30%; animation: float6 38s ease-in-out infinite; animation-delay: -11s; }
 
-      @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 40% { transform: translate(160px, 220px); } 70% { transform: translate(60px, 380px); } }
-      @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 35% { transform: translate(-180px, 160px); } 65% { transform: translate(-80px, 320px); } }
-      @keyframes float3 { 0%, 100% { transform: translate(0, 0); } 30% { transform: translate(-220px, -180px); } 60% { transform: translate(-100px, -300px); } }
-      @keyframes float4 { 0%, 100% { transform: translate(0, 0); } 45% { transform: translate(-200px, -160px); } 75% { transform: translate(-350px, -80px); } }
-      @keyframes float5 { 0%, 100% { transform: translate(0, 0); } 38% { transform: translate(200px, -140px); } 68% { transform: translate(320px, -260px); } }
-      @keyframes float6 { 0%, 100% { transform: translate(0, 0); } 42% { transform: translate(120px, -180px); } 72% { transform: translate(-100px, 140px); } }
+      @keyframes float1 { 0%,100%{transform:translate(0,0)} 40%{transform:translate(160px,220px)} 70%{transform:translate(60px,380px)} }
+      @keyframes float2 { 0%,100%{transform:translate(0,0)} 35%{transform:translate(-180px,160px)} 65%{transform:translate(-80px,320px)} }
+      @keyframes float3 { 0%,100%{transform:translate(0,0)} 30%{transform:translate(-220px,-180px)} 60%{transform:translate(-100px,-300px)} }
+      @keyframes float4 { 0%,100%{transform:translate(0,0)} 45%{transform:translate(-200px,-160px)} 75%{transform:translate(-350px,-80px)} }
+      @keyframes float5 { 0%,100%{transform:translate(0,0)} 38%{transform:translate(200px,-140px)} 68%{transform:translate(320px,-260px)} }
+      @keyframes float6 { 0%,100%{transform:translate(0,0)} 42%{transform:translate(120px,-180px)} 72%{transform:translate(-100px,140px)} }
 
-      /* ── GRAIN OVERLAY ───────────────────────────── */
+      /* ── GRAIN ── */
       body::after {
         content: '';
         position: fixed;
@@ -158,30 +100,27 @@
         z-index: 9999;
       }
 
-      /* ── GLASS UTILITY ────────────────────────────── */
+      /* ── PROGRESS BAR ── */
+      #progress-bar {
+        position: fixed;
+        top: 0; left: 0;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--c1), var(--c2), var(--c3), var(--c5), var(--c4));
+        z-index: 300;
+        transition: width 0.1s linear;
+      }
+
+      /* ── GLASS ── */
       .glass {
-        background: rgba(255, 255, 255, 0.72);
+        background: rgba(255,255,255,0.72);
         backdrop-filter: blur(22px);
         -webkit-backdrop-filter: blur(22px);
-        border: 1px solid rgba(255, 255, 255, 0.88);
-        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(255,255,255,0.88);
+        box-shadow: 0 4px 32px rgba(0,0,0,0.05);
       }
 
-      .section-wrap {
-        max-width: 1160px;
-        margin: 0 auto;
-        padding: clamp(2.5rem, 4vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem);
-        background: rgba(255, 255, 255, 0.72);
-        backdrop-filter: blur(22px);
-        -webkit-backdrop-filter: blur(22px);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.88);
-        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.05);
-        position: relative;
-        z-index: 1;
-        margin-top: 110px; /* offset fixed blog navbar */
-      }
-
+      /* ── NAV ── */
       nav {
         position: fixed;
         top: 0; left: 0; right: 0;
@@ -190,11 +129,10 @@
         align-items: center;
         justify-content: space-between;
         padding: 28px clamp(1.5rem, 5vw, 3.5rem);
-        background: rgba(255, 255, 255, 0.75);
+        background: rgba(255,255,255,0.75);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         box-shadow: 0 1px 0 rgba(0,0,0,0.07);
-        opacity: 1;
       }
       .nav-name {
         font-family: var(--fb);
@@ -208,8 +146,7 @@
         display: flex;
         gap: 40px;
         list-style: none;
-        padding: 0;
-        margin: 0;
+        padding: 0; margin: 0;
       }
       .nav-links a {
         font-size: 0.75rem;
@@ -217,23 +154,95 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--warm-gray);
+        transition: color 0.2s;
       }
       .nav-links a:hover { color: var(--ink); }
-      .nav-name:focus-visible,
-      .nav-links a:focus-visible,
-      .post a:focus-visible {
+      .nav-name:focus-visible, .nav-links a:focus-visible, .post a:focus-visible {
         outline: 2px solid rgba(28,25,23,0.4);
         outline-offset: 3px;
         border-radius: 8px;
       }
 
-      /* ── POST TYPOGRAPHY ───────────────────────── */
-      .post-shell {
+      /* ── PAGE LAYOUT ── */
+      .page-wrap {
+        max-width: 1280px;
         margin: 0 auto;
-        max-width: 860px;
+        padding: 130px clamp(1.5rem, 3vw, 2.5rem) 60px;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 40px;
+        align-items: start;
       }
+      .page-wrap--no-toc {
+        max-width: 860px;
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      /* ── SIDEBAR TOC ── */
+      /*
+        TOC behavior:
+        The sidebar table of contents is generated automatically from the post's <h2> headings.
+        If a heading does not already have an id, the JS below will create one.
+      */
+      .toc-sidebar {
+        grid-column: 1;
+        position: sticky;
+        top: 100px;
+        padding: 20px;
+        border-radius: 16px;
+      }
+      .page-wrap--no-toc .toc-sidebar {
+        display: none;
+      }
+      .toc-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--warm-gray);
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+      .toc-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .toc-list a {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--warm-gray);
+        padding: 6px 10px;
+        border-radius: 8px;
+        border-left: 2px solid transparent;
+        line-height: 1.4;
+        transition: all 0.2s ease;
+      }
+      .toc-list a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+      .toc-list a.active {
+        color: var(--c5);
+        border-left-color: var(--c5);
+        background: rgba(72,125,231,0.07);
+        font-weight: 600;
+      }
+
+      /* ── POST SHELL ── */
+      .post-shell {
+        min-width: 0;
+        grid-column: 2;
+      }
+      .page-wrap--no-toc .post-shell {
+        grid-column: 1;
+      }
+
+      /* ── POST CARD ── */
       .post {
-        padding: 28px 28px 40px;
+        padding: 36px 40px 48px;
         border-radius: 20px;
         position: relative;
         overflow: hidden;
@@ -241,13 +250,13 @@
       .post::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        top: 0; left: 0; right: 0;
         height: 4px;
         background: linear-gradient(90deg, var(--c1), var(--c2), var(--c3), var(--c5), var(--c4));
         opacity: 0.85;
       }
+
+      /* ── POST TYPOGRAPHY ── */
       .post h1 {
         margin: 0 0 10px;
         font-size: clamp(1.8rem, 2.8vw, 2.35rem);
@@ -258,113 +267,247 @@
       }
       .post .meta {
         color: var(--warm-gray);
-        margin-bottom: 26px;
-        font-size: 0.95rem;
+        margin-bottom: 32px;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
-      .post {
-        line-height: 1.75;
+      .meta-dot { opacity: 0.4; }
+      .post { line-height: 1.8; font-size: 1.02rem; }
+      .post p { margin: 0 0 1.5em; }
+      .post p:last-child { margin-bottom: 0; }
+      .post ul, .post ol { margin: 0 0 1.5em 1.2em; }
+      .post li { margin-bottom: 0.55em; }
+      .post li:last-child { margin-bottom: 0; }
+      .post img { max-width: 100%; border: 1px solid var(--border); border-radius: 10px; }
+      .post figure { margin: 1.8em 0; }
+      .post figure img { display: block; margin: 0 auto; }
+      .post figcaption {
+        margin-top: 0.7em;
+        color: var(--warm-gray);
+        font-size: 0.92rem;
+        line-height: 1.6;
+        font-style: italic;
+        text-align: center;
       }
-      .post p {
-        margin: 0 0 1.5em;
-      }
-      .post p:last-child {
-        margin-bottom: 0;
-      }
-      .post ul,
-      .post ol {
-        margin: 0 0 1.5em 1.2em;
-      }
-      .post li {
-        margin-bottom: 0.55em;
-      }
-      .post li:last-child {
-        margin-bottom: 0;
-      }
-      .post img {
-        max-width: 100%;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-      }
+      .post figcaption a { color: inherit; text-decoration-color: rgba(154,144,138,0.45); }
       .post h2 {
-        margin: 28px 0 10px;
+        margin: 2.5em 0 0.7em;
         font-size: 1.35rem;
         color: var(--c5);
         position: relative;
         padding-left: 12px;
+        scroll-margin-top: 100px; /* offset for fixed nav */
       }
       .post h2::before {
         content: "";
         position: absolute;
-        left: 0;
-        top: 0.2em;
-        bottom: 0.2em;
+        left: 0; top: 0.2em; bottom: 0.2em;
         width: 3px;
         border-radius: 2px;
         background: linear-gradient(180deg, var(--c5), var(--c4));
       }
-      .post h3 {
-        margin: 24px 0 10px;
-        color: var(--c4);
-      }
+      .post h3 { margin: 1.8em 0 0.6em; color: var(--c4); font-size: 1.05rem; }
       .post a {
         color: #3d5a9e;
         text-decoration: underline;
         text-decoration-color: rgba(61,90,158,0.35);
         text-underline-offset: 2px;
+        transition: color 0.15s;
       }
-      .post a:hover {
-        color: var(--ink);
-        text-decoration-color: rgba(28,25,23,0.45);
-      }
-      .post blockquote {
-        margin: 1.6em 0;
-        padding: 0.9em 1em 0.9em 1.05em;
-        border-left: 3px solid var(--c2);
-        background: rgba(255,165,0,0.08);
-        border-radius: 0 10px 10px 0;
-      }
-      .post blockquote p:last-child {
-        margin-bottom: 0;
-      }
-      .post ul li::marker,
-      .post ol li::marker {
-        color: var(--c5);
-      }
-      .post hr {
-        border: 0;
-        height: 0;
-        margin: 0;
-        display: none;
-      }
+      .post a:hover { color: var(--ink); text-decoration-color: rgba(28,25,23,0.45); }
+      .post ul li::marker, .post ol li::marker { color: var(--c5); }
+      .post hr { border: 0; height: 0; margin: 0; display: none; }
 
-      code, pre {
+      code {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 0.875em;
+        background: rgba(0,0,0,0.05);
+        padding: 2px 6px;
+        border-radius: 4px;
       }
       pre {
         overflow-x: auto;
-        padding: 14px;
+        padding: 16px 18px;
         background: rgba(0,0,0,0.04);
         border: 1px solid var(--border);
         border-radius: 12px;
+        margin: 0 0 1.5em;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 0.845rem;
+        line-height: 1.65;
+      }
+      pre code { background: none; padding: 0; font-size: inherit; }
+
+      /* ── PULL QUOTE ──
+         Usage: <div class="pull-quote"><p>Your standout line here.</p></div>
+         Use sparingly — 1–2 per post max. Best for a key insight or surprising stat.
+      */
+      .pull-quote {
+        margin: 2em -8px;
+        padding: 1.4em 1.6em;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(72,125,231,0.07) 0%, rgba(112,54,157,0.07) 100%);
+        border-left: 3px solid var(--c5);
+        position: relative;
+      }
+      .pull-quote::before {
+        content: '"';
+        position: absolute;
+        top: -10px; left: 16px;
+        font-family: var(--fd);
+        font-size: 4rem;
+        font-style: italic;
+        color: var(--c5);
+        opacity: 0.25;
+        line-height: 1;
+      }
+      .pull-quote p {
+        font-family: var(--fd);
+        font-style: italic;
+        font-size: 1.15rem;
+        line-height: 1.55;
+        color: var(--ink);
+        margin: 0 !important;
+        font-weight: 400;
+      }
+
+      /* ── PROMPT BLOCK ──
+         Usage:
+         <div class="prompt-block">
+           <div class="prompt-block-header">
+             <div class="prompt-block-icon"></div>
+             <span class="prompt-block-label">Label here</span>
+             <button class="prompt-block-copy" onclick="copyBlock(this)">Copy</button>
+           </div>
+           <pre>Your copyable content here</pre>
+         </div>
+         Use for reusable prompts, code snippets, or templates readers should steal.
+      */
+      .prompt-block {
+        margin: 1.8em 0;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(72,125,231,0.2);
+        box-shadow: 0 2px 16px rgba(72,125,231,0.08);
+      }
+      .prompt-block-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        background: rgba(72,125,231,0.1);
+        border-bottom: 1px solid rgba(72,125,231,0.15);
+      }
+      .prompt-block-icon {
+        width: 16px; height: 16px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--c5), var(--c4));
+        flex-shrink: 0;
+      }
+      .prompt-block-label {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--c5);
+      }
+      .prompt-block-copy {
+        margin-left: auto;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--c5);
+        cursor: pointer;
+        padding: 3px 8px;
+        border-radius: 5px;
+        border: 1px solid rgba(72,125,231,0.3);
+        background: rgba(72,125,231,0.06);
+        transition: all 0.15s;
+        font-family: var(--fb);
+      }
+      .prompt-block-copy:hover { background: rgba(72,125,231,0.14); }
+      .prompt-block-copy.copied { color: var(--c3); border-color: rgba(121,195,20,0.4); background: rgba(121,195,20,0.08); }
+      .prompt-block pre { margin: 0; border-radius: 0; border: none; background: rgba(240,244,255,0.6); padding: 16px 18px; }
+
+      /* ── STAT CALLOUT ──
+         Usage:
+         <div class="stat-callout">
+           <div class="stat-number">56–112×</div>
+           <div class="stat-label">
+             <strong>Short label here</strong>
+             Supporting sentence with context.
+           </div>
+         </div>
+         Use when you have a striking number that deserves visual emphasis.
+      */
+      .stat-callout {
+        margin: 2em 0;
+        padding: 1.6em 2em;
+        background: linear-gradient(135deg, rgba(232,20,22,0.05) 0%, rgba(255,165,0,0.08) 50%, rgba(72,125,231,0.05) 100%);
+        border-radius: 16px;
+        border: 1px solid rgba(255,165,0,0.2);
+        display: flex;
+        align-items: center;
+        gap: 2em;
+      }
+      .stat-number {
+        font-family: var(--fd);
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1;
+        background: linear-gradient(135deg, var(--c2), var(--c1));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        white-space: nowrap;
+      }
+      .stat-label { font-size: 0.95rem; line-height: 1.5; color: var(--ink); }
+      .stat-label strong { display: block; font-weight: 600; }
+
+      /* ── SCROLL REVEAL ──
+         Add class="reveal" to any block-level element to fade it in on scroll.
+         Works on divs, sections, individual paragraphs, stat callouts, etc.
+      */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.55s ease, transform 0.55s ease;
+      }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+
+      /* ── FOOTER ── */
+      .post-footer {
+        margin-top: 28px;
+        color: var(--warm-gray);
+        font-size: 0.95rem;
+        border-top: 1px solid var(--border);
+        padding-top: 18px;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .page-wrap { grid-template-columns: 1fr; }
+        .toc-sidebar { display: none; }
       }
       @media (max-width: 560px) {
-        nav {
-          padding-top: 18px;
-          padding-bottom: 18px;
-        }
-        .nav-links {
-          gap: 16px;
-        }
-        .nav-links li:nth-child(1),
-        .nav-links li:nth-child(2) {
-          display: none;
-        }
+        nav { padding-top: 18px; padding-bottom: 18px; }
+        .nav-links { gap: 16px; }
+        .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
+        .post { padding: 24px 20px 36px; }
+        .stat-callout { flex-direction: column; gap: 0.5em; }
       }
     </style>
   </head>
 
   <body id="top">
-    <!-- ORBS -->
+
+    <!-- Reading progress bar (auto-fills via JS) -->
+    <div id="progress-bar"></div>
+
+    <!-- Ambient orbs -->
     <div class="orbs" aria-hidden="true">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
@@ -374,6 +517,7 @@
       <div class="orb orb-6"></div>
     </div>
 
+    <!-- Nav -->
     <nav id="nav">
       <a class="nav-name" href="{{ site.baseurl }}/">{{ site.title }}</a>
       <ul class="nav-links">
@@ -384,23 +528,158 @@
       </ul>
     </nav>
 
-    <main class="section-wrap">
+    <!-- Page layout: sidebar + content -->
+    <div class="page-wrap">
+
+      <!-- Sidebar table of contents; populated automatically from post h2 headings -->
+      <aside class="toc-sidebar glass" aria-label="Table of contents">
+        <div class="toc-label">In this post</div>
+        <ul class="toc-list"></ul>
+      </aside>
+
+      <!-- Main content -->
       <div class="post-shell">
         <article class="post glass">
+
           <h1>{{ page.title }}</h1>
           <div class="meta">
-            {{ page.date | date: "%B %d, %Y" }}
-            {% if page.reading_time %} · {{ page.reading_time }}{% endif %}
+            <span>{{ page.date | date: "%B %d, %Y" }}</span>
+            {% if page.reading_time %}
+            <span class="meta-dot">·</span>
+            <span>{{ page.reading_time }}</span>
+            {% endif %}
           </div>
 
+          <!--
+            CONTENT GOES HERE
+            ─────────────────
+            Available components to use anywhere in your content:
+
+            1. PULL QUOTE — for a standout line (1–2 per post max):
+            <div class="pull-quote reveal">
+              <p>Your standout line here.</p>
+            </div>
+
+            2. PROMPT BLOCK — for reusable prompts/templates readers can copy:
+            <div class="prompt-block reveal">
+              <div class="prompt-block-header">
+                <div class="prompt-block-icon"></div>
+                <span class="prompt-block-label">Label here</span>
+                <button class="prompt-block-copy" onclick="copyBlock(this)">Copy</button>
+              </div>
+              <pre>Your copyable content here</pre>
+            </div>
+
+            3. STAT CALLOUT — for a striking number:
+            <div class="stat-callout reveal">
+              <div class="stat-number">42×</div>
+              <div class="stat-label">
+                <strong>Short label</strong>
+                One sentence of context.
+              </div>
+            </div>
+
+            4. SCROLL REVEAL — add class="reveal" to any block element
+            to have it fade in as the reader scrolls to it.
+
+            5. SECTION ANCHORS — give each <h2> a unique id:
+            <h2 id="my-section">Section Title</h2>
+            Then reference it in the TOC sidebar above.
+          -->
+
           {{ content }}
+
         </article>
 
-        <footer style="margin-top: 28px; color: var(--warm-gray); font-size: 0.95rem; border-top: 1px solid var(--border); padding-top: 18px;">
+        <footer class="post-footer">
           © {{ site.time | date: "%Y" }} {{ site.title }}
         </footer>
       </div>
-    </main>
+    </div>
+
+    <script>
+      // ── Reading progress bar
+      const bar = document.getElementById('progress-bar');
+      window.addEventListener('scroll', () => {
+        const h = document.documentElement;
+        const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+        bar.style.width = pct + '%';
+      });
+
+      // ── TOC generation + active section highlighting
+      const pageWrap = document.querySelector('.page-wrap');
+      const tocSidebar = document.querySelector('.toc-sidebar');
+      const tocList = document.querySelector('.toc-list');
+      const postArticle = document.querySelector('.post');
+      const slugCounts = new Map();
+      const slugify = (text) =>
+        text
+          .toLowerCase()
+          .trim()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-');
+
+      const sections = postArticle
+        ? Array.from(postArticle.querySelectorAll('h2')).filter((heading) => heading.textContent.trim())
+        : [];
+
+      if (tocList && sections.length) {
+        sections.forEach((section) => {
+          if (!section.id) {
+            const baseSlug = slugify(section.textContent);
+            if (!baseSlug) return;
+            const seenCount = slugCounts.get(baseSlug) || 0;
+            slugCounts.set(baseSlug, seenCount + 1);
+            section.id = seenCount === 0 ? baseSlug : `${baseSlug}-${seenCount + 1}`;
+          }
+
+          const item = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = `#${section.id}`;
+          link.className = 'toc-link';
+          link.textContent = section.dataset.tocTitle || section.textContent.trim();
+          item.appendChild(link);
+          tocList.appendChild(item);
+        });
+
+        const tocLinks = tocList.querySelectorAll('.toc-link');
+        const tocObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              tocLinks.forEach((link) => link.classList.remove('active'));
+              const active = tocList.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+              if (active) active.classList.add('active');
+            }
+          });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        sections.forEach((section) => {
+          if (section.id) tocObserver.observe(section);
+        });
+      } else if (pageWrap) {
+        pageWrap.classList.add('page-wrap--no-toc');
+        if (tocSidebar) tocSidebar.hidden = true;
+      }
+
+      // ── Scroll reveal
+      const reveals = document.querySelectorAll('.reveal');
+      if (reveals.length) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.08 });
+        reveals.forEach(r => revealObserver.observe(r));
+      }
+
+      // ── Prompt block copy button
+      function copyBlock(btn) {
+        const pre = btn.closest('.prompt-block').querySelector('pre');
+        navigator.clipboard.writeText(pre.innerText).then(() => {
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        });
+      }
+    </script>
   </body>
 </html>
-

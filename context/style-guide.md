@@ -9,6 +9,7 @@ When editing this site:
 
 1. Use the code guide for implementation and UI consistency.
 2. Use the tone/voice guide for homepage copy, project copy, and blog writing.
+
 # Code Style Guide
 
 **For AI agents building or editing this site.**
@@ -305,69 +306,6 @@ Applied via `body::after` — a fixed SVG fractalNoise texture at `opacity: 0.03
 ### Marquee
 
 Continuous scrolling text strip between hero and about sections. Pauses on hover. Items are duplicate-repeated for seamless looping. `animation: marquee 40s linear infinite`.
-
----
-
-## 5. Voice & Tone
-
-### Core Voice Principles
-
-hurn.co is a personal professional site. The voice is Jenny's voice — warm, direct, self-aware without being self-deprecating, and genuinely enthusiastic about the work. It reads like a smart colleague talking about what they actually did, not a resume bullet or a brand marketing page.
-
-**The voice is:**
-
-- **First-person and specific.** Real project names, real numbers, real process details. Never generic.
-- **Honest about difficulty.** Acknowledge when something was hard, iterative, or figured out in real time. "We didn't have a playbook to copy from" is more credible than "we executed a strategic initiative."
-- **Warm but not effusive.** Enthusiasm is real, not performed. 
-- **Slightly funny when it fits.** A dry observation or well-placed parenthetical is on-brand. Forced jokes are not.
-- **Comfortable with AI.** AI involvement is disclosed openly and described specifically — what tool, what it was used for, what the human judgment layer was. Never hedge or apologize for using AI.
-
-### Fraunces Italic Headlines
-
-Display headings (hero manifesto, about pull quote, work intro, contact heading) should feel like Jenny speaking directly. They have personality:
-
-- Use `<del>` + `<span class="grad-text">` for strikethrough gags: "Projects, puzzles, and other ~~obsessions~~ pursuits."
-- Use `<em>` with `color: var(--rust)` for warm emphasis within Fraunces headings
-- Keep them punchy. One thought per display line.
-
-### Body Copy Rules
-
-- **Default sentence length:** medium. Not short-punchy (that's brand voice), not long-winded (that's corporate). Conversational.
-- **Paragraph length:** 2–4 sentences typically. Long paragraphs are acceptable in case studies when the detail earns it.
-- **Kicker sections:** Use when there's a genuine list (3+ items with parallel structure). Don't use kickers for 2-item lists — just write them into prose.
-- **Bold:** `<strong>` used sparingly for actual emphasis — a key number, a critical term, a phrase that carries the weight of the paragraph. Not for decoration.
-- **Links in overlay body:** Use `<a class="p-overlay-link">` with `↗` external arrow.
-
-### Anti-Patterns to Avoid
-
-**Words and phrases that don't sound like Jenny:**
-
-- "Synergy," "alignment," "stakeholders" in non-ironic use
-- "World-class," "best-in-class," "cutting-edge" as empty descriptors
-- "Seamlessly" — nothing is seamless, and saying it is reads as corporate fluff
-- Any sentence starting with "Excited to share..."
-- Bullet points that start with a verb and end with nothing (resume bullets): ✗ "Managed cross-functional stakeholders" → ✓ "I held product, sales, finance, CS, and existing customers in one coherent story"
-
-**Structural anti-patterns:**
-
-- Don't write introductory sentences that just restate the heading: ✗ "The Bootcamp was a major event." The first sentence should say something.
-- Don't end case studies with a vague summary. End with something concrete — a number, a quote, a reflection, or a "what I'd do differently."
-- Don't use passive voice in first-person copy. "It was built" → "I built it."
-
-**Tone anti-patterns:**
-
-- Overselling without evidence: if there's no number, describe what happened instead of claiming it was great
-- False modesty: "I just..." or "I was only..." — own the work
-- Overqualifying: "I think," "I believe," "perhaps" in factual sentences. Use hedges only when genuinely uncertain.
-- Corporate warmth: "We are thrilled to..." / "It is with great excitement that..." — this is not a press release
-
-### The "Now" Section
-
-This section should stay current and personal. Three items: Working on, Thinking about, For Fun. Each item is 1–2 casual sentences. The "For Fun" item should reflect actual current activities — not placeholder hobbies. Numbered lists within For Fun are fine.
-
-### Contact Section
-
-Headline follows the pattern: "Got a puzzle you're looking to solve? Let's talk." — the hook references the puzzle motif, the second line is an invitation. Subheading is specific about what kind of work Jenny does best: early-stage, unclaimed problems. Do not make it generic ("reach out anytime!").
 
 ---
 
