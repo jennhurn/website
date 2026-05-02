@@ -22,6 +22,7 @@ Write blog posts from evidence, lived experience, and clear structure. Do not dr
 - Intended audience and publishing location.
 - The purpose of the post: teach, explain, reflect, persuade, recap, announce, or document a process.
 - `context/tone-voice-style-guide.md`.
+- Jenny interview notes captured for this specific post (required before any outline work).
 - Any relevant source material from Jenny, the workspace, or credible external research.
 
 If any required input is missing, ask Jenny up to 3 multiple-choice clarifying questions before drafting.
@@ -53,32 +54,63 @@ work/blog-writing/<post-slug>/
 1. Define the useful promise.
   - Write one sentence that says what the reader should understand or be able to do after reading.
   - If the promise is vague, stop and clarify before gathering sources.
-2. Create a hypothesis outline before evidence collection.
+2. Interview Jenny before creating any outline.
+  - No hypothesis outline, outline, or draft is allowed before the interview is complete.
+  - Keep the interview focused on lived experience and transferable process details.
+  - Ask up to 3 multiple-choice clarifying questions first to lock scope.
+  - Then gather short-answer detail on:
+    - The strongest concrete moment to open with.
+    - One failure-and-fix example.
+    - The exact process, artifacts, and constraints worth teaching.
+  - Save interview notes in `work/blog-writing/<post-slug>/evidence-packet.md` before moving on.
+3. Create a hypothesis outline after interview notes exist.
   - This is not the final outline. It is a targeting tool.
-  - Capture the likely thesis, 3-5 possible section claims, and the evidence needed to prove or disprove each one.
+  - The hypothesis outline must be cohesive and intentional; it cannot be a list of points.
+  - Define a compelling reader outcome and design the section order as a reader journey toward that outcome.
+  - For each section, state what changes for the reader before they move to the next section.
+  - Ensure the sequence reduces confusion and increases clarity, confidence, or ability to act.
+  - Capture the likely thesis, 3-5 possible section hypotheses in intentional order, and the evidence needed to prove or disprove each one.
+  - Pause for Jenny approval (or revisions) on the hypothesis outline before gathering broader evidence.
   - Use it to focus source gathering without locking the post into an unsupported structure.
-3. Build an evidence packet that tests the hypothesis outline.
+4. Build an evidence packet that tests the hypothesis outline.
   - Use [evidence-packet-template.md](evidence-packet-template.md).
-  - Gather concrete material from Jenny first when the post depends on her lived experience.
+  - Interview notes are the first required evidence source.
   - Search workspace context for prior docs, project notes, blog drafts, examples, metrics, and internal references.
   - Use credible external sources for frameworks, benchmarks, definitions, data, and third-party examples.
   - Capture internal link candidates and external link candidates while sourcing.
-4. Extract the post's spine from the evidence.
+5. Extract the post's spine from the evidence.
   - Identify the 3-5 strongest concrete ideas, moments, examples, use cases, or frameworks.
   - Cut weak ideas before outlining. Do not keep a point because it sounds generally true.
   - Name what each section proves, not just what topic it covers.
   - Update or abandon the hypothesis outline when the evidence points somewhere better.
-5. Create an evidence-based outline for approval before drafting.
+6. Create an evidence-based outline for approval before drafting.
   - Include the opening moment, section claims, evidence used in each section, planned visuals, link candidates, and the intended ending.
   - Do not draft the full post until Jenny approves the outline unless she explicitly asks for a fast draft.
-6. Draft tightly from the outline.
+7. Run a pre-draft alignment gate.
+  - Before drafting, restate and get explicit confirmation of these five items in plain language:
+    - What this post is and is not (e.g., "approach guide" vs "step-by-step tutorial" vs "story/reflection").
+    - Which project is the worked example and what role it plays (origin story vs proof point vs walkthrough anchor).
+    - The intended voice shape (narrative density, directness, humor level, paragraph rhythm).
+    - The non-negotiable concepts that must be clearly explained (for example: "why IDE workspace" and "agentic harness").
+    - The practical reader outcome by the end of the post.
+  - If draft feedback says "still not me" after revision, rerun this gate before attempting another rewrite.
+8. Draft tightly from the outline.
   - Open concrete: a real moment, tension, observation, or specific working context.
   - Use Jenny's voice: warm, direct, practical, specific, lightly self-aware.
+  - Enforce weight and intention at sentence level:
+    - each sentence must add meaning, evidence, or forward motion
+    - if a sentence can be removed without loss, cut or rewrite it
+    - avoid formulaic section rules that flatten natural voice rhythm
   - Use bullets, numbered lists, tables, charts, diagrams, or callouts only when they make the idea easier to understand.
   - Add internal links where they help the reader continue naturally.
   - Add external links for cited frameworks, source data, examples, or tools. Do not add decorative links.
-7. Run authenticity review before showing the draft.
+9. Run authenticity review before showing the draft.
   - Use [authenticity-review-rubric.md](authenticity-review-rubric.md).
+  - Add a required "generic slop pass":
+    - cut filler transitions, repeated claims, and decorative framing
+    - replace vague abstractions with concrete lived detail
+    - rewrite lines that sound motivational, sterile, or auto-generated
+  - Do not deliver the draft if this pass is not complete.
   - If any section sounds generic, repetitive, over-explained, or AI-written, send it back for revision.
   - Revision should usually cut, sharpen, reorder, or replace weak evidence. Do not expand vague sections to fix them.
 

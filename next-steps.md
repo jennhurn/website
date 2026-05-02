@@ -1,6 +1,6 @@
 # Next Steps - Personal Website
 
-*Last updated: 2026-04-26 (operational rewrite)*
+*Last updated: 2026-05-01 (Cursor tutorial evidence outline)*
 
 Operational plan only. This file must reference current files and executable actions.
 
@@ -26,6 +26,8 @@ Operational plan only. This file must reference current files and executable act
    - Remaining high-priority work: proof-format standardization and claim fact-checking across cards/project narratives.
 
 3. **Finalize and publish writing**
+   - Cursor agentic-operations tutorial draft is now in `_posts/2026-05-01-how-i-use-cursor-to-run-agentic-work.md`.
+   - Keep the working artifacts in `work/blog-writing/cursor-agentic-operations-tutorial/` as the source packet and revision history.
    - Keep `_posts/` front matter and filename dates aligned.
    - Confirm `blog/index.html` and post permalinks render correctly after edits.
 
