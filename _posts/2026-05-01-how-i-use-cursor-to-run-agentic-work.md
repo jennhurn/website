@@ -24,11 +24,11 @@ Chat tools can give me a response, and even generate meaningful output like docs
 
 That difference becomes very obvious once the work has real scope and stakes. When a project needs research, writing, review, revision, validation, communication, coordination, and packaging all moving at the same time, I do not *just* need a smart model. I need a **contained, structured space** for the work to live in.
 
-In the past, this has been a chaotic combination of excell sheets, and Google Drive files, and Notion, emails, and a dozen other tools, manually held together by sheer force of will in a color-coordinaed Monday Board.
+In the past, this has been a chaotic combination of Excel sheets, and Google Drive files, and Notion, emails, and a dozen other tools, manually held together by sheer force of will in a color-coordinated Monday board.
 
-But scaling operation across sales, marketing, people operations, customers, and product, requires more hours in a day than I have. And unifying that chaos into a clear, AI-native structure enables me to get more done in the fraction of the time it took before.
+But scaling operations across sales, marketing, people operations, customers, and product requires more coordination than any one person can hold together by memory and force of will. What changed for me was not just speed. It was having one structure where the plan, drafts, reviews, decisions, and handoffs could all live together.
 
-Quick example: We had two years of material on Agentic Data Engineering spread across labs, blog posts, docs, and internal notes. The knowledge was there. The learning path for practitioners and users was not. Everyone wanted to leverage AI and agents for data workflows, but people felt intimidated to try. I needed to turn that sprawl of material into a real certification program. With 48 hours, a small host of agents, and couple hundred dollars of tokens, I shipped a full production-ready three-course, 21-module certification program. What, in the past, would have taken a team of 4 or 5 developers weeks to deliver, a single non-engineer could deploy in 2 days.
+Quick example: We had two years of material on Agentic Data Engineering spread across labs, blog posts, docs, and internal notes. The knowledge was there. The learning path for practitioners and users was not. Everyone wanted to leverage AI and agents for data workflows, but people felt intimidated to try. I needed to turn that sprawl of material into a real certification program. With 48 hours, a small host of agents, and a couple hundred dollars of tokens, I shipped a production-ready three-course, 21-module certification program complete with learning assessments, lab assignments, and automated CRM-integrated credentialing. What, in the past, would have taken a team of 4 or 5 developers weeks to deliver, a single non-engineer could deploy in 2 days.
 
 That kind of scope and velocity is the difference between chatbot help and agent-oriented work. It is not simply AI spitting out an unverified draft. It is collaborating with agents the way I would collaborate with a team to run a project.
 
@@ -46,8 +46,6 @@ Here are the lessons I've learned working this way in Cursor and how it works in
 Before I ask an agent to write anything, I set up the system around it first. Technical folks call [the agentic harness](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness). I mostly think of it as the structure that keeps the work organized and effective.
 
 On the certification program project, that meant shared source materials, a clear plan, reusable reviewing instructions for agents, clear rubrics to define quality standards, and boundaries on what agents could produce without human review. The quality of that setup mattered more than the cleverness of any one prompt.
-
-The quality of that setup mattered more than the cleverness of any one prompt.</p>
 
 A sample version of this kind of structure looks like this:
 
@@ -151,7 +149,7 @@ I would much rather learn that on one module than on twenty-one.
 
 <figure>
   <img src="/final-images/certification-ai-maturity-assessment.png" alt="ADE 101 - Agentic Maturity Assessment" loading="lazy" />
-  <figcaption>The Agentic Maturity Assement module from Agentic Data Engineering 101</figcaption>
+  <figcaption>The Agentic Maturity Assessment module from Agentic Data Engineering 101</figcaption>
 </figure>
 
 The shared style guide did a lot of work here. Once the agents were reading the same standards, the reviews got sharper and the drafts got more consistent.
@@ -209,7 +207,7 @@ Connecting agents to tools dramatically increases both what you can deliver and 
 
 ## Save the artifacts because recovery is part of the job
 
-At 3:31 a.m., seven hours before the deadline, I had one of the more humbling moments of the whole project. I accidentally permanently deleted the entire 301 course, one third of the project I was finishing, in a way no amount of smashing Command-Z could resolve. Not my best moment.
+At 3:31 a.m., seven hours before the deadline, I had one of the more humbling moments of the whole project. I accidentally permanently deleted the entire 301 course, one third of the project I was finishing, in a way no amount of smashing Command-Z could resolve. A painful mistake, but not a fatal one.
 
 That could have been a disaster. It was not.
 
