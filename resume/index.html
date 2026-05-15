@@ -1,31 +1,43 @@
----
-layout: null
-title: Resume
-permalink: /resume/
-sitemap: true
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jenny Hurn — Resume</title>
+<title>Jenny Hurn — Chief of Staff Resume</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --blue:     #487de7;
+    --blue: #487de7;
     --blue-dim: #d4e0f9;
-    --ink:      #1C1917;
-    --muted:    #9A908A;
-    --border:   rgba(0,0,0,0.10);
+    --ink: #1C1917;
+    --muted: #9A908A;
+    --border: rgba(0,0,0,0.10);
     --f: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body { font-family: var(--f); background: #fff; color: var(--ink); padding: 2rem; }
+  html {
+    background: #fff;
+  }
+
+  body {
+    font-family: var(--f);
+    background: #fff;
+    color: var(--ink);
+    padding: 2rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(72,125,231,0.3);
+  }
+
+  a:hover { border-bottom-color: var(--blue); }
 
   #resume {
     background: #fff;
@@ -46,6 +58,7 @@ sitemap: true
     display: flex;
     align-items: baseline;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 5px;
   }
@@ -57,9 +70,20 @@ sitemap: true
     line-height: 1;
   }
 
-  .header-sep { font-size: 18pt; font-weight: 300; color: var(--muted); opacity: 0.4; }
+  .header-sep {
+    font-size: 18pt;
+    font-weight: 300;
+    color: var(--muted);
+    opacity: 0.4;
+  }
 
-  .header-title { font-size: 16pt; font-weight: 300; color: var(--muted); letter-spacing: 0.01em; white-space: nowrap; }
+  .header-title {
+    font-size: 16pt;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
 
   .rainbow-bar {
     display: block;
@@ -67,13 +91,13 @@ sitemap: true
     height: 2px;
     margin: 0 auto 8px;
     background: linear-gradient(to right,
-      #e81416 0%,   #e81416 14.3%,
-      #ffa500 14.3%,#ffa500 28.6%,
-      #e6d000 28.6%,#e6d000 42.9%,
-      #79c314 42.9%,#79c314 57.1%,
-      #487de7 57.1%,#487de7 71.4%,
-      #4b369d 71.4%,#4b369d 85.7%,
-      #70369d 85.7%,#70369d 100%
+      #e81416 0%, #e81416 14.3%,
+      #ffa500 14.3%, #ffa500 28.6%,
+      #e6d000 28.6%, #e6d000 42.9%,
+      #79c314 42.9%, #79c314 57.1%,
+      #487de7 57.1%, #487de7 71.4%,
+      #4b369d 71.4%, #4b369d 85.7%,
+      #70369d 85.7%, #70369d 100%
     );
   }
 
@@ -84,9 +108,17 @@ sitemap: true
     margin-bottom: 3px;
   }
 
-  .header-links { font-size: 8.5pt; }
-  .header-links a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(72,125,231,0.3); }
-  .header-links a:hover { border-bottom-color: var(--blue); }
+  .header-links {
+    font-size: 8.5pt;
+  }
+
+  .summary {
+    font-size: 9pt;
+    color: var(--ink);
+    line-height: 1.5;
+    text-align: left;
+    margin-top: 12px;
+  }
 
   .section-heading {
     font-size: 7.5pt;
@@ -102,22 +134,60 @@ sitemap: true
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 14px;
     margin-top: 14px;
     margin-bottom: 2px;
   }
 
-  .org-name { font-size: 11pt; font-weight: 700; color: var(--ink); }
+  .org-name {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--ink);
+  }
 
-  .org-dates { font-size: 8.5pt; font-weight: 400; color: var(--muted); white-space: nowrap; margin-left: 12px; flex-shrink: 0; }
+  .org-location,
+  .org-dates {
+    font-size: 8.5pt;
+    font-weight: 400;
+    color: var(--muted);
+    white-space: nowrap;
+  }
 
-  .org-context { font-size: 8pt; color: var(--muted); margin-bottom: 5px; line-height: 1.4; }
+  .org-context {
+    font-size: 8pt;
+    color: var(--muted);
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
 
   .role-title {
     font-size: 9.5pt;
     font-weight: 600;
     color: var(--ink);
-    margin-top: 6px;
-    margin-bottom: 4px;
+  }
+
+  .role-dates {
+    font-size: 8.5pt;
+    font-weight: 400;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .scope-note {
+    font-size: 8pt;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 6px;
   }
 
   ul.bullets {
@@ -135,8 +205,12 @@ sitemap: true
     margin-bottom: 3px;
   }
 
-  ul.bullets li::before { content: '+'; position: absolute; left: 0; color: var(--blue); }
-  ul.bullets li strong { font-weight: 600; }
+  ul.bullets li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+  }
 
   .text-block {
     font-size: 9pt;
@@ -145,18 +219,67 @@ sitemap: true
     margin-bottom: 4px;
   }
 
-  .text-block strong { font-weight: 600; }
+  .text-block strong,
+  ul.bullets li strong {
+    font-weight: 600;
+  }
+
+  @media (max-width: 720px) {
+    body { padding: 0; }
+    #resume {
+      max-width: none;
+      border: none;
+      padding: 28px 24px 40px;
+    }
+    .header-name-row {
+      gap: 6px;
+    }
+    .header-sep {
+      display: none;
+    }
+    .header-title {
+      width: 100%;
+      white-space: normal;
+      font-size: 12pt;
+      line-height: 1.25;
+    }
+    .org-header,
+    .role-header {
+      display: block;
+    }
+    .org-location,
+    .org-dates,
+    .role-dates {
+      display: block;
+      margin-top: 2px;
+      white-space: normal;
+    }
+  }
 
   @media print {
-    body { background: white; padding: 0; }
-    #resume { border: none; padding: 0.4in 0.5in; max-width: 100%; }
-    .rainbow-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page {
+      size: letter;
+      margin: 0.35in 0.45in 0.45in;
+    }
+    body {
+      background: white;
+      padding: 0;
+    }
+    #resume {
+      border: none;
+      padding: 0;
+      max-width: 100%;
+    }
+    .rainbow-bar {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
   }
 </style>
 </head>
 <body>
-<div id="resume">
-  <div id="resume-header">
+<main id="resume">
+  <header id="resume-header">
     <div class="header-name-row">
       <span class="header-name">Jenny Hurn</span>
       <span class="header-sep">·</span>
@@ -166,82 +289,92 @@ sitemap: true
     <p class="header-contact">Oakland, CA · 858.449.0909 · hello@jhurn.com</p>
     <p class="header-links">
       <a href="https://www.linkedin.com/in/jenny-hurn/">LinkedIn</a> ·
-      <a href="https://jhurn.com">jhurn.com</a>
+      <a href="https://jhurn.com/">Website</a>
     </p>
-  </div>
+    <p class="summary">Startup operator building the operating systems, analytics, AI workflows, and communication loops behind business outcomes including 5x website conversions, 2x traffic growth, 6,000+ annual MQLs, and 50% employee Net Promoter Score improvement.</p>
+  </header>
 
-  <div class="section-heading">Experience</div>
+  <section>
+    <div class="section-heading">Work Experience</div>
 
-  <div class="org-header">
-    <span class="org-name">Ascend.io</span>
-    <span class="org-dates">May 2022 – Present</span>
-  </div>
-  <p class="org-context">Early-stage B2B SaaS startup building an AI-powered data engineering platform</p>
-  <div class="role-title">Chief of Staff</div>
-  <ul class="bullets" id="bullets-ascend"></ul>
+    <div class="org-header">
+      <span class="org-name">Ascend.io</span>
+      <span class="org-location">Palo Alto, CA</span>
+    </div>
 
-  <div class="org-header" style="margin-top:18px;">
-    <span class="org-name">Bridges International</span>
-    <span class="org-dates">June 2014 – May 2022</span>
-  </div>
-  <p class="org-context">Nonprofit building cross-cultural communities on university campuses for international students</p>
-  <div class="role-title">Regional Director</div>
-  <ul class="bullets" id="bullets-bridges"></ul>
+    <div class="role-header">
+      <span class="role-title">Chief of Staff</span>
+      <span class="role-dates">Jan 2025 - Present</span>
+    </div>
+    <p class="scope-note">Series B data engineering and AI platform company; operates across CEO priorities, product, engineering, GTM, customer success, finance, people, and external technical programs.</p>
+    <ul class="bullets">
+      <li>Runs <strong>company-wide operating cadence</strong> across OKRs, leadership syncs, all-hands, offsites, and cross-functional forums, turning CEO and leadership priorities into owners, decisions, action items, and follow-through.</li>
+      <li>Builds <strong>lightweight operating systems</strong> where no clear owner or playbook exists, including launch plans, pricing and SOW coordination, campaign dashboards, customer trial programs, internal documentation, and decision context that keeps risks, owners, and next steps visible.</li>
+      <li>Led cross-functional GTM and operating execution for Ascend's Agentic Data Engingeering platform launch, aligning product positioning, website rebuild, stakeholder coordination, pricing-page updates, and conversion-path fixes; <strong>delivered 5x increase in website conversions and 2x traffic growth.</strong></li>
+      <li>Protects customer trust by turning product, support, and customer signals into <strong>structured escalation action plans</strong>; built an engineering-ready escalation brief for a customer regression affecting 200+ flows, showing average runtime degradation from 7.6 to 11.3 minutes; helped engineering trace root causes while <strong></strong>communicating with key customer through incident resolution.</strong></li>
+      <li>Built marketing analytics pipelines in Python & SQL combining GA4, LinkedIn, and engagement data, giving leaders visibility into audience performance and lead prioritization and contributing to a <strong>48% increase in outbound open rates</strong>.</li>
+      <li>Leveraged AI to design and ship a <strong>three-course Agentic Data Engineering certification curriculum in 48 hours</strong>  across 101, 201, and 301 levels, using a multi-agent research, writing, and review workflow to turn an urgent education need into 21 production-ready modules.</li>
+      <li>Built and hosted the Agentic Data & Analytics Bootcamp for <strong>5,000+ registrants</strong> end to end, coordinating landing pages, decks, speakers, technical labs, documentation, live facilitation, audience follow-up, and team promotion to <strong></strong>turn technical content into prospect engagement and sales follow-up</strong>.</li>
+      <li>Leads people and company operating programs including onboarding, engagement surveys, quarterly offsites, all-hands, values, recognition, and internal communications; <strong>96% of new hires reported increased effectiveness</strong>, and <strong>employee Net Promoter Score improved 50% within six months</strong>.</li>
+    </ul>
 
-  <div class="section-heading">Education</div>
-  <p class="text-block"><strong>Bachelor of Business Administration</strong> · Concentration in Information Systems<br>California Polytechnic State University, San Luis Obispo</p>
+    <div class="role-header">
+      <span class="role-title">Go-To-Market Manager / People Experience Manager</span>
+      <span class="role-dates">May 2022 - Jan 2025</span>
+    </div>
+    <ul class="bullets">
+      <li>Owned Ascend's GTM operating motion across demand generation, field events, webinars, content, lead follow-up, and sales operations, generating <strong>6,000+ new marketing qualified leads annually</strong> through repeatable programs and cross-team coordination.</li>
+      <li>Managed field-event and webinar operating systems across lead capture, demo readiness, CRM follow-up, prospect notes, team coordination, and post-event reporting; summit execution produced <strong>2,360 unique leads and 130+ demos or technical deep dives</strong>.</li>
+      <li>Built and maintained lead-routing and qualification workflows across HubSpot, demo forms, trial requests, Calendly, Zapier, and follow-up automations, preserving high-intent prospects and giving sales clearer context before calls.</li>
+      <li>Scaled enterprise customer trials and pilots <strong>2x YoY</strong> by coordinating instance setup, trial-definition calls, debugging follow-up, customer feedback capture, and next-step communication across account, product, and engineering teams.</li>
+      <li>Drove marketing email performance above B2B SaaS benchmarks across a <strong>13,000+ contact database</strong>, sustaining <strong>29.7% open rates and 9% CTR</strong> over 3+ consecutive months through audience-specific messaging, send-cadence optimization, and campaign follow-up.</li>
+    </ul>
 
-  <div class="section-heading">Core Competencies</div>
-  <div id="competencies"></div>
+    <div class="org-header" style="margin-top: 18px;">
+      <span class="org-name">Bridges International</span>
+      <span class="org-location">San Francisco Bay Area</span>
+    </div>
 
-</div>
+    <div class="role-header">
+      <span class="role-title">Regional Director</span>
+      <span class="role-dates">Jul 2018 - May 2022</span>
+    </div>
+    <ul class="bullets">
+      <li>Scaled regional operations across seven university campuses serving 5,000+ international students annually, coordinating staff, volunteers, budgets, vendors, university partners, onboarding, expectation-setting, and edge-case resolution.</li>
+      <li>Managed and developed a 35+ person distributed team while building communication rhythms, accountability systems, and local leadership pipelines across campuses.</li>
+      <li>Led iterative strategic planning and KPI tracking across campus programs, increasing audience engagement 21% over three years and improving volunteer retention 74% through quarterly training programs.</li>
+    </ul>
 
-<script>
-const ASCEND_BULLETS = [
-  `Designed and shipped a three-course Agentic Data Engineering certification curriculum (101, 201, 301) — **21 production-ready modules in 48 hours** using a **multi-agent workflow** with parallel reviewer agents.`,
-  `Own Ascend's go-to-market motion across demand generation, events, content, and sales operations, generating **6,000+ new marketing qualified leads annually** through trade shows, webinars, customer training, and Ascend's annual Data Automation Summit.`,
-  `Lead all people experience functions: designed and scaled onboarding programs (**96% of new hires reported increased effectiveness**), drive quarterly offsites and all-hands, and earned Ascend placement on BuiltIn's **Best Places to Work list for 4 consecutive years.**`,
-  `Led end-to-end product marketing rebrand for Gen3 platform launch — including full website redesign to sharpen technical positioning — delivering **5x increase in conversions and 2x traffic growth.**`,
-  `Built a marketing analytics data pipeline (GA4 + LinkedIn Ads), then layered a **multi-agent AI system on top to automate content marketing** across channels.`,
-  `Improved **employee Net Promoter Score by 50% within 6 months** (41 → 63) through structured engagement programming and cultural initiatives.`,
-  `Launched agentic workflow tooling and **AI SDR infrastructure** using HubSpot, AmpleMarket, and Zapier to scale outbound pipeline without adding headcount.`,
-  `Built the operating cadence for executive planning, OKRs, and cross-functional execution across GTM, product, engineering, customer success, and operations.`,
-];
+    <div class="role-header">
+      <span class="role-title">National Conference Producer</span>
+      <span class="role-dates">Sep 2017 - May 2022</span>
+    </div>
+    <ul class="bullets">
+      <li>Produced five national conferences for 1,000+ attendees per event across 75+ nations, managing planning, vendors, communications, speaker readiness, logistics, and attendee experience.</li>
+      <li>Led the COVID-era shift to virtual and hybrid conference delivery while preserving attendance, program quality, vendor coordination, and participant experience.</li>
+    </ul>
 
-const BRIDGES_BULLETS = [
-  `Scaled, onboarded, and managed a team of 35+ to launch cross-cultural community programs on 7 university campuses, engaging 5,000+ international students annually.`,
-  `Led iterative strategic planning and KPI tracking, increasing audience engagement 21% over 3 years.`,
-  `Increased volunteer retention by 74% through 12 quarterly training programs empowering local volunteers and student leaders.`,
-  `Directed planning and execution of 5 national conferences (in-person, virtual, and hybrid), each serving 1,000+ stakeholders from 75+ nations.`,
-];
+    <div class="role-header">
+      <span class="role-title">Program Manager</span>
+      <span class="role-dates">Jul 2014 - Jul 2018</span>
+    </div>
+    <ul class="bullets">
+      <li>Built onboarding systems, communication rhythms, and operating structures that helped distributed teams and student communities operate with more consistency.</li>
+    </ul>
+  </section>
 
-const COMPETENCIES = [
-  { label: `Strategy & Ops`, text: `Cross-functional leadership, OKR development, strategic planning, roadmap planning, executive reporting, board prep, change management, process design, systems implementation` },
-  { label: `GTM`, text: `Demand generation, marketing & sales operations, events, content marketing, B2B SaaS go-to-market, category creation, product-led growth, partner & ecosystem programs, ICP scoring, outbound pipeline management` },
-  { label: `People & Culture`, text: `Employee experience, onboarding program design, performance review design, engagement programming, employer branding, interview process design` },
-  { label: `AI & Automation`, text: `LLM prompt & context engineering, multi-agent workflow design, AI agent configuration, Zapier, AI SDR tooling` },
-  { label: `Technical`, text: `Python, SQL, JavaScript, HTML/CSS, Git, ETL pipeline design, data modeling, Looker, GA4, CRM, HRIS, CMS, Webflow, WordPress, Docusaurus, Figma, Canva, Adobe, GSuite` },
-];
+  <section>
+    <div class="section-heading">Education</div>
+    <p class="text-block"><strong>Bachelor of Science, Business Administration</strong><br>Concentration in Information Systems<br>California Polytechnic State University, San Luis Obispo</p>
+  </section>
 
-function bold(text) {
-  return text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-}
-
-function renderBullets(bullets, targetId) {
-  const ul = document.getElementById(targetId);
-  ul.innerHTML = bullets.map((b) => `<li>${bold(b)}</li>`).join("");
-}
-
-function renderCompetencies(items, targetId) {
-  const el = document.getElementById(targetId);
-  el.innerHTML = items
-    .map((c) => `<p class="text-block"><strong>${c.label}:</strong> ${c.text}</p>`)
-    .join("");
-}
-
-renderBullets(ASCEND_BULLETS, "bullets-ascend");
-renderBullets(BRIDGES_BULLETS, "bullets-bridges");
-renderCompetencies(COMPETENCIES, "competencies");
-</script>
+  <section>
+    <div class="section-heading">Skills</div>
+    <p class="text-block"><strong>Executive & Business Operations:</strong> CEO priorities, operating cadence, OKRs, leadership syncs, executive reporting, decision support, project tracking, launch readiness, risk tracking, process design, internal communications</p>
+    <p class="text-block"><strong>GTM & Customer Operations:</strong> Demand generation, field events, webinars, sales operations, CRM workflows, lead routing, customer trials, prospect follow-up, product launches, campaign analytics, partner coordination</p>
+    <p class="text-block"><strong>People & Company Operations:</strong> Onboarding, employee engagement, offsites, all-hands, recognition programs, interview coordination, team logistics, vendor coordination, distributed-team communication</p>
+    <p class="text-block"><strong>AI, Data & Tools:</strong> Multi-agent workflows, AI agent configuration, prompt/context engineering, Python, SQL, JavaScript, HTML/CSS, Git, GA4, LinkedIn Ads, HubSpot, AmpleMarket, Clay, Zapier, Looker, Google Workspace, Webflow, WordPress, Docusaurus</p>
+  </section>
+</main>
 </body>
 </html>
